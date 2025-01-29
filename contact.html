@@ -1,0 +1,1299 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us</title>
+  <link href="assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.5.0/remixicon.css">
+  <style>
+    /* @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700;800&amp;display=swap'); */
+    @import url("https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600&display=swap");
+
+
+    :root {
+      overflow-x: hidden;
+      --header-height: 3.5rem;
+      --first-color: hsl(230, 75%, 56%);
+      --title-color: hsl(230, 75%, 15%);
+      --text-color: hsl(230, 12%, 40%);
+      --body-color: hsl(230, 100%, 98%);
+      --container-color: hsl(230, 100%, 97%);
+      --border-color: hsl(230, 25%, 80%);
+      --body-font: "Syne", sans-serif;
+      --h2-font-size: 1.25rem;
+      --normal-font-size: .938rem;
+      --font-regular: 400;
+      --font-medium: 500;
+      --font-semi-bold: 600;
+      --z-fixed: 100;
+      --z-modal: 1000;
+    }
+
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body,
+    input,
+    button {
+      font-family: var(--body-font);
+      font-size: var(--normal-font-size);
+    }
+
+    body {
+      margin: 0%;
+      margin-top: 138px;
+      background-color: var(--body-color);
+      color: var(--text-color);
+    }
+
+
+
+    ul {
+      list-style: none;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+
+    /*=============== REUSABLE CSS CLASSES ===============*/
+    .container {
+      max-width: 1120px;
+      margin-inline: 1.5rem;
+    }
+
+
+
+    *,
+    *:before,
+    *:after {
+      -moz-box-sizing: border-box;
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+    }
+
+    /* 
+body {
+  margin: 0;
+} */
+
+    .wk-desk-1 {
+      width: 8.333333%;
+    }
+
+    .wk-desk-2 {
+      width: 16.666667%;
+    }
+
+    .wk-desk-3 {
+      width: 25%;
+    }
+
+    .wk-desk-4 {
+      width: 33.333333%;
+    }
+
+    .wk-desk-5 {
+      width: 41.666667%;
+    }
+
+    .wk-desk-6 {
+      width: 50%;
+    }
+
+    .wk-desk-7 {
+      width: 58.333333%;
+    }
+
+    .wk-desk-8 {
+      width: 66.666667%;
+    }
+
+    .wk-desk-9 {
+      width: 75%;
+    }
+
+    .wk-desk-10 {
+      width: 83.333333%;
+    }
+
+    .wk-desk-11 {
+      width: 91.666667%;
+    }
+
+    .wk-desk-12 {
+      width: 100%;
+    }
+
+    @media (max-width: 1024px) {
+      .wk-ipadp-1 {
+        width: 8.333333%;
+      }
+
+      .wk-ipadp-2 {
+        width: 16.666667%;
+      }
+
+      .wk-ipadp-3 {
+        width: 25%;
+      }
+
+      .wk-ipadp-4 {
+        width: 33.333333%;
+      }
+
+      .wk-ipadp-5 {
+        width: 41.666667%;
+      }
+
+      .wk-ipadp-6 {
+        width: 50%;
+      }
+
+      .wk-ipadp-7 {
+        width: 58.333333%;
+      }
+
+      .wk-ipadp-8 {
+        width: 66.666667%;
+      }
+
+      .wk-ipadp-9 {
+        width: 75%;
+      }
+
+      .wk-ipadp-10 {
+        width: 83.333333%;
+      }
+
+      .wk-ipadp-11 {
+        width: 91.666667%;
+      }
+
+      .wk-ipadp-12 {
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .wk-tab-1 {
+        width: 8.333333%;
+      }
+
+      .wk-tab-2 {
+        width: 16.666667%;
+      }
+
+      .wk-tab-3 {
+        width: 25%;
+      }
+
+      .wk-tab-4 {
+        width: 33.333333%;
+      }
+
+      .wk-tab-5 {
+        width: 41.666667%;
+      }
+
+      .wk-tab-6 {
+        width: 50%;
+      }
+
+      .wk-tab-7 {
+        width: 58.333333%;
+      }
+
+      .wk-tab-8 {
+        width: 66.666667%;
+      }
+
+      .wk-tab-9 {
+        width: 75%;
+      }
+
+      .wk-tab-10 {
+        width: 83.333333%;
+      }
+
+      .wk-tab-11 {
+        width: 91.666667%;
+      }
+
+      .wk-tab-12 {
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 500px) {
+      .wk-mobile-1 {
+        width: 8.333333%;
+      }
+
+      .wk-mobile-2 {
+        width: 16.666667%;
+      }
+
+      .wk-mobile-3 {
+        width: 25%;
+      }
+
+      .wk-mobile-4 {
+        width: 33.333333%;
+      }
+
+      .wk-mobile-5 {
+        width: 41.666667%;
+      }
+
+      .wk-mobile-6 {
+        width: 50%;
+      }
+
+      .wk-mobile-7 {
+        width: 58.333333%;
+      }
+
+      .wk-mobile-8 {
+        width: 66.666667%;
+      }
+
+      .wk-mobile-9 {
+        width: 75%;
+      }
+
+      .wk-mobile-10 {
+        width: 83.333333%;
+      }
+
+      .wk-mobile-11 {
+        width: 91.666667%;
+      }
+
+      .wk-mobile-12 {
+        width: 100%;
+      }
+    }
+
+    .contact-container {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      color: #666;
+    }
+
+    .contact-item img {
+      width: 24px;
+      height: 24px;
+    }
+
+    .contact-text {
+      font-size: 16px;
+    }
+
+    .contact_us_6 * {
+      font-family: Nunito, sans-serif;
+    }
+
+    .contact_us_6 .text-blk {
+      margin-top: 0px;
+      margin-right: 0px;
+      margin-bottom: 0px;
+      margin-left: 0px;
+      line-height: 25px;
+    }
+
+    .contact_us_6 .responsive-cell-block {
+      min-height: 75px;
+    }
+
+    .contact_us_6 input:focus,
+    .contact_us_6 textarea:focus {
+      outline-color: initial;
+      outline-style: none;
+      outline-width: initial;
+    }
+
+    .contact_us_6 .container-block {
+      min-height: 75px;
+      width: 100%;
+      padding-top: 10px;
+      padding-right: 10px;
+      padding-bottom: 10px;
+      padding-left: 10px;
+      display: block;
+    }
+
+    .contact_us_6 .responsive-container-block {
+      min-height: 75px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      margin-top: 0px;
+      margin-right: auto;
+      margin-bottom: 50px;
+      margin-left: auto;
+      padding-top: 0px;
+      padding-right: 0px;
+      padding-bottom: 0px;
+      padding-left: 0px;
+    }
+
+    .contact_us_6 .responsive-container-block.big-container {
+      padding-top: 10px;
+      padding-right: 30px;
+      width: 35%;
+      padding-bottom: 10px;
+      padding-left: 30px;
+      background-color: #03a9f4;
+      position: absolute;
+      height: 950px;
+      right: 0px;
+    }
+
+    .contact_us_6 .responsive-container-block.container {
+      position: relative;
+      min-height: 75px;
+      flex-direction: row;
+      z-index: 2;
+      flex-wrap: nowrap;
+      align-items: center;
+      justify-content: center;
+      padding-top: 0px;
+      padding-right: 30px;
+      padding-bottom: 0px;
+      padding-left: 30px;
+      max-width: 1320px;
+      margin-top: 0px;
+      margin-right: auto;
+      margin-bottom: 0px;
+      margin-left: auto;
+    }
+
+    .contact_us_6 .container-block.form-wrapper {
+      background-color: white;
+      max-width: 450px;
+      text-align: center;
+      padding-top: 50px;
+      padding-right: 40px;
+      padding-bottom: 50px;
+      padding-left: 40px;
+      box-shadow: rgba(0, 0, 0, 0.05) 0px 4px 20px 7px;
+      border-top-left-radius: 6px;
+      border-top-right-radius: 6px;
+      border-bottom-right-radius: 6px;
+      border-bottom-left-radius: 6px;
+      margin-top: 90px;
+      margin-right: 0px;
+      margin-bottom: 60px;
+      margin-left: 0px;
+    }
+
+    .contact_us_6 .text-blk.contactus-head {
+      font-size: 36px;
+      line-height: 52px;
+      font-weight: 900;
+    }
+
+    .contact_us_6 .text-blk.contactus-subhead {
+      color: #9c9c9c;
+      width: 300px;
+      margin-top: 0px;
+      margin-right: auto;
+      margin-bottom: 50px;
+      margin-left: auto;
+      display: none;
+    }
+
+    .contact_us_6 .responsive-cell-block.wk-desk-6.wk-ipadp-6.wk-tab-12.wk-mobile-12 {
+      margin-top: 0px;
+      margin-right: 0px;
+      margin-bottom: 26px;
+      margin-left: 0px;
+      min-height: 50px;
+    }
+
+    .contact_us_6 .input {
+      width: 100%;
+      height: 50px;
+      padding-top: 1px;
+      padding-right: 15px;
+      padding-bottom: 1px;
+      padding-left: 15px;
+      border-top-width: 2px;
+      border-right-width: 2px;
+      border-bottom-width: 2px;
+      border-left-width: 2px;
+      border-top-style: solid;
+      border-right-style: solid;
+      border-bottom-style: solid;
+      border-left-style: solid;
+      border-top-color: #eeeeee;
+      border-right-color: #eeeeee;
+      border-bottom-color: #eeeeee;
+      border-left-color: #eeeeee;
+      border-image-source: initial;
+      border-image-slice: initial;
+      border-image-width: initial;
+      border-image-outset: initial;
+      border-image-repeat: initial;
+      font-size: 16px;
+      color: black;
+    }
+
+    .contact_us_6 .textinput {
+      width: 98%;
+      min-height: 150px;
+      padding-top: 20px;
+      padding-right: 15px;
+      padding-bottom: 20px;
+      padding-left: 15px;
+      border-top-width: 2px;
+      border-right-width: 2px;
+      border-bottom-width: 2px;
+      border-left-width: 2px;
+      border-top-style: solid;
+      border-right-style: solid;
+      border-bottom-style: solid;
+      border-left-style: solid;
+      border-top-color: #eeeeee;
+      border-right-color: #eeeeee;
+      border-bottom-color: #eeeeee;
+      border-left-color: #eeeeee;
+      border-image-source: initial;
+      border-image-slice: initial;
+      border-image-width: initial;
+      border-image-outset: initial;
+      border-image-repeat: initial;
+      font-size: 16px;
+    }
+
+    .contact_us_6 .submit-btn {
+      width: 98%;
+      background-color: #03a9f4;
+      height: 60px;
+      font-size: 20px;
+      font-weight: 700;
+      color: white;
+      border-top-width: 0px;
+      border-right-width: 0px;
+      border-bottom-width: 0px;
+      border-left-width: 0px;
+      border-top-style: outset;
+      border-right-style: outset;
+      border-bottom-style: outset;
+      border-left-style: outset;
+      border-top-color: #767676;
+      border-right-color: #767676;
+      border-bottom-color: #767676;
+      border-left-color: #767676;
+      border-image-source: initial;
+      border-image-slice: initial;
+      border-image-width: initial;
+      border-image-outset: initial;
+      border-image-repeat: initial;
+      border-top-left-radius: 40px;
+      border-top-right-radius: 40px;
+      border-bottom-right-radius: 40px;
+      border-bottom-left-radius: 40px;
+    }
+
+    .contact_us_6 .form-box {
+      z-index: 2;
+      margin-top: 0px;
+      margin-right: 48px;
+      margin-bottom: 0px;
+      margin-left: 0px;
+    }
+
+    .contact_us_6 .text-blk.input-title {
+      text-align: left;
+      padding-top: 0px;
+      padding-right: 0px;
+      padding-bottom: 0px;
+      padding-left: 10px;
+      font-size: 14px;
+      margin-top: 0px;
+      margin-right: 0px;
+      margin-bottom: 5px;
+      margin-left: 0px;
+      color: #9c9c9c;
+    }
+
+    .contact_us_6 ::placeholder {
+      color: #dadada;
+    }
+
+    .contact_us_6 .mob-text {
+      display: block;
+      text-align: left;
+      margin-top: 0px;
+      margin-right: 0px;
+      margin-bottom: 25px;
+      margin-left: 0px;
+    }
+
+    .contact_us_6 .responsive-cell-block.wk-tab-12.wk-mobile-12.wk-desk-12.wk-ipadp-12 {
+      margin-top: 0px;
+      margin-right: 0px;
+      margin-bottom: 20px;
+      margin-left: 0px;
+    }
+
+    .contact_us_6 .text-blk.contactus-subhead.color {
+      color: white;
+    }
+
+    .contact_us_6 .map-box {
+      margin-top: 23px;
+      max-width: 800px;
+      max-height: 520px;
+      width: 100%;
+      height: 520px;
+      background-color: #d9d9d9;
+      background-image: url("https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/sc23.png");
+      background-size: cover;
+      background-position-x: 50%;
+      background-position-y: 50%;
+    }
+
+    .contact_us_6 .map-part {
+      width: 100%;
+      height: 100%;
+    }
+
+    .contact_us_6 .text-blk.map-contactus-head {
+      font-weight: 900;
+      font-size: 22px;
+      line-height: 32px;
+      margin-top: 0px;
+      margin-right: 0px;
+      margin-bottom: 10px;
+      margin-left: 0px;
+      color: #03a9f4;
+    }
+
+    .contact_us_6 .text-blk.map-contactus-subhead {
+      max-width: 300px;
+      margin-top: 0px;
+      margin-right: 0px;
+      margin-bottom: 20px;
+      margin-left: 0px;
+    }
+
+    .contact_us_6 .social-media-links.mob {
+      margin-top: 0px;
+      margin-right: 0px;
+      margin-bottom: 30px;
+      margin-left: 0px;
+      width: 230px;
+      display: flex;
+      justify-content: flex-start;
+    }
+
+    .contact_us_6 .link-img {
+      width: 30px;
+      height: 30px;
+      margin-top: 0px;
+      margin-right: 25px;
+      margin-bottom: 0px;
+      margin-left: 0px;
+    }
+
+    .contact_us_6 .link-img.image-block {
+      margin-top: 0px;
+      margin-right: 0px;
+      margin-bottom: 0px;
+      margin-left: 0px;
+    }
+
+    .contact_us_6 .social-icon-link {
+      margin: 0 25px 0 0;
+      padding: 0 0 0 0;
+    }
+
+    @media (max-width: 1024px) {
+      .contact_us_6 .responsive-container-block.container {
+        justify-content: center;
+      }
+
+      .contact_us_6 .map-box {
+        position: absolute;
+        top: 0px;
+        max-height: 320px;
+      }
+
+      .contact_us_6 .map-box {
+        max-width: 100%;
+        width: 100%;
+      }
+
+      .contact_us_6 .responsive-container-block.container {
+        padding-top: 0px;
+        padding-right: 0px;
+        padding-bottom: 0px;
+        padding-left: 0px;
+      }
+
+      .contact_us_6 .map-part {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .contact_us_6 .container-block.form-wrapper {
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+        margin-left: 0px;
+      }
+
+      .contact_us_6 .mob-text {
+        display: block;
+      }
+
+      .contact_us_6 .form-box {
+        margin-top: 200px;
+        margin-right: 60px;
+        margin-bottom: 40px;
+        margin-left: 0px;
+      }
+
+      .contact_us_6 .link-img {
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+        margin-left: 0px;
+        display: flex;
+        justify-content: space-evenly;
+      }
+
+      .contact_us_6 .social-media-links.mob {
+        justify-content: space-evenly;
+      }
+
+      .contact_us_6 .responsive-cell-block.wk-desk-7.wk-ipadp-12.wk-tab-12.wk-mobile-12 {
+        text-align: center;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        flex-direction: row;
+      }
+
+      .contact_us_6 .text-blk.contactus-subhead {
+        display: block;
+      }
+
+      .contact_us_6 .mob-text {
+        text-align: center;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+        margin-left: 0px;
+      }
+
+      .contact_us_6 .responsive-container-block.container {
+        flex-wrap: wrap;
+      }
+
+      .contact_us_6 .form-box {
+        margin-top: 200px;
+        margin-right: 0px;
+        margin-bottom: 40px;
+        margin-left: 0px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .contact_us_6 .submit-btn {
+        width: 100%;
+      }
+
+      .contact_us_6 .input {
+        width: 100%;
+      }
+
+      .contact_us_6 .textinput {
+        width: 100%;
+      }
+
+      .contact_us_6 .container-block.form-wrapper {
+        margin-top: 80px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+        margin-left: 0px;
+      }
+
+      .contact_us_6 .text-blk.input-title {
+        padding-top: 0px;
+        padding-right: 0px;
+        padding-bottom: 0px;
+        padding-left: 0px;
+      }
+
+      .contact_us_6 .form-box {
+        padding-top: 0px;
+        padding-right: 20px;
+        padding-bottom: 0px;
+        padding-left: 20px;
+      }
+
+      .contact_us_6 .container-block.form-wrapper {
+        padding-top: 50px;
+        padding-right: 15px;
+        padding-bottom: 50px;
+        padding-left: 15px;
+      }
+
+      .contact_us_6 .mob-text {
+        display: block;
+      }
+
+      .contact_us_6 .responsive-container-block.container {
+        padding-top: 0px;
+        padding-right: 0px;
+        padding-bottom: 0px;
+        padding-left: 0px;
+      }
+
+      .contact_us_6 .form-box {
+        margin-top: 200px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+        margin-left: 0px;
+      }
+
+      .contact_us_6 .container-block.form-wrapper {
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+        margin-left: 0px;
+      }
+
+      .contact_us_6 .form-box {
+        margin-top: 220px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+        margin-left: 0px;
+      }
+
+      .contact_us_6 .form-box {
+        margin-top: 220px;
+        margin-right: 0px;
+        margin-bottom: 50px;
+        margin-left: 0px;
+      }
+
+      .contact_us_6 .text-blk.contactus-head {
+        font-size: 32px;
+        line-height: 40px;
+      }
+    }
+
+    @media (max-width: 500px) {
+      .contact_us_6 .container-block.form-wrapper {
+        padding-top: 50px;
+        padding-right: 15px;
+        padding-bottom: 50px;
+        padding-left: 15px;
+      }
+
+      .contact_us_6 .container-block.form-wrapper {
+        margin-top: 60px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+        margin-left: 0px;
+      }
+
+      .contact_us_6 .responsive-cell-block.wk-ipadp-6.wk-tab-12.wk-mobile-12.wk-desk-6 {
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 15px;
+        margin-left: 0px;
+      }
+
+      .contact_us_6 .responsive-container-block {
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 35px;
+        margin-left: 0px;
+      }
+
+      .contact_us_6 .text-blk.input-title {
+        font-size: 12px;
+      }
+
+      .contact_us_6 .text-blk.contactus-head {
+        font-size: 26px;
+        line-height: 35px;
+      }
+
+      .contact_us_6 .input {
+        height: 45px;
+      }
+    }
+
+
+
+
+
+    /*=============== HEADER & NAV ===============*/
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: var(--body-color);
+      box-shadow: 0 2px 16px hsla(230, 75%, 32%, .15);
+      z-index: var(--z-fixed);
+    }
+
+    .nav {
+      height: var(--header-height);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav__logo {
+      color: var(--title-color);
+      font-weight: var(--font-semi-bold);
+      transition: color .4s;
+    }
+
+    .nav__actions {
+      display: flex;
+      align-items: center;
+      column-gap: 1rem;
+    }
+
+    .nav__search,
+    .nav__login,
+    .nav__toggle,
+    .nav__close {
+      font-size: 1.25rem;
+      color: var(--title-color);
+      cursor: pointer;
+      transition: color .4s;
+    }
+
+    :is(.nav__logo, .nav__search, .nav__login, .nav__toggle, .nav__link):hover {
+      color: var(--first-color);
+    }
+
+    /* Navigation for mobile devices */
+    @media screen and (max-width: 1023px) {
+      .nav__menu {
+        position: fixed;
+        top: -100%;
+        left: 0;
+        background-color: var(--body-color);
+        box-shadow: 0 8px 16px hsla(230, 75%, 32%, .15);
+        width: 100%;
+        padding-block: 4.5rem 4rem;
+        transition: top .4s;
+      }
+    }
+
+    .nav__list {
+      display: flex;
+      flex-direction: column;
+      row-gap: 2.5rem;
+      text-align: center;
+    }
+
+    .nav__link {
+      color: var(--title-color);
+      font-weight: var(--font-semi-bold);
+      transition: color .4s;
+    }
+
+    .nav__close {
+      position: absolute;
+      top: 1.15rem;
+      right: 1.5rem;
+    }
+
+    /* Show menu */
+    .show-menu {
+      top: 0;
+    }
+
+
+
+
+    /* For large devices */
+    @media screen and (min-width: 1023px) {
+      .nav {
+        height: calc(var(--header-height) + 2rem);
+        column-gap: 3rem;
+      }
+
+      .nav__close,
+      .nav__toggle {
+        display: none;
+      }
+
+      .nav__menu {
+        margin-left: auto;
+      }
+
+      .nav__list {
+        flex-direction: row;
+        column-gap: 3rem;
+      }
+
+      .login__form {
+        padding: 3rem 2rem 3.5rem;
+      }
+    }
+
+    @media screen and (min-width: 1150px) {
+      .container {
+        margin-inline: auto;
+      }
+    }
+
+
+    /* footer starts */
+
+
+    /* footer */
+    /* Footer */
+    footer {
+      position: relative;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: #111;
+      height: auto;
+      width: 100vw;
+
+      /* padding-top: 40px; */
+      color: #fff;
+    }
+
+    .footer-content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .footer-content h3 {
+      font-size: 2.1rem;
+      font-weight: 500;
+      text-transform: capitalize;
+      line-height: 3rem;
+    }
+
+    .footer-content p {
+      max-width: 500px;
+      margin: 10px auto;
+      line-height: 28px;
+      font-size: 14px;
+      color: #cacdd2;
+    }
+
+    .socials {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 1rem 0 3rem 0;
+    }
+
+    .socials li {
+      margin: 9px 10px;
+      /* margin: 9px 16px; */
+      /* padding: 15px; */
+      padding-top: 5px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .socials a {
+      text-decoration: none;
+      color: #fff;
+      border: 1.1px solid white;
+      padding: 5px;
+
+      border-radius: 50%;
+
+    }
+
+    .socials a i {
+      font-size: 1.1rem;
+      width: 20px;
+
+
+      transition: color .4s ease;
+
+    }
+
+    .socials a:hover i {
+      color: aqua;
+    }
+
+    .footer-bottom {
+      background: #000;
+      width: 100vw;
+      padding: 20px;
+      padding-bottom: 40px;
+      text-align: center;
+    }
+
+    .footer-bottom p {
+      float: center;
+      font-size: 14px;
+      word-spacing: 2px;
+      text-transform: capitalize;
+    }
+
+    .footer-bottom p a {
+      color: #44bae8;
+      font-size: 16px;
+      text-decoration: none;
+    }
+
+    .footer-bottom span {
+      text-transform: uppercase;
+      opacity: .4;
+      font-weight: 200;
+    }
+
+    .footer-menu {
+      float: right;
+
+    }
+
+    .footer-menu ul {
+      display: flex;
+    }
+
+    .footer-menu ul li {
+      padding-right: 10px;
+      display: block;
+    }
+
+    .footer-menu ul li a {
+      color: #cfd2d6;
+      text-decoration: none;
+    }
+
+    .footer-menu ul li a:hover {
+      color: #27bcda;
+    }
+
+    @media (max-width:500px) {
+      .footer-menu ul {
+        display: flex;
+        margin-top: 10px;
+        margin-bottom: 20px;
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="header" id="header">
+    <nav class="nav container">
+      <!-- <a href="#" class="nav__logo">Logo</a> -->
+
+
+      <a href="#" class="nav__logo" style="font-size: 32px; font-weight: bolder; color: black; text-decoration: none;">
+        Hyma
+      </a>
+
+      <div class="nav__menu" id="nav-menu">
+        <ul class="nav__list">
+          <li class="nav__item">
+            <a href="index.html" class="nav__link">Home</a>
+          </li>
+
+          <!-- <li class="nav__item">
+                        <a href="#" class="nav__link">Products</a>
+                    </li> -->
+
+          <li class="nav__item">
+            <a href="aboutus.html" class="nav__link">About us</a>
+          </li>
+
+          <!-- <li class="nav__item">
+                        <a href="#" class="nav__link">About</a>
+                    </li> -->
+
+          <!-- <li class="nav__item">
+                        <a href="#" class="nav__link">Gallery</a>
+                    </li> -->
+        </ul>
+
+        <!-- Close button -->
+        <div class="nav__close" id="nav-close">
+          <i class="ri-close-line"></i>
+        </div>
+      </div>
+
+      <!-- <div class="nav__actions">
+                <i class="ri-customer-service-fill" id="search-btn"></i>
+
+            </div> -->
+    </nav>
+  </header>
+  <div class="contact_us_6">
+    <div class="responsive-container-block container">
+      <form class="form-box">
+        <div class="container-block form-wrapper">
+          <div class="mob-text">
+            <p class="text-blk contactus-head">
+              Get in Touch
+            </p>
+            <p class="text-blk contactus-subhead">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Felis diam lectus sapien.
+            </p>
+          </div>
+          <div class="responsive-container-block" id="i2cbk">
+            <div class="responsive-cell-block wk-tab-12 wk-mobile-12 wk-desk-12 wk-ipadp-12" id="i10mt-3">
+              <p class="text-blk input-title">
+                FIRST NAME
+              </p>
+              <input class="input" id="ijowk-3" name="FirstName" placeholder="Please enter first name...">
+            </div>
+            <div class="responsive-cell-block wk-tab-12 wk-mobile-12 wk-desk-12 wk-ipadp-12" id="ip1yp">
+              <p class="text-blk input-title">
+                EMAIL
+              </p>
+              <input class="input" id="ipmgh-3" name="Email" placeholder="Please enter email...">
+            </div>
+            <div class="responsive-cell-block wk-tab-12 wk-mobile-12 wk-desk-12 wk-ipadp-12" id="ih9wi">
+              <p class="text-blk input-title">
+                PHONE NUMBER
+              </p>
+              <input class="input" id="imgis-3" name="PhoneNumber" placeholder="Please enter phone number...">
+            </div>
+            <div class="responsive-cell-block wk-tab-12 wk-mobile-12 wk-desk-12 wk-ipadp-12" id="i634i-3">
+              <p class="text-blk input-title">
+                WHAT DO YOU HAVE IN MIND ?
+              </p>
+              <textarea class="textinput" id="i5vyy-3" placeholder="Please enter query..."></textarea>
+            </div>
+          </div>
+          <button class="submit-btn" id="w-c-s-bgc_p-1-dm-id-2">
+            Submit
+          </button>
+        </div>
+      </form>
+      <div class="responsive-cell-block wk-desk-7 wk-ipadp-12 wk-tab-12 wk-mobile-12" id="i772w">
+        <div class="map-part">
+          <p class="text-blk map-contactus-head" id="w-c-s-fc_p-1-dm-id">
+            Reach us at
+          </p>
+          <p class="text-blk map-contactus-subhead">
+            We'd love to hear from you.Here's how you can reach us
+          </p>
+
+
+          <div class="social-media-links mob">
+            <a class="social-icon-link" href="#" id="ix94i-2-2">
+              <img class="link-img image-block"
+                src="https://workik-widget-assets.s3.amazonaws.com/Footer1-83/v1/images/Icon-twitter.png">
+            </a>
+            <a class="social-icon-link" href="#" id="itixd">
+              <img class="link-img image-block"
+                src="https://workik-widget-assets.s3.amazonaws.com/Footer1-83/v1/images/Icon-facebook.png">
+            </a>
+            <a class="social-icon-link" href="#" id="izxvt">
+              <img class="link-img image-block"
+                src="https://workik-widget-assets.s3.amazonaws.com/Footer1-83/v1/images/Icon-google.png">
+            </a>
+            <a class="social-icon-link" href="#" id="izldf-2-2">
+              <img class="link-img image-block"
+                src="https://workik-widget-assets.s3.amazonaws.com/Footer1-83/v1/images/Icon-instagram.png">
+            </a>
+          </div>
+
+
+          <div class="contact-container">
+            <div class="contact-item">
+
+              <i class="ri-customer-service-line"></i>
+              <!-- <img src="phone-icon.png" alt="Phone Icon"> -->
+              <span class="contact-text">+91 927744594</span>
+            </div>
+            <div class="contact-item">
+              <i class="ri-mail-line"></i> <span class="contact-text">hymapolymers@gmail.com</span>
+            </div>
+            <div class="contact-item">
+              <i class="ri-map-pin-line"></i> <span class="contact-text">Hyma polymers and metals,NH 66, North Paravur, Kottuvally, Kerala 683513</span>
+            </div>
+          </div>
+
+          <div class="map-box container-block">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3927.602513387335!2d76.23917601087066!3d10.131585470714398!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b0811ede78cf8b1%3A0x9bc28de202c0b1ce!2sHYMA%20POLYMERS%20%26%20METALS!5e0!3m2!1sen!2sin!4v1723703794168!5m2!1sen!2sin"
+              frameborder="0" style="border:0; width: 100%; height: 100%;" allowfullscreen aria-hidden="false"
+              tabindex="0"></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+
+  <footer>
+
+    <div class="footer-bottom">
+      <div class="footer-content">
+        <h3>HYMA</h3>
+        <p>With pride, we fulfill the role of the authorized provider of leading construction materials,
+          presenting an
+          extensive selection of high-caliber products tailored to your requirements. Our inventory comprises
+          Arolite
+          Polycarbonate Sheets, Century HPL Sheets, Corroshield Screws, Versa solutions, Everwood innovations,
+          Starwood
+          WPC Planks, and Maxlite Turbo Ventilators.</p>
+        <ul class="socials">
+          <li><a href="#"><i class="fa-brands fa-facebook"></i></a></li>
+          <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
+          <li><a href="#"><i class="fa-brands fa-youtube"></i></i></a></li>
+          <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
+        </ul>
+      </div>
+      <p>copyright &copy; <a href="#">Hyma polymers and metals</a> </p>
+      <div class="footer-menu">
+
+      </div>
+    </div>
+
+  </footer>
+</body>
+
+</html>

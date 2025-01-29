@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Versa WPC Planks - Everwood</title>
+
+    <link href="assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+
+
+    <style>
+        /* Reset styles */
+        body,
+        h1,
+        h2,
+        p,
+        ul,
+        li {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .header {
+            text-align: center;
+            background: #004d40;
+            color: #fff;
+            padding: 20px 10px;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+        }
+
+        .header p {
+            color: white;
+            font-size: 1.2em;
+            margin-top: 10px;
+        }
+
+        .intro {
+            padding: 20px;
+            background: #fff;
+            text-align: center;
+        }
+
+        .intro h2 {
+            color: #004d40;
+            margin-bottom: 10px;
+        }
+
+        .features {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .features li {
+            background: #e0f7fa;
+            color: #004d40;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+
+        .uses {
+            padding: 20px;
+            text-align: center;
+            background: #f4f4f4;
+        }
+
+        .uses h2 {
+            color: #004d40;
+            margin-bottom: 10px;
+        }
+
+        .application-list {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        .application-list li {
+            background: #ffecb3;
+            color: #795548;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+
+        .gallery {
+            padding: 20px;
+        }
+
+        .gallery h2 {
+            text-align: center;
+            color: #004d40;
+            margin-bottom: 20px;
+        }
+
+        .image-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .image-card {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            overflow: hidden;
+            max-width: 300px;
+            text-align: center;
+        }
+
+        .image-card img {
+            width: 100%;
+            display: block;
+        }
+
+        .image-card p {
+            padding: 10px;
+            background: #f4f4f4;
+            font-size: 0.9em;
+            color: #333;
+        }
+
+
+        .comparison {
+            padding: 20px;
+            background: #fff;
+        }
+
+        .comparison h2 {
+            text-align: center;
+            color: #004d40;
+            margin-bottom: 20px;
+        }
+
+        .table-wrapper {
+            overflow-x: auto;
+            margin: 0 auto;
+            max-width: 100%;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: center;
+            font-size: 0.9em;
+            margin: 0 auto;
+        }
+
+        thead {
+            background: #004d40;
+            color: #fff;
+        }
+
+        thead th {
+            padding: 10px;
+        }
+
+        tbody tr:nth-child(even) {
+            background: #f4f4f4;
+        }
+
+        tbody tr:nth-child(odd) {
+            background: #fff;
+        }
+
+        td,
+        th {
+            border: 1px solid #ddd;
+            padding: 10px;
+        }
+
+        td {
+            color: #333;
+        }
+
+        p {
+            text-align: right;
+            font-size: 0.8em;
+            color: #666;
+            margin-top: 10px;
+        }
+
+
+
+        /* Footer */
+        footer {
+            position: relative;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: #111;
+            height: auto;
+            width: 100vw;
+
+            /* padding-top: 40px; */
+            color: #fff;
+        }
+
+        .footer-contents {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .footer-contents h3 {
+            font-size: 2.1rem;
+            font-weight: 500;
+            text-transform: capitalize;
+            line-height: 3rem;
+        }
+
+        .footer-contents p {
+            max-width: 500px;
+            margin: 10px auto;
+            line-height: 28px;
+            font-size: 14px;
+            color: #cacdd2;
+        }
+
+        .socials {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 1rem 0 3rem 0;
+        }
+
+        .socials li {
+            margin: 0 10px;
+        }
+
+        .socials a {
+            text-decoration: none;
+            color: #fff;
+            border: 1.1px solid white;
+            padding: 5px;
+
+            border-radius: 50%;
+
+        }
+
+        .socials a i {
+            font-size: 1.1rem;
+            width: 20px;
+
+
+            transition: color .4s ease;
+
+        }
+
+        .socials a:hover i {
+            color: aqua;
+        }
+
+        .footer-bottoms {
+            background: #000;
+            width: 100vw;
+            padding: 20px;
+            padding-bottom: 40px;
+            text-align: center;
+        }
+
+        .footer-bottoms p {
+            float: center;
+            font-size: 14px;
+            word-spacing: 2px;
+            text-transform: capitalize;
+        }
+
+        .footer-bottoms p a {
+            color: #44bae8;
+            font-size: 16px;
+            text-decoration: none;
+        }
+
+        .footer-bottoms span {
+            text-transform: uppercase;
+            opacity: .4;
+            font-weight: 200;
+        }
+
+        .footer-menu {
+            float: right;
+
+        }
+
+        .footer-menu ul {
+            display: flex;
+        }
+
+        .footer-menu ul li {
+            padding-right: 10px;
+            display: block;
+        }
+
+        .footer-menu ul li a {
+            color: #cfd2d6;
+            text-decoration: none;
+        }
+
+        .footer-menu ul li a:hover {
+            color: #27bcda;
+        }
+
+        @media (max-width:500px) {
+            .footer-menu ul {
+                display: flex;
+                margin-top: 10px;
+                margin-bottom: 20px;
+            }
+        }
+
+
+        .why-use {
+  padding: 20px;
+  background: #f9f9f9;
+}
+
+.why-use h2 {
+  text-align: center;
+  color: #004d40;
+  margin-bottom: 20px;
+}
+
+.why-use .content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.why-use .item {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 15px 20px;
+}
+
+.why-use .item h3 {
+  color: #004d40;
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+
+.why-use .item p {
+    text-align: justify;
+  color: #333;
+  font-size: 1em;
+  line-height: 1.6;
+}
+
+
+    /* Responsive Table Container */
+    .responsive-table-container {
+      width: 100%;
+      overflow-x: auto;
+      margin-bottom: 20px;
+    }
+
+    /* Table Styling */
+    .versa-wpc-table {
+      width: 100%;
+      border-collapse: collapse;
+      border: 1px solid #ddd;
+    }
+
+    .versa-wpc-table th, .versa-wpc-table td {
+      border: 1px solid #ddd;
+      padding: 12px 8px;
+      text-align: left;
+      vertical-align: middle;
+      font-size: 1rem;
+    }
+
+    .versa-wpc-table th {
+      background-color: #f4f4f4;
+      position: sticky;
+      top: 0;
+      z-index: 1;
+    }
+
+    .versa-wpc-table tr:hover {
+      background-color: #f9f9f9;
+    }
+
+    .versa-wpc-table img {
+      max-width: 80px;
+      height: auto;
+    }
+
+    /* Hover Highlight */
+    .versa-wpc-table tr:hover td {
+      background-color: #f1f1f1;
+    }
+
+    /* Card Layout for Small Screens */
+    @media screen and (max-width: 768px) {
+      .responsive-table-container {
+        overflow: hidden;
+      }
+
+      .versa-wpc-table {
+        display: block;
+        border: none;
+      }
+
+      .versa-wpc-table tr {
+        display: block;
+        margin-bottom: 15px;
+        border-bottom: 1px solid #ddd;
+        padding-bottom: 10px;
+      }
+
+      .versa-wpc-table th {
+        display: none; /* Hide table headers for mobile */
+      }
+
+      .versa-wpc-table td {
+        display: block;
+        text-align: right;
+        padding: 10px;
+        font-size: 0.9rem;
+      }
+
+      .versa-wpc-table td::before {
+        content: attr(data-label);
+        float: left;
+        font-weight: bold;
+        color: #333;
+      }
+
+      .versa-wpc-table img {
+        display: block;
+        margin: 0 auto 10px auto;
+      }
+    }
+
+    .btn11 {
+            display: block;
+            margin: 55px 2rem 1rem;
+            padding: 0.9rem 1rem;
+            /* background-color: #0d9488; */
+            background-color: #7393B3;
+            color: white;
+            text-decoration: none;
+            border-radius: 0.5rem;
+            font-size: 1.1rem;
+            text-align: center;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+       .btn11:hover {
+            background-color: #065f46;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <h1>Versa WPC Planks</h1>
+        <p>Premium Natural Wood Look | Unmatched Durability</p>
+    </header>
+
+    <section class="intro">
+        <h2>Why Choose Versa WPC Planks?</h2>
+        <ul class="features">
+            <li>Premium Natural Wood Look</li>
+            <li>High Weathering Capacity</li>
+            <li>Weather Proof</li>
+            <li>UV Resistant & Anti-fading Panels</li>
+            <li>Zero Maintenance</li>
+            <li>High Strength</li>
+            <li>No Painting or Coating Required</li>
+        </ul>
+    </section>
+
+    <section class="uses">
+        <h2>Versa WPC Planks Applications</h2>
+        <ul class="application-list">
+            <li>Facades</li>
+            <li>Gates</li>
+            <li>Louvers</li>
+            <li>Casing</li>
+            <li>Signage</li>
+            <li>Screens</li>
+            <li>Partitions</li>
+            <li>Trelliswork</li>
+            <li>Landscaping</li>
+            <li>Furniture</li>
+            <li>Elevations</li>
+            <li>Railings</li>
+            <li>Ducts</li>
+        </ul>
+    </section>
+
+    <section class="gallery">
+        <h2>Explore Our Designs</h2>
+        <div class="image-grid">
+            <div class="image-card">
+                <img src="assets/img/Redwood.png" alt="Versa WPC Plank Design 1">
+                <!-- <p>Everwood WPC Design 1</p> -->
+            </div>
+            <div class="image-card">
+                <img src="assets/img/railing.jpg" alt="Versa WPC Plank Design 2">
+                <!-- <p>Everwood WPC Design 2</p> -->
+            </div>
+            <div class="image-card">
+                <img src="assets/img/partin.png" alt="Versa WPC Plank Design 3">
+                <!-- <p>Everwood WPC Design 3</p> -->
+            </div>
+
+            <div class="image-card">
+                <img src="assets/img/Oakwood.png" alt="Versa WPC Plank Design 2">
+                <!-- <p>Everwood WPC Design 2</p> -->
+            </div>
+            <div class="image-card">
+                <img src="assets/img/partition.jpg" alt="Versa WPC Plank Design 2">
+                <!-- <p>Everwood WPC Design 2</p> -->
+            </div>
+
+            <div class="image-card">
+                <img src="assets/img/fencing.jpg" alt="Versa WPC Plank Design 2">
+                <!-- <p>Everwood WPC Design 2</p> -->
+            </div>
+            <!-- Add more images as needed -->
+        </div>
+    </section>
+
+
+    <section class="comparison">
+        <h2>Everwood Versa - A Clear Winner Over Conventional Materials</h2>
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Characteristics</th>
+                        <th>VERSA</th>
+                        <th>CFP*</th>
+                        <th>Wood</th>
+                        <th>Metals</th>
+                        <th>HPL</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Premium Prefinished Looks</td>
+                        <td>✔</td>
+                        <td>✘</td>
+                        <td>✘</td>
+                        <td>✘</td>
+                        <td>✔</td>
+                    </tr>
+                    <tr>
+                        <td>Low Maintenance</td>
+                        <td>✔</td>
+                        <td>✔</td>
+                        <td>✘</td>
+                        <td>✔</td>
+                        <td>✔</td>
+                    </tr>
+                    <tr>
+                        <td>Weathering & Ageing Resistant</td>
+                        <td>✔</td>
+                        <td>✔</td>
+                        <td>✘</td>
+                        <td>✔</td>
+                        <td>✔</td>
+                    </tr>
+                    <tr>
+                        <td>High UV Resistant</td>
+                        <td>✔</td>
+                        <td>✘</td>
+                        <td>✘</td>
+                        <td>✔</td>
+                        <td>✔</td>
+                    </tr>
+                    <tr>
+                        <td>Free from Painting & Coating</td>
+                        <td>✔</td>
+                        <td>✔</td>
+                        <td>✘</td>
+                        <td>✔</td>
+                        <td>✔</td>
+                    </tr>
+                    <tr>
+                        <td>High Color Retention Capability</td>
+                        <td>✔</td>
+                        <td>✔</td>
+                        <td>✘</td>
+                        <td>✘</td>
+                        <td>✔</td>
+                    </tr>
+                    <tr>
+                        <td>Anti-Fade & Anti Crack</td>
+                        <td>✔</td>
+                        <td>✘</td>
+                        <td>✘</td>
+                        <td>✘</td>
+                        <td>✔</td>
+                    </tr>
+                    <tr>
+                        <td>Non-Brittle & Splinter Free</td>
+                        <td>✔</td>
+                        <td>✘</td>
+                        <td>✘</td>
+                        <td>✔</td>
+                        <td>✘</td>
+                    </tr>
+                    <tr>
+                        <td>Corrosion & Rot Resistant</td>
+                        <td>✔</td>
+                        <td>✔</td>
+                        <td>✘</td>
+                        <td>✔</td>
+                        <td>✔</td>
+                    </tr>
+                    <tr>
+                        <td>Termite, Borer & Pest Proof</td>
+                        <td>✔</td>
+                        <td>✔</td>
+                        <td>✘</td>
+                        <td>✔</td>
+                        <td>✔</td>
+                    </tr>
+                    <tr>
+                        <td>Fire Retardant</td>
+                        <td>✔</td>
+                        <td>✔</td>
+                        <td>✘</td>
+                        <td>✔</td>
+                        <td>✔</td>
+                    </tr>
+                    <tr>
+                        <td>Thermo Dimensional Stability</td>
+                        <td>✔</td>
+                        <td>✔</td>
+                        <td>✘</td>
+                        <td>✔</td>
+                        <td>✔</td>
+                    </tr>
+                    <tr>
+                        <td>Environment Friendly</td>
+                        <td>✔</td>
+                        <td>✔</td>
+                        <td>✘</td>
+                        <td>✔</td>
+                        <td>✔</td>
+                    </tr>
+                    <tr>
+                        <td>Easy Workability</td>
+                        <td>✔</td>
+                        <td>✔</td>
+                        <td>✔</td>
+                        <td>✘</td>
+                        <td>✔</td>
+                    </tr>
+                    <tr>
+                        <td>High Screw Holding Capacity</td>
+                        <td>✔</td>
+                        <td>✔</td>
+                        <td>✔</td>
+                        <td>✘</td>
+                        <td>✔</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p>*CFP: Cement Fiber Planks</p>
+        </div>
+    </section>
+
+
+    <section class="why-use">
+        <h2>Why Use Versa WPC Planks?</h2>
+        <div class="content">
+          <div class="item">
+            <h3>Versatile Design Options</h3>
+            <p>
+              Versatility in design is crucial for exterior projects to achieve diverse architectural styles and functionality in extensive applications. WPC planks offer a wide range of customizable options, including various colors, textures, and sizes. Whether for cladding, railings, soffit surfacing, fencing, or signage, WPC planks can be adapted to meet the project’s design vision. Their versatility allows architects and designers to unleash their creativity and achieve stunning results in exterior designs.
+            </p>
+          </div>
+          <div class="item">
+            <h3>Ease of Installation</h3>
+            <p>
+              Efficiency in installation is essential for exterior projects to meet deadlines and budget constraints. WPC planks are lightweight and easy to handle, facilitating easy, quick and straightforward installation. Their structural design allows for seamless assembly, reducing installation time and labor costs. With WPC planks, stakeholders can streamline the installation process and achieve high-quality results with ease, whether for gates, cladding, or other exterior applications.
+            </p>
+          </div>
+          <div class="item">
+            <h3>High Durability and Weather Resistance</h3>
+            <p>
+              Architects, developers, and homeowners prioritize durability in exterior designs, especially for applications like railings and partitions. WPC railings and partitions offer exceptional weather resistance, safeguarding structures against moisture, corrosion, UV rays, and temperature fluctuations. Their robust composition ensures longevity, maintaining structural integrity and aesthetics over time. With WPC railings and partitions, one can trust in the durability and performance of their exterior designs, even in harsh environmental conditions.
+            </p>
+          </div>
+          <div class="item">
+            <h3>Low Maintenance and Longevity</h3>
+            <p>
+              Traditional materials for exterior applications often require frequent maintenance to prevent decay and degradation. WPC planks provide a low-maintenance solution, resistant to rot, mold, and termites. This characteristic ensures long-term durability without the need for staining or sealing, saving time and costs for homeowners and developers. By opting for WPC planks, users can enjoy hassle-free exterior designs without compromising on aesthetics or durability.
+            </p>
+          </div>
+          <div class="item">
+            <h3>Enhancing Exterior Spaces with WPC Finishes</h3>
+            <p>
+              Exterior design elements like louvers contribute to the aesthetics and functionality of buildings, requiring materials that can withstand outdoor conditions. WPC fins offer a versatile solution, combining durability with design flexibility. Whether used for sun shading, architectural accents, or privacy screens, WPC planks provide a sleek and modern finish to exterior spaces. With their resistance to weathering and low maintenance requirements, Versa planks are an ideal choice for enhancing the visual appeal and functionality of both interiors and exteriors.
+            </p>
+          </div>
+        </div>
+      </section>
+
+
+
+      <h2>Compare Versa WPC Planks</h2>
+
+      <div class="responsive-table-container">
+        <table class="versa-wpc-table">
+          <tr>
+            <th>Image</th>
+            <th>Series</th>
+            <th>Prod Code</th>
+            <th>Suitable For</th>
+            <th>Type</th>
+            <th>Surface Finish</th>
+            <th>Colour Tone</th>
+            <th>Thickness</th>
+            <th>Width</th>
+            <th>Length (MT/FT)</th>
+            <th>Area/Plank</th>
+            <th>Installation</th>
+          </tr>
+          <tr>
+            <td data-label="Image"><img src="assets/img/VERSA-ULTRA-1-.png" alt="Versa Ultra"></td>
+            <td data-label="Series">VERSA ULTRA</td>
+            <td data-label="Prod Code">EWD145X10D</td>
+            <td data-label="Suitable For">Exterior & Interior Walls, Ceilings, Gates, Partitions, Railings, Louvers, Screens, Ducts, Chutes, Fencing, Wall Extensions, Landscaping</td>
+            <td data-label="Type">Durashield - Co-Ex</td>
+            <td data-label="Surface Finish">Grain Brushed / Grooved</td>
+            <td data-label="Colour Tone">Duo</td>
+            <td data-label="Thickness">10 MM</td>
+            <td data-label="Width">145 MM</td>
+            <td data-label="Length (MT/FT)">2.440 / 8'0"</td>
+            <td data-label="Area/Plank">3.80 SQ.FT</td>
+            <td data-label="Installation">Frame System</td>
+          </tr>
+          <tr>
+            <td data-label="Image"><img src="assets/img/VERSA-MAX.png" alt="Versa Maxi"></td>
+            <td data-label="Series">VERSA MAXI</td>
+            <td data-label="Prod Code">EWD145X10</td>
+            <td data-label="Suitable For">Exterior & Interior Walls, Ceilings, Gates, Partitions, Railings, Louvers, Screens, Ducts, Chutes, Fencing, Wall Extensions, Landscaping</td>
+            <td data-label="Type">Standard WPC</td>
+            <td data-label="Surface Finish">Grain Brushed / Grooved</td>
+            <td data-label="Colour Tone">Single</td>
+            <td data-label="Thickness">10 MM</td>
+            <td data-label="Width">145 MM</td>
+            <td data-label="Length (MT/FT)">2.440 / 8'0" & 3.050 / 10'0"</td>
+            <td data-label="Area/Plank">3.80 & 4.68 SQ.FT</td>
+            <td data-label="Installation">Frame System</td>
+          </tr>
+          <tr>
+            <td data-label="Image"><img src="assets/img/Versa-HOLLOW.png" alt="Versa Hollow"></td>
+            <td data-label="Series">VERSA HOLLOW</td>
+            <td data-label="Prod Code">EWD75X20</td>
+            <td data-label="Suitable For">Railings, Interior & Exterior Louvers, Decorative Features, Sunscreens, Ducts, Fencing, and Gates</td>
+            <td data-label="Type">Standard WPC</td>
+            <td data-label="Surface Finish">Grain Brushed / Grooved</td>
+            <td data-label="Colour Tone">Single</td>
+            <td data-label="Thickness">20 MM</td>
+            <td data-label="Width">75 MM</td>
+            <td data-label="Length (MT/FT)">2.440 / 8'0"</td>
+            <td data-label="Area/Plank">1.97 SQ.FT</td>
+            <td data-label="Installation">Frame System</td>
+          </tr>
+
+          <tr>
+            <td data-label="Image"><img src="assets/img/Versa-MINI.png" alt="Versa Hollow"></td>
+            <td data-label="Series">VERSA MINI</td>
+            <td data-label="Prod Code">EWD80X10</td>
+            <td data-label="Suitable For">RAILINGS, INTERIOR & EXTERIOR LOUVERS, DECORATIVE FEATURES, SUNSCREENS, DUCTS, FENCING AND GATES</td>
+            <td data-label="Type">Standard WPC</td>
+            <td data-label="Surface Finish">Grain Brushed / Grooved</td>
+            <td data-label="Colour Tone">Single</td>
+            <td data-label="Thickness">10 MM</td>
+            <td data-label="Width">80 MM</td>
+            <td data-label="Length (MT/FT)">2.440 / 8'0"</td>
+            <td data-label="Area/Plank">2.10 SQ.FT</td>
+            <td data-label="Installation">Frame System</td>
+          </tr>
+        </table>
+      </div>
+
+      <a href="https://versaplank.in/products" class="btn11">Know More</a>
+
+      
+
+
+      
+
+    <footer>
+
+        <div class="footer-bottoms">
+            <div class="footer-contents">
+                <h3>HYMA</h3>
+                <p>With pride, we fulfill the role of the authorized provider of leading construction materials,
+                    presenting an
+                    extensive selection of high-caliber products tailored to your requirements. Our inventory comprises
+                    Arolite
+                    Polycarbonate Sheets, Century HPL Sheets, Corroshield Screws, Versa solutions, Everwood innovations,
+                    Starwood
+                    WPC Planks, and Maxlite Turbo Ventilators.</p>
+                <ul class="socials">
+                    <li><a href="#"><i class="fa-brands fa-facebook"></i></a></li>
+                    <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
+                    <li><a href="#"><i class="fa-brands fa-youtube"></i></i></a></li>
+                    <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
+                </ul>
+            </div>
+            <!-- <p>copyright &copy; <a href="#">Hyma polymers and metals</a> </p> -->
+
+        </div>
+
+    </footer>
+
+</body>
+
+</html>

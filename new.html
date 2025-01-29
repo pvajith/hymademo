@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Polycarbonate Sheets</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f1f5f9;
+            color: #1a202c;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .brand-section h3 {
+            color: #0d9488;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .brand-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .brand-card {
+            background: #fff;
+            border-radius: 1rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .brand-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .brand-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .brand-card h4 {
+            margin: 1rem;
+            color: #065f46;
+            font-size: 1.2rem;
+        }
+
+        .brand-card p {
+            margin: 0 1rem 1rem;
+            color: #4a5568;
+            line-height: 1.5;
+            font-size: 0.95rem;
+        }
+
+        .brand-card .btn {
+            display: block;
+            margin: 0 1rem 1rem;
+            padding: 0.6rem 1rem;
+            background-color: #0d9488;
+            color: white;
+            text-decoration: none;
+            border-radius: 0.5rem;
+            font-size: 0.9rem;
+            text-align: center;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .brand-card .btn:hover {
+            background-color: #065f46;
+        }
+
+        @media (max-width: 768px) {
+            .brand-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .brand-card img {
+                height: 180px;
+            }
+        }
+
+    
+        .specifications-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .spec-card {
+            background: #fff;
+            border-radius: 1rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .spec-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .spec-card h4 {
+            background-color: #0d9488;
+            color: #fff;
+            margin: 0;
+            padding: 1rem;
+            font-size: 1.5rem;
+            text-align: center;
+        }
+
+        .spec-card ul {
+            list-style-type: disc;
+            margin: 1.5rem;
+            color: #4a5568;
+            line-height: 1.8;
+        }
+
+        .spec-card ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .spec-card .btn {
+            display: block;
+            margin: 1rem auto;
+            padding: 0.6rem 1rem;
+            background-color: #0d9488;
+            color: white;
+            text-decoration: none;
+            border-radius: 0.5rem;
+            font-size: 0.9rem;
+            text-align: center;
+            font-weight: bold;
+            width: fit-content;
+            transition: background-color 0.3s;
+        }
+
+        .spec-card .btn:hover {
+            background-color: #065f46;
+        }
+
+        @media (max-width: 768px) {
+            .spec-card ul {
+                margin: 1rem;
+            }
+
+            .spec-card h4 {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Primary Brands -->
+        <div class="brand-section">
+            <h3>Primary Brands</h3>
+            <div class="brand-grid">
+                <div class="brand-card">
+                    <img src="http://www.skylites.in/images/products/polycarbonate/ir-multiwall.jpg" alt="Ultralite">
+                    <h4>Ultralite</h4>
+                    <p>Our primary brand for superior quality and durability. Ultralite sheets offer exceptional UV resistance, high impact strength, and excellent thermal insulation. Ideal for roofing, skylights, and greenhouses.</p>
+                    <a href="#" class="btn">Know More</a>
+                </div>
+
+                <div class="brand-card">
+                    <img src="http://www.skylites.in/images/products/polycarbonate/ir-multiwall.jpg" alt="Tilara">
+                    <h4>Tilara</h4>
+                    <p>A trusted name for innovative polycarbonate solutions. Tilara sheets are known for their lightweight design, weather resistance, and versatile applications in architecture and industrial projects.</p>
+                    <a href="#" class="btn">Know More</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Secondary Brands -->
+        <div class="brand-section">
+            <h3>Secondary Brands</h3>
+            <div class="brand-grid">
+                <div class="brand-card">
+                    <img src="http://www.skylites.in/images/products/polycarbonate/ir-multiwall.jpg" alt="Polymac">
+                    <h4>Polymac</h4>
+                    <p>Secondary brand offering reliable performance at great value. Polymac sheets provide high clarity, impact resistance, and ease of installation, making them perfect for cost-effective construction needs.</p>
+                    <a href="#" class="btn">Know More</a>
+                </div>
+
+                <div class="brand-card">
+                    <img src="http://www.skylites.in/images/products/polycarbonate/ir-multiwall.jpg" alt="Eurolite">
+                    <h4>Eurolite</h4>
+                    <p>A premium option for advanced applications. Eurolite sheets combine superior aesthetics with durability, ensuring long-lasting performance in both commercial and residential spaces.</p>
+                    <a href="#" class="btn">Know More</a>
+                </div>
+
+                <div class="brand-card">
+                    <img src="http://www.skylites.in/images/products/polycarbonate/ir-multiwall.jpg" alt="Arolite">
+                    <h4>Arolite</h4>
+                    <p>Perfect for a wide range of industrial and commercial uses. Arolite sheets are designed for excellent light transmission, high weather resistance, and low maintenance requirements.</p>
+                    <a href="#" class="btn">Know More</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Specifications Section -->
+        <div class="container">
+            <h2>Specifications</h2>
+            <div class="specifications-section">
+                <div class="spec-card">
+                    <h4>Ultralite</h4>
+                    <ul>
+                        <li>Material: High-quality polycarbonate</li>
+                        <li>Thickness: 2mm to 12mm</li>
+                        <li>UV Protection: Advanced UV coating</li>
+                        <li>Applications: Roofing, skylights, and greenhouses</li>
+                        <li>Features: High impact resistance, thermal insulation, and lightweight</li>
+                        <li>Colors: Clear, bronze, and custom colors</li>
+                    </ul>
+                    <!-- <a href="#" class="btn">Know More</a> -->
+                </div>
+    
+                <div class="spec-card">
+                    <h4>Tilara</h4>
+                    <ul>
+                        <li>Material: Durable polycarbonate</li>
+                        <li>Thickness: 3mm to 10mm</li>
+                        <li>Weather Resistance: Excellent performance in extreme conditions</li>
+                        <li>Applications: Industrial projects and architectural designs</li>
+                        <li>Features: Lightweight, flexible, and easy to install</li>
+                        <li>Colors: Transparent, opal, and blue</li>
+                    </ul>
+                    <!-- <a href="#" class="btn">Know More</a> -->
+                </div>
+    
+                <div class="spec-card">
+                    <h4>Polymac</h4>
+                    <ul>
+                        <li>Material: Economical polycarbonate</li>
+                        <li>Thickness: 2mm to 8mm</li>
+                        <li>Impact Resistance: High resistance to shocks</li>
+                        <li>Applications: DIY projects, partition walls, and glazing</li>
+                        <li>Features: Cost-effective, durable, and versatile</li>
+                        <li>Colors: Frosted, smoke, and green</li>
+                    </ul>
+                    <!-- <a href="#" class="btn">Know More</a> -->
+                </div>
+    
+                <div class="spec-card">
+                    <h4>Eurolite</h4>
+                    <ul>
+                        <li>Material: Premium-grade polycarbonate</li>
+                        <li>Thickness: 4mm to 12mm</li>
+                        <li>Aesthetic Appeal: Enhanced clarity and gloss</li>
+                        <li>Applications: Modern architectural projects and interiors</li>
+                        <li>Features: Scratch-resistant, UV-protected, and long-lasting</li>
+                        <li>Colors: Customizable with high gloss finish</li>
+                    </ul>
+                    <!-- <a href="#" class="btn">Know More</a> -->
+                </div>
+    
+                <div class="spec-card">
+                    <h4>Arolite</h4>
+                    <ul>
+                        <li>Material: Industrial-grade polycarbonate</li>
+                        <li>Thickness: 5mm to 15mm</li>
+                        <li>Light Transmission: Up to 90%</li>
+                        <li>Applications: Warehouses, factories, and greenhouses</li>
+                        <li>Features: Weatherproof, low maintenance, and robust</li>
+                        <li>Colors: Clear, grey, and white</li>
+                    </ul>
+                    <!-- <a href="#" class="btn">Know More</a> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

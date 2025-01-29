@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Starwood Decorative WPC Planks</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.5.0/remixicon.css">
+    <link href="assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+
+
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600&display=swap");
+
+        :root {
+            overflow-x: hidden;
+            --header-height: 3.5rem;
+            --first-color: hsl(230, 75%, 56%);
+            --title-color: hsl(230, 75%, 15%);
+            --text-color: hsl(230, 12%, 40%);
+            --body-color: hsl(230, 100%, 98%);
+            --container-color: hsl(230, 100%, 97%);
+            --border-color: hsl(230, 25%, 80%);
+            --body-font: "Syne", sans-serif;
+            --h2-font-size: 1.25rem;
+            --normal-font-size: .938rem;
+            --font-regular: 400;
+            --font-medium: 500;
+            --font-semi-bold: 600;
+            --z-fixed: 100;
+            --z-modal: 1000;
+        }
+
+        /*========== Responsive typography ==========*/
+        @media screen and (min-width: 1023px) {
+            :root {
+                --h2-font-size: 1.5rem;
+                --normal-font-size: 1rem;
+            }
+        }
+
+        /*=============== BASE ===============*/
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body,
+        input,
+        button {
+            font-family: var(--body-font);
+            font-size: var(--normal-font-size);
+        }
+
+        body {
+            margin: 0%;
+            margin-top: 70px;
+            background-color: var(--body-color);
+            color: var(--text-color);
+        }
+
+
+
+        ul {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+
+        /*=============== REUSABLE CSS CLASSES ===============*/
+        .container {
+            max-width: 1120px;
+            margin-inline: 1.5rem;
+        }
+
+
+
+
+        /*=============== HEADER & NAV ===============*/
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: var(--body-color);
+            box-shadow: 0 2px 16px hsla(230, 75%, 32%, .15);
+            z-index: var(--z-fixed);
+        }
+
+        .nav {
+            height: var(--header-height);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav__logo {
+            color: var(--title-color);
+            font-weight: var(--font-semi-bold);
+            transition: color .4s;
+        }
+
+        .nav__actions {
+            display: flex;
+            align-items: center;
+            column-gap: 1rem;
+        }
+
+        .nav__search,
+        .nav__login,
+        .nav__toggle,
+        .nav__close {
+            font-size: 1.25rem;
+            color: var(--title-color);
+            cursor: pointer;
+            transition: color .4s;
+        }
+
+        :is(.nav__logo, .nav__search, .nav__login, .nav__toggle, .nav__link):hover {
+            color: var(--first-color);
+        }
+
+        /* Navigation for mobile devices */
+        @media screen and (max-width: 1023px) {
+            .nav__menu {
+                position: fixed;
+                top: -100%;
+                left: 0;
+                background-color: var(--body-color);
+                box-shadow: 0 8px 16px hsla(230, 75%, 32%, .15);
+                width: 100%;
+                padding-block: 4.5rem 4rem;
+                transition: top .4s;
+            }
+        }
+
+        .nav__list {
+            display: flex;
+            flex-direction: column;
+            row-gap: 2.5rem;
+            text-align: center;
+        }
+
+        .nav__link {
+            color: var(--title-color);
+            font-weight: var(--font-semi-bold);
+            transition: color .4s;
+        }
+
+        .nav__close {
+            position: absolute;
+            top: 1.15rem;
+            right: 1.5rem;
+        }
+
+        /* Show menu */
+        .show-menu {
+            top: 0;
+        }
+
+
+
+
+        /* For large devices */
+        @media screen and (min-width: 1023px) {
+            .nav {
+                height: calc(var(--header-height) + 2rem);
+                column-gap: 3rem;
+            }
+
+            .nav__close,
+            .nav__toggle {
+                display: none;
+            }
+
+            .nav__menu {
+                margin-left: auto;
+            }
+
+            .nav__list {
+                flex-direction: row;
+                column-gap: 3rem;
+            }
+
+            .login__form {
+                padding: 3rem 2rem 3.5rem;
+            }
+        }
+
+        @media screen and (min-width: 1150px) {
+            .container {
+                margin-inline: auto;
+            }
+        }
+
+
+        /* footer starts */
+
+
+        /* footer */
+        /* Footer */
+        footer {
+            position: relative;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: #111;
+            height: auto;
+            width: 100vw;
+
+            /* padding-top: 40px; */
+            color: #fff;
+        }
+
+        .footer-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .footer-content h3 {
+            font-size: 2.1rem;
+            font-weight: 500;
+            text-transform: capitalize;
+            line-height: 3rem;
+        }
+
+        .footer-content p {
+            max-width: 500px;
+            margin: 10px auto;
+            line-height: 28px;
+            font-size: 14px;
+            color: #cacdd2;
+        }
+
+        .socials {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 1rem 0 3rem 0;
+        }
+
+        .socials li {
+            margin: 9px 10px;
+            /* margin: 9px 16px; */
+            /* padding: 15px; */
+            padding-top: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .socials a {
+            text-decoration: none;
+            color: #fff;
+            border: 1.1px solid white;
+            padding: 5px;
+
+            border-radius: 50%;
+
+        }
+
+        .socials a i {
+            font-size: 1.1rem;
+            width: 20px;
+
+
+            transition: color .4s ease;
+
+        }
+
+        .socials a:hover i {
+            color: aqua;
+        }
+
+        .footer-bottom {
+            background: #000;
+            width: 100vw;
+            padding: 20px;
+            padding-bottom: 40px;
+            text-align: center;
+        }
+
+        .footer-bottom p {
+            float: center;
+            font-size: 14px;
+            word-spacing: 2px;
+            text-transform: capitalize;
+        }
+
+        .footer-bottom p a {
+            color: #44bae8;
+            font-size: 16px;
+            text-decoration: none;
+        }
+
+        .footer-bottom span {
+            text-transform: uppercase;
+            opacity: .4;
+            font-weight: 200;
+        }
+
+        .footer-menu {
+            float: right;
+
+        }
+
+        .footer-menu ul {
+            display: flex;
+        }
+
+        .footer-menu ul li {
+            padding-right: 10px;
+            display: block;
+        }
+
+        .footer-menu ul li a {
+            color: #cfd2d6;
+            text-decoration: none;
+        }
+
+        .footer-menu ul li a:hover {
+            color: #27bcda;
+        }
+
+        @media (max-width:500px) {
+            .footer-menu ul {
+                display: flex;
+                margin-top: 10px;
+                margin-bottom: 20px;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* footer ends */
+
+
+
+
+        /* body css starts here */
+
+
+
+        .intro,
+        .features,
+        .dual-surface,
+        .specifications {
+            animation: fadeIn 0.8s ease-out forwards;
+margin-top: 30px;
+            background: #fff;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            margin-top: 0;
+        }
+
+        .features {
+            text-align: center;
+        }
+
+        .features ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .features ul li {
+            background: #0073e6;
+            color: #fff;
+            margin: 0.5rem;
+            padding: 1rem;
+            border-radius: 8px;
+            width: 23%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .features ul li i {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .specifications table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .specifications th,
+        .specifications td {
+            border: 1px solid #ddd;
+            padding: 0.5rem;
+            text-align: center;
+        }
+
+        .specifications th {
+            background: #0073e6;
+            color: #fff;
+        }
+
+        @media (max-width: 600px) {
+
+            .container,
+            .intro,
+            .features,
+            .dual-surface,
+            .specifications {
+                padding: 1rem;
+            }
+
+            .features ul li {
+                width: 100%;
+            }
+        }
+
+
+        .shining-text {
+            font-size: 40px;
+            font-weight: bold;
+            background-image: linear-gradient(to right, blue, #e71d36);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            position: relative;
+            display: inline-block;
+        }
+
+        .shining-text::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0));
+            opacity: 0;
+            z-index: 1;
+            animation: shine 1.5s infinite;
+            pointer-events: none;
+        }
+
+        @keyframes shine {
+            0% {
+                left: -100%;
+                opacity: 0;
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+            100% {
+                left: 100%;
+                opacity: 0;
+            }
+        }
+
+
+
+        .containerrr {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .item {
+            animation: fadeIn 0.8s ease-out forwards;
+
+            box-shadow: 0 8px 16px hsla(230, 75%, 32%, .15);
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: white;
+            border-radius: 25px;
+            width: 300px;
+            height: 300px;
+            flex: 1 1 calc(50% - 20px);
+            /* Two items per row, subtracting the gap */
+            text-align: center;
+        }
+
+        .item img {
+            width: 431px;
+            height: 259px;
+            /* width: 100%;
+    height: auto; */
+            /* max-width: 200px; */
+            border-radius: 8px;
+        }
+
+        .item p {
+            margin-top: 10px;
+            font-size: 16px;
+            color: #333;
+        }
+
+        @media (max-width: 600px) {
+            .item {
+                flex: 1 1 100%;
+                /* Stack items vertically on small screens */
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .container_card {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.2s;
+}
+
+.card img {
+    width: 300px;
+    height: 200px;
+    object-fit: cover;
+}
+
+.card p {
+    margin: 10px 0;
+    padding: 0 10px;
+    font-size: 16px;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+/* Responsive design for mobile devices */
+@media (max-width: 768px) {
+    .container_card {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .container_card {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+        /* .container_card {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .card {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+
+        .card img {
+            width: 300px;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card p {
+            margin: 10px 0;
+            padding: 0 10px;
+            font-size: 16px;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+        } */
+
+
+        /* body css ends here */
+        .btn11 {
+            display: block;
+            margin: 55px 2rem 1rem;
+            padding: 0.9rem 1rem;
+            /* background-color: #0d9488; */
+            background-color: #7393B3;
+            color: white;
+            text-decoration: none;
+            border-radius: 0.5rem;
+            font-size: 1.1rem;
+            text-align: center;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+       .btn11:hover {
+            background-color: #065f46;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="header" id="header">
+        <nav class="nav container">
+            <!-- <a href="#" class="nav__logo">Logo</a> -->
+
+         
+            <a href="#" class="nav__logo"
+                style="font-size: 32px; font-weight: bolder; color: black; text-decoration: none;">
+               Hyma
+            </a>
+
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a href="#" class="nav__link">Home</a>
+                    </li>
+
+                    <!-- <li class="nav__item">
+                        <a href="#" class="nav__link">Products</a>
+                    </li> -->
+
+                    <li class="nav__item">
+                        <a href="aboutus.html" class="nav__link">About us</a>
+                    </li>
+
+                    <!-- <li class="nav__item">
+                        <a href="#" class="nav__link">About</a>
+                    </li> -->
+
+                    <!-- <li class="nav__item">
+                        <a href="#" class="nav__link">Gallery</a>
+                    </li> -->
+                </ul>
+
+                <!-- Close button -->
+                <div class="nav__close" id="nav-close">
+                    <i class="ri-close-line"></i>
+                </div>
+            </div>
+
+            <div class="nav__actions">
+                <!-- Search button -->
+                <i class="ri-customer-service-fill" id="search-btn"></i>
+
+            </div>
+        </nav>
+    </header>
+
+
+    <!-- body starts here -->
+
+
+
+    <section class="features">
+        
+
+        
+        <section class="intro">
+
+            <h1 class="shining-text">
+            Starwood  WPC planks
+            </h1>
+
+
+            <h2>Overview</h2>
+            <p>Starwood decorative WPC planks exhibit magnificent pre-finished wood looks for exterior and interior
+                applications. Weatherproof and highly durable, Starwood WPC planks require no painting or maintenance
+                and come with a 10-year anti-fading warranty.</p>
+        </section>
+        <img src="images/logo/starwoodlogo.png" style="height: 100px;"  alt="">
+        <h2>Reasons to Choose Starwood</h2>
+        <ul>
+            <li><i class="fas fa-check-circle"></i>Extra Long Life</li>
+            <li><i class="fas fa-cloud-rain"></i>Weather Proof</li>
+            <li><i class="fas fa-palette"></i>Anti Fading</li>
+            <li><i class="fas fa-water"></i>Water Proof</li>
+            <li><i class="fas fa-fire"></i>Fire Retardant</li>
+            <li><i class="fas fa-shield-alt"></i>Impact Resistance</li>
+            <li><i class="fas fa-dumbbell"></i>High Strength</li>
+            <li><i class="fas fa-tools"></i>Easy Installation</li>
+            <li><i class="fas fa-broom"></i>Maintenance Free</li>
+            <li><i class="fas fa-bug"></i>Termite Proof</li>
+            <li><i class="fas fa-leaf"></i>Eco-friendly</li>
+            <li><i class="fas fa-paint-roller"></i>No Painting</li>
+        </ul>
+    </section>
+
+
+
+    <section>
+        <div class="containerrr">
+            <div class="item">
+                <img src="assets/img/Teakwood.png" alt="Teakwood">
+                <p>Teakwood</p>
+            </div>
+            <div class="item">
+                <img src="assets/img/Redwood.png" alt="Redwood">
+                <p>Redwood</p>
+            </div>
+            <div class="item">
+                <img src="assets/img/Oakwood.png" alt="Oakwood">
+                <p>Oakwood</p>
+            </div>
+            <div class="item">
+                <img src="assets/img/Sliverwood.png" alt="Silverwood">
+                <p>Silverwood</p>
+            </div>
+        </div>
+
+
+    </section>
+
+
+
+
+
+
+
+    <section class="dual-surface">
+        <h2 style="text-align: center;">Surface on One Plank</h2>
+        <p style="text-align: center;">Starwood WPC planks have 2 surface finishes on the same plank, presenting true
+            characteristics of finished natural wood. One side is engrained like natural wood and the other, a machine
+            finished grooved surface. With this feature, Starwood offers flexibility in designing for different
+            applications.</p>
+    </section>
+    <section class="dual-surface">
+        <h2 style="text-align: center;">Implimentation</h2>
+
+    </section>
+
+    <div class="container_card">
+
+        <div class="card">
+            <img src="assets/img/Gate-changed.jpg" alt="Image 1">
+            <p>Gates</p>
+        </div>
+        <div class="card">
+            <img src="assets/img/railing.jpg" alt="Image 2">
+            <p>Railing</p>
+        </div>
+        <div class="card">
+            <img src="assets/img/How-Century-HPL-Sheets-Can-Improve-Your-Building-Exteriors.jpg"
+                alt="Image 3">
+            <p>Cladding</p>
+        </div>
+        <div class="card">
+            <img src="assets/img/sunsreen.jpg" alt="Image 4">
+            <p>Sunscreen</p>
+        </div>
+        <div class="card">
+            <img src="assets/img/louvers.jpg" alt="Image 5">
+            <p>Louvers</p>
+        </div>
+        <div class="card">
+            <img src="assets/img/fencing.jpg" alt="Image 6">
+            <p>Fencing</p>
+        </div>
+        <div class="card">
+            <img src="assets/img/partin.png" alt="Image 7">
+            <p>Landscaping</p>
+        </div>
+        <div class="card">
+            <img src="assets/img/partition.jpg" alt="Image 8">
+            <p>Partition</p>
+        </div>
+    </div>
+
+
+
+    <section class="specifications">
+        <h2 style="text-align: center;">Specifications</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Size</th>
+                    <th>Planks per Box</th>
+                    <th>Sq.ft Per Box</th>
+                    <th>Weight per Box</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>6’0” (125X10mm)</td>
+                    <td>8 Nos</td>
+                    <td>19.70 sq.ft</td>
+                    <td>24.40 kg</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+
+    <a href="https://starwoodwpc.com" class="btn11">Know More</a>
+
+    <!-- body ends here -->
+
+    <!-- footer starts -->
+
+
+    <footer>
+
+        <div class="footer-bottom">
+            <div class="footer-content">
+                <h3>HYMA</h3>
+                <p>With pride, we fulfill the role of the authorized provider of leading construction materials,
+                    presenting an
+                    extensive selection of high-caliber products tailored to your requirements. Our inventory comprises
+                    Arolite
+                    Polycarbonate Sheets, Century HPL Sheets, Corroshield Screws, Versa solutions, Everwood innovations,
+                    Starwood
+                    WPC Planks, and Maxlite Turbo Ventilators.</p>
+                <ul class="socials">
+                    <li><a href="#"><i class="fa-brands fa-facebook"></i></a></li>
+                    <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
+                    <li><a href="#"><i class="fa-brands fa-youtube"></i></i></a></li>
+                    <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
+                </ul>
+            </div>
+            <p>copyright &copy; <a href="#">Hyma polymers and metals</a> </p>
+            <div class="footer-menu">
+
+            </div>
+        </div>
+
+    </footer>
+
+    <!-- footer ends -->
+
+<script>
+          document.getElementById('search-btn').addEventListener('click', function() {
+        window.location.href = 'contact.html';
+    });
+</script>
+
+</body>
+
+</html>

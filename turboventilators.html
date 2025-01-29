@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--=============== REMIXICONS ===============-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.5.0/remixicon.css">
+
+    <!--=============== CSS ===============-->
+    <!-- <link rel="stylesheet" href="assets/css/styles.css"> -->
+    <!-- <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet"> -->
+    <link href="assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+
+
+    <title>Responsive navbar with search and login - Bedimcode</title>
+
+    <style>
+        /*=============== GOOGLE FONTS ===============*/
+        @import url("https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600&display=swap");
+
+        /*=============== VARIABLES CSS ===============*/
+        :root {
+            --header-height: 3.5rem;
+
+            /*========== Colors ==========*/
+            /*Color mode HSL(hue, saturation, lightness)*/
+            --first-color: hsl(230, 75%, 56%);
+            --title-color: hsl(230, 75%, 15%);
+            --text-color: hsl(230, 12%, 40%);
+            --body-color: hsl(230, 100%, 98%);
+            --container-color: hsl(230, 100%, 97%);
+            --border-color: hsl(230, 25%, 80%);
+
+            /*========== Font and typography ==========*/
+            /*.5rem = 8px | 1rem = 16px ...*/
+            --body-font: "Syne", sans-serif;
+            --h2-font-size: 1.25rem;
+            --normal-font-size: .938rem;
+
+            /*========== Font weight ==========*/
+            --font-regular: 400;
+            --font-medium: 500;
+            --font-semi-bold: 600;
+
+
+        }
+
+        /*========== Responsive typography ==========*/
+        @media screen and (min-width: 1023px) {
+            :root {
+                --h2-font-size: 1.5rem;
+                --normal-font-size: 1rem;
+            }
+        }
+
+        /*=============== BASE ===============*/
+        * {
+            overflow-x: hidden;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body,
+        input,
+        button {
+            font-family: var(--body-font);
+            font-size: var(--normal-font-size);
+        }
+
+        body {
+            background-color: var(--body-color);
+            color: var(--text-color);
+            margin: 0px;
+        }
+
+        input,
+        button {
+            border: none;
+            outline: none;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+
+
+        /*=============== REUSABLE CSS CLASSES ===============*/
+        .container {
+            max-width: 1120px;
+            margin-inline: 1.5rem;
+        }
+
+        .main {
+            position: relative;
+        }
+
+
+
+
+
+
+        /*=============== HEADER & NAV ===============*/
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: var(--body-color);
+            box-shadow: 0 2px 16px hsla(230, 75%, 32%, .15);
+            z-index: var(--z-fixed);
+        }
+
+        .nav {
+            height: var(--header-height);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav__logo {
+            color: var(--title-color);
+            font-weight: var(--font-semi-bold);
+            transition: color .4s;
+        }
+
+        .nav__actions {
+            display: flex;
+            align-items: center;
+            column-gap: 1rem;
+        }
+
+        .nav__search,
+        .nav__login,
+        .nav__toggle,
+        .nav__close {
+            font-size: 1.25rem;
+            color: var(--title-color);
+            cursor: pointer;
+            transition: color .4s;
+        }
+
+        :is(.nav__logo, .nav__search, .nav__login, .nav__toggle, .nav__link):hover {
+            color: var(--first-color);
+        }
+
+        /* Navigation for mobile devices */
+        @media screen and (max-width: 1023px) {
+            .nav__menu {
+                position: fixed;
+                top: -100%;
+                left: 0;
+                background-color: var(--body-color);
+                box-shadow: 0 8px 16px hsla(230, 75%, 32%, .15);
+                width: 100%;
+                padding-block: 4.5rem 4rem;
+                transition: top .4s;
+            }
+        }
+
+        .nav__list {
+            display: flex;
+            flex-direction: column;
+            row-gap: 2.5rem;
+            text-align: center;
+        }
+
+        .nav__link {
+            color: var(--title-color);
+            font-weight: var(--font-semi-bold);
+            transition: color .4s;
+        }
+
+        .nav__close {
+            position: absolute;
+            top: 1.15rem;
+            right: 1.5rem;
+        }
+
+        /* Show menu */
+        .show-menu {
+            top: 0;
+        }
+
+
+
+
+
+
+        /* For large devices */
+        @media screen and (min-width: 1023px) {
+            .nav {
+                height: calc(var(--header-height) + 2rem);
+                column-gap: 3rem;
+            }
+
+            .nav__close,
+            .nav__toggle {
+                display: none;
+            }
+
+            .nav__menu {
+                margin-left: auto;
+            }
+
+            .nav__list {
+                flex-direction: row;
+                column-gap: 3rem;
+            }
+
+
+        }
+
+        @media screen and (min-width: 1150px) {
+            .container {
+                margin-inline: auto;
+            }
+        }
+
+        .containerr {
+
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 21px;
+        }
+
+        h1 {
+            animation: fadeIn 0.8s ease-out forwards;
+
+            margin-top: 107px;
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+
+            color: #333;
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        .table-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .table {
+            animation: fadeIn 0.8s ease-out forwards;
+
+            background-color: #fff;
+            border-collapse: collapse;
+            width: 45%;
+            margin: 10px 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .table th,
+        .table td {
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+        }
+
+        .table th {
+            background-color: #f2f2f2;
+            color: #333;
+            text-align: left;
+        }
+
+        .table td {
+            color: #555;
+        }
+
+        .image-section {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .image-section img {
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            object-fit: cover;
+            margin: 10px;
+        }
+
+        .text-section {
+            text-align: center;
+            margin: 20px 0;
+            color: #555;
+        }
+
+        @media (min-width: 769px) {
+            .image-section img {
+                height: 292px;
+                width: 565px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .table {
+                width: 100%;
+            }
+
+            .image-section img {
+                max-width: 100%;
+                height: auto;
+            }
+        }
+
+
+        /* footer */
+        /* Footer */
+        footer {
+            position: relative;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: #111;
+            height: auto;
+            width: 100vw;
+
+            /* padding-top: 40px; */
+            color: #fff;
+        }
+
+        .footer-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .footer-content h3 {
+            font-size: 2.1rem;
+            font-weight: 500;
+            text-transform: capitalize;
+            line-height: 3rem;
+        }
+
+        .footer-content p {
+            max-width: 500px;
+            margin: 10px auto;
+            line-height: 28px;
+            font-size: 14px;
+            color: #cacdd2;
+        }
+
+        .socials {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 1rem 0 3rem 0;
+        }
+
+        .socials li {
+            margin: 9px 10px;
+            /* margin: 9px 16px; */
+            /* padding: 15px; */
+            padding-top: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .socials a {
+            text-decoration: none;
+            color: #fff;
+            border: 1.1px solid white;
+            padding: 5px;
+
+            border-radius: 50%;
+
+        }
+
+        .socials a i {
+            font-size: 1.1rem;
+            width: 20px;
+
+
+            transition: color .4s ease;
+
+        }
+
+        .socials a:hover i {
+            color: aqua;
+        }
+
+        .footer-bottom {
+            background: #000;
+            width: 100vw;
+            padding: 20px;
+            padding-bottom: 40px;
+            text-align: center;
+        }
+
+        .footer-bottom p {
+            float: center;
+            font-size: 14px;
+            word-spacing: 2px;
+            text-transform: capitalize;
+        }
+
+        .footer-bottom p a {
+            color: #44bae8;
+            font-size: 16px;
+            text-decoration: none;
+        }
+
+        .footer-bottom span {
+            text-transform: uppercase;
+            opacity: .4;
+            font-weight: 200;
+        }
+
+        .footer-menu {
+            float: right;
+
+        }
+
+        .footer-menu ul {
+            display: flex;
+        }
+
+        .footer-menu ul li {
+            padding-right: 10px;
+            display: block;
+        }
+
+        .footer-menu ul li a {
+            color: #cfd2d6;
+            text-decoration: none;
+        }
+
+        .footer-menu ul li a:hover {
+            color: #27bcda;
+        }
+
+        @media (max-width:500px) {
+            .footer-menu ul {
+                display: flex;
+                margin-top: 10px;
+                margin-bottom: 20px;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+
+
+        .btn11 {
+            display: block;
+            margin: 55px 2rem 1rem;
+            padding: 0.9rem 1rem;
+            /* background-color: #0d9488; */
+            background-color: #7393B3;
+            color: white;
+            text-decoration: none;
+            border-radius: 0.5rem;
+            font-size: 1.1rem;
+            text-align: center;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+       .btn11:hover {
+            background-color: #065f46;
+        }
+    </style>
+</head>
+
+<body>
+    <!--==================== HEADER ====================-->
+    <header class="header" id="header">
+        <nav class="nav container">
+           
+            <a href="#" class="nav__logo"
+                style="font-size: 32px; font-weight: bolder; color: black; text-decoration: none;">
+               Hyma
+            </a>
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a href="index.html" class="nav__link">Home</a>
+                    </li>
+
+                    <!-- <li class="nav__item">
+                        <a href="#" class="nav__link">Products</a>
+                    </li> -->
+
+                    <li class="nav__item">
+                        <a href="aboutus.html" class="nav__link">About us</a>
+                    </li>
+
+                    <!-- <li class="nav__item">
+                        <a href="contact.html" class="nav__link">Contact</a>
+                    </li> -->
+
+                    <!-- <li class="nav__item">
+                        <a href="#" class="nav__link">Gallery</a>
+                    </li> -->
+                </ul>
+
+                <!-- Close button -->
+                <div class="nav__close" id="nav-close">
+                    <i class="ri-close-line"></i>
+                </div>
+            </div>
+
+            <div class="nav__actions">
+
+                <i class="ri-customer-service-fill" id="search-btn"></i>
+            </div>
+        </nav>
+    </header>
+
+
+
+
+    <div class="containerr">
+
+        <h1>Maxlite Turbo ventilators<br> Specifications</h1>
+        <div class="table-wrapper">
+            <table class="table">
+                <tr>
+                    <th colspan="2">HYMA's TURBINE TECHNICAL SPECIFICATIONS</th>
+                </tr>
+                <tr>
+                    <th>Material Used</th>
+                    <td>Totally Aluminium Built</td>
+                </tr>
+                <tr>
+                    <th>Number of Vanes</th>
+                    <td>0.47 mm thickness, 38 Numbers</td>
+                </tr>
+                <tr>
+                    <th>Centre Shaft</th>
+                    <td>Stainless Steel</td>
+                </tr>
+                <tr>
+                    <th>Bearing</th>
+                    <td>2 No’s Self Lubricate Sealed</td>
+                </tr>
+                <tr>
+                    <th>Rivets</th>
+                    <td>Aluminium Pneumatic Rivets</td>
+                </tr>
+                <tr>
+                    <th>Turbine Doom Thickness</th>
+                    <td>1 mm (Stainless Steel)</td>
+                </tr>
+                <tr>
+                    <th>Turbine Outer Dia</th>
+                    <td>680 mm</td>
+                </tr>
+                <tr>
+                    <th>Turbine Doom Dia</th>
+                    <td>380 mm</td>
+                </tr>
+                <tr>
+                    <th>Turbine Rotor Dia</th>
+                    <td>655 mm (Stainless Steel)</td>
+                </tr>
+                <tr>
+                    <th>Turbine Throat Dia</th>
+                    <td>610 mm</td>
+                </tr>
+                <tr>
+                    <th>Turbine Height</th>
+                    <td>230 mm</td>
+                </tr>
+                <tr>
+                    <th>Turbine Weight</th>
+                    <td>4 Kgs</td>
+                </tr>
+            </table>
+            <table class="table">
+                <tr>
+                    <th colspan="2">HYMA's Stainless Steel Mirror Finish Turbine Technical Specifications</th>
+                </tr>
+                <tr>
+                    <th>Material Used</th>
+                    <td>Totally Stainless Steel Built</td>
+                </tr>
+                <tr>
+                    <th>Number of Vanes</th>
+                    <td>0.3 mm thickness, 38 Numbers</td>
+                </tr>
+                <tr>
+                    <th>Centre Shaft</th>
+                    <td>Stainless Steel</td>
+                </tr>
+                <tr>
+                    <th>Bearing</th>
+                    <td>Self Lubricated - 2 Nos</td>
+                </tr>
+                <tr>
+                    <th>Rivets</th>
+                    <td>Aluminium Pneumatic Rivets</td>
+                </tr>
+                <tr>
+                    <th>Turbine Doom Thickness</th>
+                    <td>1mm Stainless Steel</td>
+                </tr>
+                <tr>
+                    <th>Turbine Outer Dia</th>
+                    <td>686 mm</td>
+                </tr>
+                <tr>
+                    <th>Turbine Doom Dia</th>
+                    <td>380mm</td>
+                </tr>
+                <tr>
+                    <th>Turbine Rotor Dia</th>
+                    <td>655 mm</td>
+                </tr>
+                <tr>
+                    <th>Turbine Throat Dia</th>
+                    <td>610mm</td>
+                </tr>
+                <tr>
+                    <th>Turbine Height</th>
+                    <td>360 mm</td>
+                </tr>
+                <tr>
+                    <th>Turbine Weight</th>
+                    <td>4.6 Kgs</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="image-section">
+            <img src="assets/img/natural-air-ventilator-1000x1000 (1).jpg" alt="Top Image 1">
+            <img src="assets/img/aluminum-ss-turbo-ventilator-500x500.jpg" alt="Top Image 2">
+        </div>
+        <h2>How Turbo Ventilator Works</h2>
+        <div class="text-section">
+            <p>
+                Turbo ventilators operate on wind energy. The wind causes the ventilator to spin, creating a centrifugal
+                force that draws up hot air from inside the building and expels it outside. This helps in maintaining a
+                cooler and more comfortable environment inside. The ventilator continues to operate even with minimal
+                wind, providing continuous ventilation without the need for electricity.
+            </p>
+        </div>
+        <div class="image-section">
+            <img src="assets/img/main-qimg-10f96c203caa33d07a02541e6df2c5ec.webp" alt="Turbo Ventilator Working">
+        </div>
+        <!-- <div class="image-section">
+            <img src="assets/img/natural-air-ventilator-1000x1000 (1).jpg" alt="Bottom Image 1">
+            <img src="assets/img/ventilato.jpg" alt="Bottom Image 2"> -->
+        </div>
+    </div>
+    <a href="https://windwheelindustries.com" class="btn11">Know More</a>
+
+
+    <footer>
+
+        <div class="footer-bottom">
+            <div class="footer-content">
+                <h3>HYMA</h3>
+                <p>With pride, we fulfill the role of the authorized provider of leading construction materials,
+                    presenting an
+                    extensive selection of high-caliber products tailored to your requirements. Our inventory comprises
+                    Arolite
+                    Polycarbonate Sheets, Century HPL Sheets, Corroshield Screws, Versa solutions, Everwood innovations,
+                    Starwood
+                    WPC Planks, and Maxlite Turbo Ventilators.</p>
+                <ul class="socials">
+                    <li><a href="#"><i class="fa-brands fa-facebook"></i></a></li>
+                    <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
+                    <li><a href="#"><i class="fa-brands fa-youtube"></i></i></a></li>
+                    <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
+                </ul>
+            </div>
+            <p>copyright &copy; <a href="#">Hyma polymers and metals</a> </p>
+            <div class="footer-menu">
+
+            </div>
+        </div>
+
+    </footer>
+
+
+
+<script>
+          document.getElementById('search-btn').addEventListener('click', function() {
+        window.location.href = 'contact.html';
+    });
+</script>
+
+
+    <!-- <main class="main">
+        <img src="assets/img/bg-image.png" alt="image" class="main__bg">
+    </main> -->
+
+    <!--=============== MAIN JS ===============-->
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>

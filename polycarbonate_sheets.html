@@ -1,0 +1,1157 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+  <!-- <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css"> -->
+
+  <link rel="stylesheet" href="assets/vendor/bootstrap-icons/bootstrap-icons.min.css">
+  <!-- <link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.min.css"> -->
+  <link rel="stylesheet" href="assets/vendor/fontawesome-free/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Lora:400i" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400,600" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Crimson+Text" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.5.0/remixicon.css">
+
+  <script type="text/javascript" src="js/script.js"></script>
+  <title>Hyma - Polycarbonate</title>
+  <style>
+    /*=============== HEADER & NAV ===============*/
+
+    @import url("https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600&display=swap");
+
+    :root {
+      /* --default-font: "Roboto", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    --heading-font: "Nunito", sans-serif;
+    --nav-font: "Inter", sans-serif; */
+
+      --background-color: #ffffff;
+      /* Background color for the entire website, including individual sections */
+      --default-color: #3d4348;
+      /* Default color used for the majority of the text content across the entire website */
+      --heading-color: #3e5055;
+      /* Color for headings, subheadings and title throughout the website */
+      --accent-color: #388da8;
+      /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
+      --surface-color: #ffffff;
+      /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
+      --contrast-color: #ffffff;
+      overflow-x: hidden;
+      --nav-color: #313336;
+      /* The default color of the main navmenu links */
+      --nav-hover-color: #77b6ca;
+      /* Applied to main navmenu links when they are hovered over or active */
+      --nav-mobile-background-color: #ffffff;
+      /* Used as the background color for mobile navigation menu */
+      --nav-dropdown-background-color: #ffffff;
+      /* Used as the background color for dropdown items that appear when hovering over primary navigation items */
+      --nav-dropdown-color: #313336;
+      /* Used for navigation links of the dropdown items in the navigation menu. */
+      --nav-dropdown-hover-color: #77b6ca;
+      /* --header-height: 3.5rem; */
+      --first-color: hsl(230, 75%, 56%);
+      --title-color: hsl(230, 75%, 15%);
+      --text-color: hsl(230, 12%, 40%);
+      --body-color: hsl(230, 100%, 98%);
+      --container-color: hsl(230, 100%, 97%);
+      --border-color: hsl(230, 25%, 80%);
+      /* --body-font: "Syne", sans-serif;
+      --h2-font-size: 1.25rem;
+      --normal-font-size: .938rem;
+      --font-regular: 400;
+      --font-medium: 500;
+      --font-semi-bold: 600;
+      --z-fixed: 100;
+      --z-modal: 1000; */
+    }
+    body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f1f5f9;
+            color: #1a202c;
+        }
+
+    /* body,
+    input,
+    button {
+      font-family: var(--body-font);
+      font-size: var(--normal-font-size);
+    }
+
+    body {
+      background-color: var(--body-color);
+      color: var(--text-color);
+    } */
+
+    .header {
+      height: 80px;
+      position: relative;
+      justify-content: center;
+      display: flex;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: var(--body-color);
+      box-shadow: 0 2px 16px hsla(230, 75%, 32%, .15);
+      z-index: var(--z-fixed);
+    }
+
+    .nav {
+      height: var(--header-height);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav__logo {
+      color: var(--title-color);
+      font-weight: var(--font-semi-bold);
+      transition: color .4s;
+    }
+
+    .nav__actions {
+      display: flex;
+      align-items: center;
+      column-gap: 1rem;
+    }
+
+    .nav__search,
+    .nav__login,
+    .nav__toggle,
+    .nav__close {
+      font-size: 1.25rem;
+      color: var(--title-color);
+      cursor: pointer;
+      transition: color .4s;
+    }
+
+    :is(.nav__logo, .nav__search, .nav__login, .nav__toggle, .nav__link):hover {
+      color: var(--first-color);
+    }
+
+    /* Navigation for mobile devices */
+    @media screen and (max-width: 1023px) {
+      .nav__menu {
+        position: fixed;
+        top: -100%;
+        left: 0;
+        background-color: var(--body-color);
+        box-shadow: 0 8px 16px hsla(230, 75%, 32%, .15);
+        width: 100%;
+        padding-block: 4.5rem 4rem;
+        transition: top .4s;
+      }
+    }
+
+    .nav__list {
+      display: flex;
+      flex-direction: column;
+      row-gap: 2.5rem;
+      text-align: center;
+    }
+
+    .nav__link {
+      color: var(--title-color);
+      font-weight: var(--font-semi-bold);
+      transition: color .4s;
+    }
+
+    .nav__close {
+      position: absolute;
+      top: 1.15rem;
+      right: 1.5rem;
+    }
+
+    /* Show menu */
+    .show-menu {
+      top: 0;
+    }
+
+
+
+
+    /* For large devices */
+    @media screen and (min-width: 1023px) {
+      .nav {
+        height: calc(var(--header-height) + 2rem);
+        column-gap: 3rem;
+      }
+
+      .nav__close,
+      .nav__toggle {
+        display: none;
+      }
+
+      .nav__menu {
+        margin-left: auto;
+      }
+
+      .nav__list {
+        flex-direction: row;
+        column-gap: 3rem;
+      }
+
+      .login__form {
+        padding: 3rem 2rem 3.5rem;
+      }
+    }
+
+    @media screen and (min-width: 1150px) {
+      .container {
+        margin-inline: auto;
+      }
+    }
+
+
+
+
+    /* Footer */
+    footer {
+      position: relative;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: #111;
+      height: auto;
+      width: 100vw;
+
+      /* padding-top: 40px; */
+      color: #fff;
+    }
+
+    .footer-content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .footer-content h3 {
+      font-size: 2.1rem;
+      font-weight: 500;
+      text-transform: capitalize;
+      line-height: 3rem;
+    }
+
+    .footer-content p {
+      max-width: 500px;
+      margin: 10px auto;
+      line-height: 28px;
+      font-size: 14px;
+      color: #cacdd2;
+    }
+
+    .socials {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 1rem 0 3rem 0;
+    }
+
+    .socials li {
+      margin: 0 10px;
+    }
+
+    .socials a {
+      text-decoration: none;
+      color: #fff;
+      border: 1.1px solid white;
+      padding: 5px;
+
+      border-radius: 50%;
+
+    }
+
+    .socials a i {
+      font-size: 1.1rem;
+      width: 20px;
+
+
+      transition: color .4s ease;
+
+    }
+
+    .socials a:hover i {
+      color: aqua;
+    }
+
+    .footer-bottom {
+      background: #000;
+      width: 100vw;
+      padding: 20px;
+      padding-bottom: 40px;
+      text-align: center;
+    }
+
+    .footer-bottom p {
+      float: center;
+      font-size: 14px;
+      word-spacing: 2px;
+      text-transform: capitalize;
+    }
+
+    .footer-bottom p a {
+      color: #44bae8;
+      font-size: 16px;
+      text-decoration: none;
+    }
+
+    .footer-bottom span {
+      text-transform: uppercase;
+      opacity: .4;
+      font-weight: 200;
+    }
+
+    .footer-menu {
+      float: right;
+
+    }
+
+    .footer-menu ul {
+      display: flex;
+    }
+
+    .footer-menu ul li {
+      padding-right: 10px;
+      display: block;
+    }
+
+    .footer-menu ul li a {
+      color: #cfd2d6;
+      text-decoration: none;
+    }
+
+    .footer-menu ul li a:hover {
+      color: #27bcda;
+    }
+
+    @media (max-width:500px) {
+      .footer-menu ul {
+        display: flex;
+        margin-top: 10px;
+        margin-bottom: 20px;
+      }
+    }
+
+
+    /* ============================== */
+
+    .containerone {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+            color: #0d9488;
+            
+
+        }
+
+        .brand-section h3 {
+            /* color: #0d9488; */
+            color: #7393B3	;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-align: center;
+            
+        }
+
+        .brand-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .brand-card {
+            background: #fff;
+            border-radius: 1rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .brand-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .brand-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .brand-card h4 {
+            margin: 1rem;
+            /* color: #065f46; */
+            color: #7393B3;
+            font-size: 2.2rem;
+        }
+
+        .brand-card p {
+            margin: 0 1rem 1rem;
+            color: #4a5568;
+            line-height: 1.5;
+            font-size: 1.5rem;
+        }
+
+        .brand-card .btn {
+            display: block;
+            margin: 0 1rem 1rem;
+            padding: 0.6rem 1rem;
+            /* background-color: #0d9488; */
+            background-color: #7393B3;
+            color: white;
+            text-decoration: none;
+            border-radius: 0.5rem;
+            font-size: 1.1rem;
+            text-align: center;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .brand-card .btn:hover {
+            background-color: #065f46;
+        }
+
+        @media (max-width: 768px) {
+            .brand-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .brand-card img {
+                height: 180px;
+            }
+        }
+
+        .specifications-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .spec-card {
+            background: #fff;
+            border-radius: 1rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .spec-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .spec-card h4 {
+            background-color: #7393B3;
+            color: #fff;
+            margin: 0;
+            padding: 1rem;
+            font-size: 1.5rem;
+            text-align: center;
+        }
+
+        .spec-card ul {
+            list-style-type: disc;
+            margin: 1.5rem;
+            color: #4a5568;
+            line-height: 1.8;
+        }
+
+        .spec-card ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .spec-card .btn {
+            display: block;
+            margin: 1rem auto;
+            padding: 0.6rem 1rem;
+            background-color: #0d9488;
+            color: white;
+            text-decoration: none;
+            border-radius: 0.5rem;
+            font-size: 0.9rem;
+            text-align: center;
+            font-weight: bold;
+            width: fit-content;
+            transition: background-color 0.3s;
+        }
+
+        .spec-card .btn:hover {
+            background-color: #065f46;
+        }
+
+        @media (max-width: 768px) {
+            .spec-card ul {
+                margin: 1rem;
+            }
+
+            .spec-card h4 {
+                font-size: 1.3rem;
+            }
+        }
+  </style>
+</head>
+
+<body>
+  <!-- div used to make the body blur -->
+  <!-- <div class="overlay" id="overlay" onclick="closeNav()"></div>
+
+  <section class="head index-part-1">
+    <div class="head-bar">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6 col-xs-6 col-sm-6 col-md-6">
+            <a>
+              <h3>Polycarbonate sheet</h3>
+            </a>
+          </div>
+          <div class="col-lg-6 col-xs-6 col-sm-6 col-md-6 text-right">
+            <div id="mySidenav" class="sidenav text-center">
+              <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a><br>
+              <a href="index.html">Home</a>
+              <hr>
+              <a href="generic.html">Generic</a>
+              <hr>
+              <a href="element.html">Element</a>
+            </div>
+            <div class="main" id="main">
+
+              <button class="btn1">
+                <svg height="24" width="24" fill="#FFFFFF" viewBox="0 0 24 24" data-name="Layer 1" id="Layer_1"
+                  class="sparkle">
+                  <path
+                    d="M10,21.236,6.755,14.745.264,11.5,6.755,8.255,10,1.764l3.245,6.491L19.736,11.5l-6.491,3.245ZM18,21l1.5,3L21,21l3-1.5L21,18l-1.5-3L18,18l-3,1.5ZM19.333,4.667,20.5,7l1.167-2.333L24,3.5,21.667,2.333,20.5,0,19.333,2.333,17,3.5Z">
+                  </path>
+                </svg>
+
+                <span class="text">Contact us</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <hr>
+      </div>
+    </div> -->
+
+  <header class="header" id="header">
+    <nav class="nav container">
+      <!-- <a href="#" class="nav__logo">Logo</a> -->
+
+
+      <a href="#" class="nav__logo" style="font-size: 32px; font-weight: bolder; color: black; text-decoration: none;">
+        Hyma
+      </a>
+
+      <div class="nav__menu" id="nav-menu">
+        <ul class="nav__list">
+          <li class="nav__item">
+            <a href="index.html" class="nav__link">Home</a>
+          </li>
+
+          <!-- <li class="nav__item">
+                      <a href="#" class="nav__link">Products</a>
+                  </li> -->
+
+          <li class="nav__item">
+            <a href="aboutus.html" class="nav__link">About us</a>
+          </li>
+
+          <!-- <li class="nav__item">
+                      <a href="#" class="nav__link">Contact</a>
+                  </li> -->
+
+          <!-- <li class="nav__item">
+                      <a href="#" class="nav__link">Gallery</a>
+                  </li> -->
+        </ul>
+
+        <!-- Close button -->
+        <div class="nav__close" id="nav-close">
+          <i class="ri-close-line"></i>
+        </div>
+      </div>
+
+      <div class="nav__actions">
+        <!-- Search button -->
+        <i class="ri-customer-service-fill" id="search-btn"></i>
+
+      </div>
+    </nav>
+  </header>
+
+
+
+
+  <div class="wow">
+    <div class="container">
+      <div class="row">
+        <div class="wow-logo">
+          <img class="img-responsive img-logo" src="images/logo/hyma-logo-1.png">
+        </div>
+        <div class="font-1 helmet text-center">
+          <p>An <strong>Polycarbonate</strong> vertual reality helmet.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  </section>
+
+  <div class="containerone">
+    <!-- Primary Brands -->
+    <div class="brand-section">
+        <h3>Primary Brands</h3>
+        <div class="brand-grid">
+            <div class="brand-card">
+                <img src="images/blogimg/wall1.jpg" alt="Ultralite">
+                <h4>Ultralite</h4>
+                <p>Our primary brand for superior quality and durability. Ultralite sheets offer exceptional UV resistance, high impact strength, and excellent thermal insulation. Ideal for roofing, skylights, and greenhouses.</p>
+                <a href="https://www.saraswatiplastotech.com/" class="btn">Know More</a>
+            </div>
+
+            <div class="brand-card">
+                <img src="images/blogimg/wall2.jpg" alt="Tilara">
+                <h4>Tilara</h4>
+                <p>A trusted name for innovative polycarbonate solutions. Tilara sheets are known for their lightweight design, weather resistance, and versatile applications in architecture and industrial projects.</p>
+                <a href="https://www.tilarapolyplast.com/polycarbonate-solid-sheet-and-roll.html?gad_source=1&gclid=Cj0KCQiAvP-6BhDyARIsAJ3uv7YNYtin0otETG3HtfXCPSYgE6r86b642Z9Uf6kevp8LNzyYPQgJY3gaAh_5EALw_wcB" class="btn">Know More</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Secondary Brands -->
+    <div class="brand-section">
+        <h3>Secondary Brands</h3>
+        <div class="brand-grid">
+            <div class="brand-card">
+                <img src="images/blogimg/wall3.jpg" alt="Polymac">
+                <h4>Polymac</h4>
+                <p>Secondary brand offering reliable performance at great value. Polymac sheets provide high clarity, impact resistance, and ease of installation, making them perfect for cost-effective construction needs.</p>
+                <a href="https://www.saraswatiplastotech.com" class="btn">Know More</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tertiary Brands -->
+    <div class="brand-section">
+        <h3>Tertiary Brands</h3>
+        <div class="brand-grid">
+            <div class="brand-card">
+                <img src="images/blogimg/wall4.jpg" alt="Eurolite">
+                <h4>Eurolite</h4>
+                <p>A premium option for advanced applications. Eurolite sheets combine superior aesthetics with durability, ensuring long-lasting performance in both commercial and residential spaces.</p>
+                <a href="https://www.mgpolyplast.com" class="btn">Know More</a>
+            </div>
+
+            <div class="brand-card">
+                <img src="images/blogimg/wall5.jpg" alt="Arolite">
+                <h4>Arolite</h4>
+                <p>Perfect for a wide range of industrial and commercial uses. Arolite sheets are designed for excellent light transmission, high weather resistance, and low maintenance requirements.</p>
+                <a href="#" class="btn">Know More</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Specifications Section -->
+   <!-- Specifications Section -->
+   <div class="containerone">
+    <h3>Specifications</h3>
+    <div class="specifications-section">
+        <div class="spec-card">
+            <h4>Ultralite</h4>
+            <ul>
+                <li>Material: High-quality polycarbonate</li>
+                <li>Thickness: 2mm to 12mm</li>
+                <li>UV Protection: Advanced UV coating</li>
+                <li>Applications: Roofing, skylights, and greenhouses</li>
+                <li>Features: High impact resistance, thermal insulation, and lightweight</li>
+                <li>Colors: Clear, bronze, and custom colors</li>
+            </ul>
+            <!-- <a href="#" class="btn">Know More</a> -->
+        </div>
+
+        <div class="spec-card">
+            <h4>Tilara</h4>
+            <ul>
+                <li>Material: Durable polycarbonate</li>
+                <li>Thickness: 3mm to 10mm</li>
+                <li>Weather Resistance: Excellent performance in extreme conditions</li>
+                <li>Applications: Industrial projects and architectural designs</li>
+                <li>Features: Lightweight, flexible, and easy to install</li>
+                <li>Colors: Transparent, opal, and blue</li>
+            </ul>
+            <!-- <a href="#" class="btn">Know More</a> -->
+        </div>
+
+        <div class="spec-card">
+            <h4>Polymac</h4>
+            <ul>
+                <li>Material: Economical polycarbonate</li>
+                <li>Thickness: 2mm to 8mm</li>
+                <li>Impact Resistance: High resistance to shocks</li>
+                <li>Applications: DIY projects, partition walls, and glazing</li>
+                <li>Features: Cost-effective, durable, and versatile</li>
+                <li>Colors: Frosted, smoke, and green</li>
+            </ul>
+            <!-- <a href="#" class="btn">Know More</a> -->
+        </div>
+
+        <div class="spec-card">
+            <h4>Eurolite</h4>
+            <ul>
+                <li>Material: Premium-grade polycarbonate</li>
+                <li>Thickness: 4mm to 12mm</li>
+                <li>Aesthetic Appeal: Enhanced clarity and gloss</li>
+                <li>Applications: Modern architectural projects and interiors</li>
+                <li>Features: Scratch-resistant, UV-protected, and long-lasting</li>
+                <li>Colors: Customizable with high gloss finish</li>
+            </ul>
+            <!-- <a href="#" class="btn">Know More</a> -->
+        </div>
+
+        <div class="spec-card">
+            <h4>Arolite</h4>
+            <ul>
+                <li>Material: Industrial-grade polycarbonate</li>
+                <li>Thickness: 5mm to 15mm</li>
+                <li>Light Transmission: Up to 90%</li>
+                <li>Applications: Warehouses, factories, and greenhouses</li>
+                <li>Features: Weatherproof, low maintenance, and robust</li>
+                <li>Colors: Clear, grey, and white</li>
+            </ul>
+            <!-- <a href="#" class="btn">Know More</a> -->
+        </div>
+    </div>
+</div>
+</div>
+
+  <section class="index-part-2">
+    <div class="container">
+
+      <div class="row">
+        <div class="text-center">
+          <h2>Features</h2>
+        </div>
+        <hr class="hr-mid">
+        <div class="sub-text text-center">
+          <p class="font-1">
+            Offer durable and versatile polycarbonate sheets for roofing, skylights, greenhouse panels, safety barriers,
+            and architectural glazing applications, available in different thicknesses and colors to suit different
+            needs..
+          </p>
+        </div>
+      </div>
+
+      <div class="row">
+
+        <div class="col-xs-12 col-lg-6 col-sm-6 col-md-6 col-block">
+          <div class="block text-center block-first">
+            <div class="icon">
+              <i class="fa fa-diamond fa-2x"></i>
+            </div>
+            <h4>Durable Construction</h4>
+            <p class="font-2">Our polycarbonate sheets are engineered to withstand the toughest conditions,they provide
+              reliable protection against UV rays, impact resistance, and extreme weather conditions.</p>
+          </div>
+        </div>
+        <div class="col-xs-12 col-lg-6 col-sm-6 col-md-6 col-block">
+          <div class="block text-center block-second">
+            <div class="icon">
+              <i class="fa fa-camera fa-2x"></i>
+            </div>
+            <h4> Customizable Options</h4>
+            <p class="font-2">Tailor your project with our range of polycarbonate sheets available in different
+              thicknesses and colors. From clear sheets that maximize light transmission to tinted options for enhanced
+              privacy.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12 col-lg-6 col-sm-6 col-md-6 col-block">
+          <div class="block text-center block-third">
+            <div class="icon">
+              <i class="fa fa-eye fa-2x"></i>
+            </div>
+            <h4>Premium Quality</h4>
+            <p class="font-2">Experience premium quality polycarbonate sheets crafted from high-grade materials. Ideal
+              for both commercial and residential projects, offering exceptional clarity, durability.</p>
+          </div>
+        </div>
+        <div class="col-xs-12 col-lg-6 col-sm-6 col-md-6 col-block">
+          <div class="block text-center block-last">
+            <div class="icon">
+              <i class="fa fa-sliders fa-2x"></i>
+            </div>
+            <h4>Tailored Solutions</h4>
+            <p class="font-2">Customize your projects with our tailored polycarbonate solutions. Choose from a selection
+              of thicknesses and colors to achieve the perfect balance of durability and design.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="index-part-3">
+    <div class="container">
+      <div class="row why-div">
+        <div class="text-center">
+          <h2>Why Hyma</h2>
+        </div>
+        <hr class="hr-mid">
+        <div class="sub-text text-center">
+          <p class="font-1">
+            We're dedicated to providing top-notch products and services in the polymers and metals industry. With a
+            reputation for excellence and a commitment to innovation, we're your trusted partner for all your polymer
+            and metal needs.
+          </p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-9 col-sm-12 col-md-9 col-xs-12">
+          <div class="holder-para">
+            <h3>CORRUGATION SHEET</h3>
+            <hr class="hr-short">
+            <p class="font-2">
+
+
+              The corrugated sheet is a versatile product that combines a corrugated
+              polycarbonate structure with an embossed texture, offering both strength and aesthetic appeal. This
+              innovative design not only ensures durability but also enhances impact resistance, making it suitable for
+              various applications where both resilience and visual appeal are essential
+            </p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-xs-12 col-sm-12 col-md-3">
+          <div class="holder-img">
+            <img class="round-img img-responsive center-block" src="images/polycarbonate-corrugated-sheet.jpeg">
+          </div>
+        </div>
+      </div>
+
+      <hr class="line-full">
+
+      <div class="row">
+        <div class="col-lg-9 col-xs-12 col-sm-12 col-md-9 col-md-push-3">
+          <div class="holder-para">
+            <h3>SOLID & DIAMOND</h3>
+            <hr class="hr-short">
+            <p class="font-2">
+              A polished, UV stabilized, transparent polycarbonate product known for its excellent impact strength,
+              superior dimensional stability, high temperature resistance, and exceptional clarity. The compact variant
+              is easy to fabricate and customize to specific requirements. Additionally, it includes a 5-year warranty,
+              available upon request, ensuring peace of mind and reliability.
+            </p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-xs-12 col-sm-12 col-md-3 col-md-pull-9">
+          <div class="holder-img">
+            <img class="round-img img-responsive center-block" src="images/polycarbonate-solid-diamond-sheet.jpg">
+          </div>
+        </div>
+      </div>
+
+      <hr class="line-full">
+
+      <div class="row">
+        <div class="col-lg-9 col-xs-12 col-sm-12 col-md-9">
+          <div class="holder-para">
+            <h3>MULTIWALL</h3>
+            <hr class="hr-short">
+            <p class="font-2">
+              Multiwall or twin-wall polycarbonate sheet is renowned for its exceptional combination of qualities: high
+              light transmission, effective thermal insulation, and outstanding weather resistance. Its lightweight
+              nature and impact resistance make installation easy and durable. Moreover, it features a UV-protected
+              layer seamlessly integrated with the sheet, ensuring prolonged performance and reliability."
+            </p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-xs-12 col-sm-12 col-md-3">
+          <div class="holder-img">
+            <img class="round-img img-responsive center-block" src="images/multiwall.jpg">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <a>
+    <h3 class="center">Sheet Type Information</h3>
+  </a>
+  <!-- <h2 class="center">Sheet Type Information</h2> -->
+
+  <table border="1" cellspacing="0" cellpadding="0">
+    <thead>
+      <tr>
+        <th width="114" valign="top">
+          <p align="center">Sheet Type</p>
+        </th>
+        <th width="137" valign="top">
+          <p align="center">Thickness (mm)</p>
+        </th>
+        <th width="135" valign="top">
+          <p align="center">Width - Length (mm)</p>
+        </th>
+        <th width="182" valign="top">
+          <p align="center">Colors</p>
+        </th>
+      </tr>
+    </thead>
+    <tr>
+      <td width="114" rowspan="8" valign="middle" style="vertical-align:middle; border-bottom:none !important">
+        <p align="center">Solid Sheet</p>
+      </td>
+      <td width="137" valign="top" style="border-top:none !important; border-bottom:none !important;">
+        <p align="center">1</p>
+      </td>
+      <td width="135" valign="top" style="border-top:none !important; border-bottom:none !important;">
+        <p align="center">1220x31000</p>
+      </td>
+      <td width="182" rowspan="8" valign="middle" style="vertical-align:middle;">
+        <p align="center"><!--Clear, Opal, White, Bronze, Green, Blue-->
+
+          Clear, Opal White, Bronze, Green, Blue
+
+
+
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td width="137" valign="top" style="border-top:none !important; border-bottom:none !important;">
+        <p align="center">2</p>
+      </td>
+      <td width="135" valign="top" style="border-top:none !important; border-bottom:none !important;">
+        <p align="center">2050x31000</p>
+      </td>
+    </tr>
+    <tr>
+      <td width="137" valign="top" style="border-top:none !important; border-bottom:none !important;">
+        <p align="center">3</p>
+      </td>
+      <td width="135" valign="top" style="border-top:none !important; border-bottom:none !important;">
+        <p align="center">(Rolled)</p>
+      </td>
+    </tr>
+    <tr>
+      <td width="137" valign="top" style=" border-bottom:none !important;">
+        <p align="center">4</p>
+      </td>
+      <td width="135" valign="top" style="border-bottom:none !important;">
+        <p align="center">&nbsp;</p>
+      </td>
+    </tr>
+    <tr>
+      <td width="137" valign="top" style="border-top:none !important; border-bottom:none !important;">
+        <p align="center">6</p>
+      </td>
+      <td width="135" valign="top" style="border-top:none !important; border-bottom:none !important;">
+        <p align="center">1220x2440
+
+
+
+
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td width="137" valign="top" style="border-top:none !important; border-bottom:none !important;">
+        <p align="center">8</p>
+      </td>
+      <td width="135" valign="top" style="border-top:none !important; border-bottom:none !important;">
+        <p align="center">
+          1220x3050
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td width="137" valign="top" style="border-top:none !important; border-bottom:none !important;">
+        <p align="center">10</p>
+      </td>
+      <td width="135" valign="top" style="border-top:none !important; border-bottom:none !important;">
+        <p align="center">
+          2050x2440
+          <br>
+          2050x3050
+        </p>
+      </td>
+    </tr>
+    <!--
+      <tfoot>
+      <tr>
+      <td colspan="4">
+      <p>*Other dimension & Colors are available with a special order, subject to a minimum order</p>
+      </td>
+      </tr>
+      </tfoot>-->
+
+  </table>
+
+  <!-- <h2 class="center">Available</h2> -->
+
+  <a>
+    <h3 class="center">Available colors</h3>
+  </a>
+
+
+  <div class="gallery">
+    <div class="gallery-item">
+      <img src="images/product_images/Compact-Blue.png" alt="Turbo Image">
+      <div class="caption">Compact Blue</div>
+    </div>
+    <div class="gallery-item">
+      <img src="images/product_images/bronze-color.png" alt="Image 2">
+      <div class="caption">Compact Bronze</div>
+    </div>
+    <div class="gallery-item">
+      <img src="images/product_images/Compact-Clear.jpg" alt="Image 3">
+      <div class="caption">Compact Clear</div>
+    </div>
+    <div class="gallery-item">
+      <img src="images/product_images/Compact-grey.png" alt="Image 4">
+      <div class="caption">Compact Grey</div>
+    </div>
+    <!-- <div class="gallery-item">
+      <img src="images/product_images/late-blue.png" alt="Image 5">
+      <div class="caption">Compact Lake Blue</div>
+    </div> -->
+    <div class="gallery-item">
+      <img src="images/product_images/orange.png" alt="Image 5">
+      <div class="caption">Compact Orange</div>
+    </div>
+    <div class="gallery-item">
+      <img src="images/product_images/diamondblue.jfif" alt="Image 5">
+      <div class="caption">Diamond Blue</div>
+    </div>
+    <div class="gallery-item">
+      <img src="images/product_images/Diamond-Bronze.jpg" alt="Image 5">
+      <div class="caption">Diamond Bronze</div>
+    </div>
+    <div class="gallery-item">
+      <img src="images/product_images/clear.jpeg" alt="Image 5">
+      <div class="caption">Diamond Clear</div>
+    </div>
+    <div class="gallery-item">
+      <img src="images/product_images/diamondgrey.jpg" alt="Image 5">
+      <div class="caption">Diamond Grey</div>
+    </div>
+    <div class="gallery-item">
+      <img src="images/product_images/latebluedia.jpg" alt="Image 5">
+      <div class="caption">Diamond Lake Blue</div>
+    </div>
+    <div class="gallery-item">
+      <img src="images/product_images/diamondorNGE.jfif" alt="Image 5">
+      <div class="caption">Diamond Orange</div>
+    </div>
+    <div class="gallery-item">
+      <img src="images/product_images/Diamond-Yellow.jpg" alt="Image 5">
+      <div class="caption">Diamond Yellow</div>
+    </div>
+    <!-- <div class="gallery-item">
+      <img src="/images/turbo-hme-th.jpg" alt="Image 5">
+      <div class="caption">Caption for Image 5</div>
+    </div>
+    <div class="gallery-item">
+      <img src="/images/turbo-hme-th.jpg" alt="Image 5">
+      <div class="caption">Caption for Image 5</div>
+    </div>
+    <div class="gallery-item">
+      <img src="/images/turbo-hme-th.jpg" alt="Image 5">
+      <div class="caption">Caption for Image 5</div>
+    </div> -->
+    <!-- Add more gallery items as needed -->
+  </div>
+
+  <section class="index-part-4">
+    <div class="container">
+
+      <div class="row">
+        <div class="text-center">
+          <h2>Step in wow</h2>
+        </div>
+        <hr class="hr-mid">
+        <div class="sub-text text-center">
+          <p class="font-1">
+            Hyma Polymers & Metals offers a premier selection including aluminum profiles, plates, disposable plates,
+            bars, vitrified tiles, and plastic sheets, ensuring efficient and punctual delivery
+          </p>
+        </div>
+      </div>
+
+      <!-- <div class="row text-center">
+        <a class="btn btn-default wow-button" href="#">CONTACT US</a>
+      </div> -->
+    </div>
+  </section>
+
+  <!-- <section class="social">
+    <ul>
+      <li>
+        <a href="#" class="bi bi-facebook fa-2x" aria-hidden="true"></a>
+      </li>
+      <li><a href="#" class="bi bi-instagram fa-2x" aria-hidden="true"></a></li>
+      <li><a href="#" class="bi bi-linkedin fa-2x" aria-hidden="true"></a></li>
+      <li><a href="#" class="bi bi-youtube fa-2x" aria-hidden="true"></a></li>
+    </ul>
+  </section> -->
+
+
+
+  <footer>
+
+    <div class="footer-bottom">
+      <div class="footer-content">
+        <h3>HYMA</h3>
+        <p>With pride, we fulfill the role of the authorized provider of leading construction materials,
+          presenting an
+          extensive selection of high-caliber products tailored to your requirements. Our inventory comprises
+          Arolite
+          Polycarbonate Sheets, Century HPL Sheets, Corroshield Screws, Versa solutions, Everwood innovations,
+          Starwood
+          WPC Planks, and Maxlite Turbo Ventilators.</p>
+        <ul class="socials">
+          <li><a href="#"><i class="fa-brands fa-facebook"></i></a></li>
+          <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
+          <li><a href="#"><i class="fa-brands fa-youtube"></i></i></a></li>
+          <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
+        </ul>
+      </div>
+      <p>copyright &copy; <a href="#">Hyma polymers and metals</a> </p>
+      <div class="footer-menu">
+
+      </div>
+    </div>
+
+  </footer>
+
+  <!-- <section class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+          <div class="footer-p1">
+            <p class="font-2">© 2024 All Rights Reserved.</p>
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+          <img class="img-responsive foot-img" src="images/logo/hyma-logo-1.png">
+        </div>
+        <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+          <div class="footer-p2">
+            <p class="font-2">Made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="/"
+                target="_blank">Hyma polymers and metals.</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section> -->
+
+</body>
+
+</html>

@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roofing Sheets Details</title>
+    <!-- <link rel="stylesheet" href="styles.css"> -->
+
+    <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
+    <link href="assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+
+    <style>
+        /* body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        } */
+
+
+
+        @import url("https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600&display=swap");
+
+        :root {
+            overflow-x: hidden;
+            --header-height: 3.5rem;
+            --first-color: hsl(230, 75%, 56%);
+            --title-color: hsl(230, 75%, 15%);
+            --text-color: hsl(230, 12%, 40%);
+            --body-color: hsl(230, 100%, 98%);
+            --container-color: hsl(230, 100%, 97%);
+            --border-color: hsl(230, 25%, 80%);
+            --body-font: "Syne", sans-serif;
+            --h2-font-size: 1.25rem;
+            --normal-font-size: .938rem;
+            --font-regular: 400;
+            --font-medium: 500;
+            --font-semi-bold: 600;
+            --z-fixed: 100;
+            --z-modal: 1000;
+        }
+
+        /*========== Responsive typography ==========*/
+        @media screen and (min-width: 1023px) {
+            :root {
+                --h2-font-size: 1.5rem;
+                --normal-font-size: 1rem;
+            }
+        }
+
+        /*=============== BASE ===============*/
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body,
+        input,
+        button {
+            font-family: var(--body-font);
+            font-size: var(--normal-font-size);
+        }
+
+        body {
+            
+            margin: 0%;
+            margin-top: 70px;
+            background-color: var(--body-color);
+            color: var(--text-color);
+        }
+
+
+
+        ul {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+
+        /*=============== REUSABLE CSS CLASSES ===============*/
+        .container {
+            max-width: 1120px;
+            margin-inline: 1.5rem;
+        }
+
+
+
+        /*=============== HEADER & NAV ===============*/
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: var(--body-color);
+            box-shadow: 0 2px 16px hsla(230, 75%, 32%, .15);
+            z-index: var(--z-fixed);
+        }
+
+        .nav {
+            height: var(--header-height);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav__logo {
+            color: var(--title-color);
+            font-weight: var(--font-semi-bold);
+            transition: color .4s;
+        }
+
+        .nav__actions {
+            display: flex;
+            align-items: center;
+            column-gap: 1rem;
+        }
+
+        .nav__search,
+        .nav__login,
+        .nav__toggle,
+        .nav__close {
+            font-size: 1.25rem;
+            color: var(--title-color);
+            cursor: pointer;
+            transition: color .4s;
+        }
+
+        :is(.nav__logo, .nav__search, .nav__login, .nav__toggle, .nav__link):hover {
+            color: var(--first-color);
+        }
+
+        /* Navigation for mobile devices */
+        @media screen and (max-width: 1023px) {
+            .nav__menu {
+                position: fixed;
+                top: -100%;
+                left: 0;
+                background-color: var(--body-color);
+                box-shadow: 0 8px 16px hsla(230, 75%, 32%, .15);
+                width: 100%;
+                padding-block: 4.5rem 4rem;
+                transition: top .4s;
+            }
+        }
+
+        .nav__list {
+            display: flex;
+            flex-direction: column;
+            row-gap: 2.5rem;
+            text-align: center;
+        }
+
+        .nav__link {
+            color: var(--title-color);
+            font-weight: var(--font-semi-bold);
+            transition: color .4s;
+        }
+
+        .nav__close {
+            position: absolute;
+            top: 1.15rem;
+            right: 1.5rem;
+        }
+
+        /* Show menu */
+        .show-menu {
+            top: 0;
+        }
+
+
+
+
+        /* For large devices */
+        @media screen and (min-width: 1023px) {
+            .nav {
+                height: calc(var(--header-height) + 2rem);
+                column-gap: 3rem;
+            }
+
+            .nav__close,
+            .nav__toggle {
+                display: none;
+            }
+
+            .nav__menu {
+                margin-left: auto;
+            }
+
+            .nav__list {
+                flex-direction: row;
+                column-gap: 3rem;
+            }
+
+            .login__form {
+                padding: 3rem 2rem 3.5rem;
+            }
+        }
+
+        @media screen and (min-width: 1150px) {
+            .container {
+                margin-inline: auto;
+            }
+        }
+
+
+        /* footer starts */
+
+
+        /* footer */
+        /* Footer */
+        footer {
+            position: relative;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: #111;
+            height: auto;
+            width: 100vw;
+
+            /* padding-top: 40px; */
+            color: #fff;
+        }
+
+        .footer-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .footer-content h3 {
+            font-size: 2.1rem;
+            font-weight: 500;
+            text-transform: capitalize;
+            line-height: 3rem;
+        }
+
+        .footer-content p {
+            max-width: 500px;
+            margin: 10px auto;
+            line-height: 28px;
+            font-size: 14px;
+            color: #cacdd2;
+        }
+
+        .socials {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 1rem 0 3rem 0;
+        }
+
+        .socials li {
+            margin: 9px 10px;
+            /* margin: 9px 16px; */
+            /* padding: 15px; */
+            padding-top: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .socials a {
+            text-decoration: none;
+            color: #fff;
+            border: 1.1px solid white;
+            padding: 5px;
+
+            border-radius: 50%;
+
+        }
+
+        .socials a i {
+            font-size: 1.1rem;
+            width: 20px;
+
+
+            transition: color .4s ease;
+
+        }
+
+        .socials a:hover i {
+            color: aqua;
+        }
+
+        .footer-bottom {
+            background: #000;
+            width: 100vw;
+            padding: 20px;
+            padding-bottom: 40px;
+            text-align: center;
+        }
+
+        .footer-bottom p {
+            float: center;
+            font-size: 14px;
+            word-spacing: 2px;
+            text-transform: capitalize;
+        }
+
+        .footer-bottom p a {
+            color: #44bae8;
+            font-size: 16px;
+            text-decoration: none;
+        }
+
+        .footer-bottom span {
+            text-transform: uppercase;
+            opacity: .4;
+            font-weight: 200;
+        }
+
+        .footer-menu {
+            float: right;
+
+        }
+
+        .footer-menu ul {
+            display: flex;
+        }
+
+        .footer-menu ul li {
+            padding-right: 10px;
+            display: block;
+        }
+
+        .footer-menu ul li a {
+            color: #cfd2d6;
+            text-decoration: none;
+        }
+
+        .footer-menu ul li a:hover {
+            color: #27bcda;
+        }
+
+        @media (max-width:500px) {
+            .footer-menu ul {
+                display: flex;
+                margin-top: 10px;
+                margin-bottom: 20px;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+
+        /* header {
+            background: linear-gradient(90deg, #4b6cb7, #182848);
+            color: #fff;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        header p {
+            font-size: 1.4rem;
+            margin-top: 10px;
+            font-weight: 300;
+        } */
+
+        .brand-section {
+            display: flex;
+            justify-content: space-around;
+            padding: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .brand-card {
+            height: 490px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            width: 30%;
+            margin-bottom: 2rem;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .brand-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+        }
+
+        .brand-card img {
+            width: 100%;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+
+        .brand-card h2 {
+            margin: 1rem 0;
+            font-size: 1.8rem;
+            color: #333;
+            font-weight: 600;
+        }
+
+        .brand-card p {
+            padding: 0 1.5rem;
+            font-size: 1rem;
+            color: #666;
+        }
+
+        .feature-section {
+            padding: 1rem 1.5rem;
+            text-align: center;
+        }
+
+        .feature-section h3 {
+            color: #4b6cb7;
+            margin-bottom: 0.5rem;
+            font-size: 1.4rem;
+            font-weight: 600;
+        }
+
+        .feature-section ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .feature-section ul li {
+            font-size: 1rem;
+            color: #555;
+            margin: 0.5rem 0;
+        }
+
+        .feature-section ul li i {
+            color: #4b6cb7;
+            margin-right: 10px;
+        }
+
+        footer {
+            background: linear-gradient(90deg, #182848, #4b6cb7);
+            color: #fff;
+            text-align: center;
+            padding: 1rem 0;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 0.9rem;
+        }
+
+        .available-colors {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .color-card {
+            flex: 1 1 30%;
+            background: #fff;
+            margin: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100px;
+            color: #fff;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .color-card.brick-red {
+            background-color: #b22222;
+        }
+
+        .color-card.terracotta {
+            background-color: #e2725b;
+        }
+
+        .color-card.royal-blue {
+            background-color: #4169e1;
+        }
+
+        .color-card.sky-blue {
+            background-color: #87ceeb;
+            color: #333;
+        }
+
+        .color-card.caulfield-green {
+            background-color: #006400;
+        }
+
+        .color-card.mist-green {
+            background-color: #98ff98;
+            color: #333;
+        }
+
+        .color-card.off-white {
+            background-color: #f5f5f5;
+            color: #333;
+        }
+
+        footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            margin-top: 20px;
+        }
+
+        /* Media Queries for Responsive Design */
+        @media (max-width: 768px) {
+            .brand-card {
+                width: 45%;
+                margin-bottom: 1rem;
+            }
+
+            header h1 {
+                font-size: 2.2rem;
+            }
+
+            header p {
+                font-size: 1.2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .brand-card {
+                width: 100%;
+                margin-bottom: 1rem;
+            }
+
+            header h1 {
+                font-size: 1.8rem;
+            }
+
+            header p {
+                font-size: 1rem;
+            }
+
+            .color-card {
+                flex: 1 1 100%;
+                margin: 5px 0;
+            }
+        }
+
+
+
+        .product-description {
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+            border-radius: 20px;
+            padding: 10px;
+            background-color: white;
+            margin-bottom: 20px;
+        }
+
+        .product-description h2 {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .product-types {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .card {
+            flex: 1 1 30%;
+            background: #fff;
+            margin: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card img {
+            width: 100%;
+            height: 150px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .card-body {
+            padding: 15px;
+        }
+
+        .card-title {
+            text-align: center;
+            font-size: 18px;
+            margin: 0 0 10px 0;
+        }
+    </style>
+
+</head>
+
+<body>
+    <header class="header" id="header">
+        <nav class="nav container">
+            <!-- <a href="#" class="nav__logo">Logo</a> -->
+
+           
+            <a href="#" class="nav__logo"
+                style="font-size: 32px; font-weight: bolder; color: black; text-decoration: none;">
+               Hyma
+            </a>
+
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a href="index.html" class="nav__link">Home</a>
+                    </li>
+
+                    <li class="nav__item">
+                        <a href="products.html" class="nav__link">Products</a>
+                    </li>
+
+                    <li class="nav__item">
+                        <a href="aboutus.html" class="nav__link">About us</a>
+                    </li>
+
+                    <!-- <li class="nav__item">
+                        <a href="contact.html" class="nav__link">Contact</a>
+                    </li> -->
+
+                    <li class="nav__item">
+                        <a href="gallery.html" class="nav__link">Gallery</a>
+                    </li>
+                </ul>
+
+                <!-- Close button -->
+                <div class="nav__close" id="nav-close">
+                    <i class="ri-close-line"></i>
+                </div>
+            </div>
+
+            <div class="nav__actions">
+                <!-- Search button -->
+                <i class="ri-customer-service-fill" id="search-btn"></i>
+
+            </div>
+        </nav>
+    </header>
+
+    <section class="brand-section">
+        <div class="brand-card">
+            <img src="images/logo/tata.png" alt="Tata Roofing Sheets" style="height: 150px; width: 150px;">
+            <h2>Tata Roofing Sheets</h2>
+            <p>Tata is a trusted name in the roofing industry, offering durable and high-performance roofing sheets that
+                ensure long-lasting protection.</p>
+            <div class="feature-section">
+                <h3>Features</h3>
+                <ul>
+                    <li><i class="fas fa-shield-alt"></i> Corrosion Resistance</li>
+                    <li><i class="fas fa-sun"></i> UV Protection</li>
+                    <li><i class="fas fa-hammer"></i> High Durability</li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="brand-card">
+            <img src="images/logo/jsw.png" alt="JSW Roofing Sheets" style="height: 150px; width: 150px">
+            <h2>JSW Roofing Sheets</h2>
+            <p>JSW provides innovative roofing solutions that combine strength, style, and sustainability, making them a
+                leader in the market.</p>
+            <div class="feature-section">
+                <h3>Features</h3>
+                <ul>
+                    <li><i class="fas fa-leaf"></i> Eco-Friendly</li>
+                    <li><i class="fas fa-temperature-high"></i> Heat Resistant</li>
+                    <li><i class="fas fa-snowflake"></i> Weather Proof</li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="brand-card">
+            <img src="images/logo/jaguar.png" alt="Jaguar Roofing Sheets" style="height: 150px; width: 150px">
+            <h2>Jaguar Roofing Sheets</h2>
+            <p>Jaguar offers a range of roofing sheets designed to meet diverse needs, from residential to industrial
+                applications.</p>
+            <div class="feature-section">
+                <h3>Features</h3>
+                <ul>
+                    <li><i class="fas fa-cogs"></i> Easy Installation</li>
+                    <li><i class="fas fa-paint-brush"></i> Aesthetic Appeal</li>
+                    <li><i class="fas fa-recycle"></i> Recyclable Materials</li>
+                </ul>
+            </div>
+
+        </div>
+    </section>
+
+
+
+    <section id="content">
+        <div class="container">
+            <div class="product-description">
+                <h2>Product Description</h2>
+                <p>The Roofing Sheets are made from Metallic G. I. Colour Coated Sheets with RMP, HDPE, SMP and PVDF2
+                    Colour Coating, Galvalume Steel or Combination of Zinc and Aluminium coating is 150 GSM = AZ 150.
+                    The coating ratio is 55% Aluminium + 43.5% Zinc + 1.5% Silicon including both surfaces as per ASTM
+                    1446, Grade E/ASTM-A-792 or from Galvalume Colour Coated material, depending upon the customer's
+                    choice. Basic material used is C. R. 240 MPA Steel, the Zinc coating (including both surface) is 120
+                    GSM, 180 GSM, 275 GSM. 18 to 20 microne Colours available are appliance Off White, Blue, Green and
+                    Brick Red, Terra cotta, Gray, etc. We have in house facilities to manufacture Roofing Accessories
+                    such as Ridges, Eaves, Apron, Gutter, Capping, Flashing and North Light Curves Trap Sheets etc. in
+                    suitable required size and shape.</p>
+                <h2>Available Types</h2>
+                <div class="product-types">
+                    <div class="card">
+                        <img src="images/logo/Galvalume.jpg" alt="Galvalume">
+                        <div class="card-body">
+                            <h3 class="card-title">Galvalume</h3>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="images/logo/aluminium-profile-roofing-sheet.jpg" alt="Aluminium Profile Sheet">
+                        <div class="card-body">
+                            <h3 class="card-title">Aluminium Profile Sheet</h3>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="images/logo/CorrugatedSheet.jpg" alt="Corrugated Sheet">
+                        <div class="card-body">
+                            <h3 class="card-title">Corrugated Sheet</h3>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="images/logo/CrimpedSheet.jpeg" alt="Crimped Sheet">
+                        <div class="card-body">
+                            <h3 class="card-title">Crimped Sheet</h3>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="images/logo/Curve Sheet.jpg" alt="Curve Sheet">
+                        <div class="card-body">
+                            <h3 class="card-title">Curve Sheet</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="colors" class="container">
+        <h2 style="text-align: center;">Available Colors</h2>
+        <div class="available-colors">
+            <div class="color-card brick-red">Brick Red</div>
+            <div class="color-card terracotta">Terracotta</div>
+            <div class="color-card royal-blue">Royal Blue</div>
+            <div class="color-card sky-blue">Sky Blue</div>
+            <div class="color-card caulfield-green">Caulfield Green</div>
+            <div class="color-card mist-green">Mist Green</div>
+            <div class="color-card off-white">Off White</div>
+        </div>
+    </section>
+
+    <footer>
+
+        <div class="footer-bottom">
+            <div class="footer-content">
+                <h3>HYMA</h3>
+                <p>With pride, we fulfill the role of the authorized provider of leading construction materials,
+                    presenting an
+                    extensive selection of high-caliber products tailored to your requirements. Our inventory comprises
+                    Arolite
+                    Polycarbonate Sheets, Century HPL Sheets, Corroshield Screws, Versa solutions, Everwood innovations,
+                    Starwood
+                    WPC Planks, and Maxlite Turbo Ventilators.</p>
+                <ul class="socials">
+                    <li><a href="#"><i class="fa-brands fa-facebook"></i></a></li>
+                    <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
+                    <li><a href="#"><i class="fa-brands fa-youtube"></i></i></a></li>
+                    <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
+                </ul>
+            </div>
+            <p>copyright &copy; <a href="#">Hyma polymers and metals</a> </p>
+            <div class="footer-menu">
+
+            </div>
+        </div>
+
+    </footer>
+
+</body>
+
+</html>

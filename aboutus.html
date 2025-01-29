@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Hyma Polymers and Metals</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+
+    <style>
+        .hero-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('assets/img/16444.jpg') no-repeat center center;
+            background-size: cover;
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .hero-section h1 {
+            font-size: 3rem;
+            font-weight: bold;
+        }
+
+        .hero-section p {
+            font-size: 1.25rem;
+        }
+
+        .card {
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .section-title {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .about-content {
+            line-height: 1.8;
+            text-align: justify;
+        }
+
+        .contact-section {
+            background-color: #f8f9fa;
+            padding: 40px 0;
+        }
+
+
+        /* Footer */
+        footer {
+            position: relative;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: #111;
+            height: auto;
+            width: 100vw;
+
+            /* padding-top: 40px; */
+            color: #fff;
+        }
+
+        .footer-contents {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .footer-contents h3 {
+            font-size: 2.1rem;
+            font-weight: 500;
+            text-transform: capitalize;
+            line-height: 3rem;
+        }
+
+        .footer-contents p {
+            max-width: 500px;
+            margin: 10px auto;
+            line-height: 28px;
+            font-size: 14px;
+            color: #cacdd2;
+        }
+
+        .socials {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 1rem 0 3rem 0;
+        }
+
+        .socials li {
+            margin: 0 10px;
+        }
+
+        .socials a {
+            text-decoration: none;
+            color: #fff;
+            border: 1.1px solid white;
+            padding: 5px;
+
+            border-radius: 50%;
+
+        }
+
+        .socials a i {
+            font-size: 1.1rem;
+            width: 20px;
+
+
+            transition: color .4s ease;
+
+        }
+
+        .socials a:hover i {
+            color: aqua;
+        }
+
+        .footer-bottoms {
+            background: #000;
+            width: 100vw;
+            padding: 20px;
+            padding-bottom: 40px;
+            text-align: center;
+        }
+
+        .footer-bottoms p {
+            float: center;
+            font-size: 14px;
+            word-spacing: 2px;
+            text-transform: capitalize;
+        }
+
+        .footer-bottoms p a {
+            color: #44bae8;
+            font-size: 16px;
+            text-decoration: none;
+        }
+
+        .footer-bottoms span {
+            text-transform: uppercase;
+            opacity: .4;
+            font-weight: 200;
+        }
+
+        .footer-menu {
+            float: right;
+
+        }
+
+        .footer-menu ul {
+            display: flex;
+        }
+
+        .footer-menu ul li {
+            padding-right: 10px;
+            display: block;
+        }
+
+        .footer-menu ul li a {
+            color: #cfd2d6;
+            text-decoration: none;
+        }
+
+        .footer-menu ul li a:hover {
+            color: #27bcda;
+        }
+
+        @media (max-width:500px) {
+            .footer-menu ul {
+                display: flex;
+                margin-top: 10px;
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <h1>About Hyma Polymers and Metals</h1>
+            <p>Excellence and Innovation in Polymers and Metals</p>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="text-center section-title mb-4">Who We Are</h2>
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <p class="about-content">
+                        At Hyma Polymers and Metals, we are proud to be at the forefront of the polymers and metals
+                        industry.
+                        Our dedication to quality and innovation has earned us a trusted reputation among industry
+                        leaders.
+                        From high-quality polymer production to advanced metal fabrication, we are your reliable partner
+                        for all
+                        your needs.
+                    </p>
+                </div>
+                <div class="col-lg-6">
+                    <img src="assets/img/polymers.webp" alt="About Us Image" class="img-fluid rounded">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <!-- <section class="py-5 bg-light">
+    <div class="container">
+      <h2 class="text-center section-title mb-4">Our Services</h2>
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-3">
+          <div class="card text-center">
+            <div class="card-body">
+              <h5 class="card-title">High-Quality Polymer Production</h5>
+              <p class="card-text">Delivering superior polymer products for various industrial applications.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="card text-center">
+            <div class="card-body">
+              <h5 class="card-title">Advanced Metal Fabrication</h5>
+              <p class="card-text">Precision-engineered metal solutions tailored to your needs.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="card text-center">
+            <div class="card-body">
+              <h5 class="card-title">Custom Solutions</h5>
+              <p class="card-text">Bespoke services designed to meet unique industry requirements.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="card text-center">
+            <div class="card-body">
+              <h5 class="card-title">Research and Development</h5>
+              <p class="card-text">Innovating to stay ahead and deliver cutting-edge solutions.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section> -->
+
+    <!-- Contact Section -->
+    <!-- <section class="contact-section text-center">
+    <div class="container">
+      <h2 class="section-title mb-4">Get in Touch</h2>
+      <p>Have a question or need assistance? We're here to help!</p>
+      <a href="contact.html" class="btn btn-primary btn-lg">Contact Us</a>
+    </div>
+  </section> -->
+    <footer>
+
+        <div class="footer-bottoms">
+            <div class="footer-contents">
+                <h3>HYMA</h3>
+                <p>With pride, we fulfill the role of the authorized provider of leading construction materials,
+                    presenting an
+                    extensive selection of high-caliber products tailored to your requirements. Our inventory comprises
+                    Arolite
+                    Polycarbonate Sheets, Century HPL Sheets, Corroshield Screws, Versa solutions, Everwood innovations,
+                    Starwood
+                    WPC Planks, and Maxlite Turbo Ventilators.</p>
+                <ul class="socials">
+                    <li><a href="#"><i class="fa-brands fa-facebook"></i></a></li>
+                    <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
+                    <li><a href="#"><i class="fa-brands fa-youtube"></i></i></a></li>
+                    <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
+                </ul>
+            </div>
+            <p>copyright &copy; <a href="#">Hyma polymers and metals</a> </p>
+
+        </div>
+
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

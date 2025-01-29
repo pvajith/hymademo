@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HYMA | Gallery</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
+
+
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600&display=swap");
+
+        :root {
+            overflow-x: hidden;
+            --header-height: 3.5rem;
+            --first-color: hsl(230, 75%, 56%);
+            --title-color: hsl(230, 75%, 15%);
+            --text-color: hsl(230, 12%, 40%);
+            --body-color: hsl(230, 100%, 98%);
+            --container-color: hsl(230, 100%, 97%);
+            --border-color: hsl(230, 25%, 80%);
+            --body-font: "Syne", sans-serif;
+            --h2-font-size: 1.25rem;
+            --normal-font-size: .938rem;
+            --font-regular: 400;
+            --font-medium: 500;
+            --font-semi-bold: 600;
+            --z-fixed: 100;
+            --z-modal: 1000;
+        }
+
+        /*========== Responsive typography ==========*/
+        @media screen and (min-width: 1023px) {
+            :root {
+                --h2-font-size: 1.5rem;
+                --normal-font-size: 1rem;
+            }
+        }
+
+        /*=============== BASE ===============*/
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body,
+        input,
+        button {
+            font-family: var(--body-font);
+            font-size: var(--normal-font-size);
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+            margin: 0%;
+            margin-top: 70px;
+            background-color: var(--body-color);
+            color: var(--text-color);
+        }
+
+
+        /*=============== REUSABLE CSS CLASSES ===============*/
+        .container {
+            max-width: 1120px;
+            margin-inline: 1.5rem;
+        }
+
+
+
+        /*=============== HEADER & NAV ===============*/
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: var(--body-color);
+            box-shadow: 0 2px 16px hsla(230, 75%, 32%, .15);
+            z-index: var(--z-fixed);
+        }
+
+
+        ul {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .nav {
+            height: var(--header-height);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav__logo {
+            color: var(--title-color);
+            font-weight: var(--font-semi-bold);
+            transition: color .4s;
+        }
+
+        .nav__actions {
+            display: flex;
+            align-items: center;
+            column-gap: 1rem;
+        }
+
+        .nav__search,
+        .nav__login,
+        .nav__toggle,
+        .nav__close {
+            font-size: 1.25rem;
+            color: var(--title-color);
+            cursor: pointer;
+            transition: color .4s;
+        }
+
+        :is(.nav__logo, .nav__search, .nav__login, .nav__toggle, .nav__link):hover {
+            color: var(--first-color);
+        }
+
+        /* Navigation for mobile devices */
+        @media screen and (max-width: 1023px) {
+            .nav__menu {
+                position: fixed;
+                top: -100%;
+                left: 0;
+                background-color: var(--body-color);
+                box-shadow: 0 8px 16px hsla(230, 75%, 32%, .15);
+                width: 100%;
+                padding-block: 4.5rem 4rem;
+                transition: top .4s;
+            }
+        }
+
+        .nav__list {
+            display: flex;
+            flex-direction: column;
+            row-gap: 2.5rem;
+            text-align: center;
+        }
+
+        .nav__link {
+            color: var(--title-color);
+            font-weight: var(--font-semi-bold);
+            transition: color .4s;
+        }
+
+        .nav__close {
+            position: absolute;
+            top: 1.15rem;
+            right: 1.5rem;
+        }
+
+        /* Show menu */
+        .show-menu {
+            top: 0;
+        }
+
+
+
+
+        /* For large devices */
+        @media screen and (min-width: 1023px) {
+            .nav {
+                height: calc(var(--header-height) + 2rem);
+                column-gap: 3rem;
+            }
+
+            .nav__close,
+            .nav__toggle {
+                display: none;
+            }
+
+            .nav__menu {
+                margin-left: auto;
+            }
+
+            .nav__list {
+                flex-direction: row;
+                column-gap: 3rem;
+            }
+
+            .login__form {
+                padding: 3rem 2rem 3.5rem;
+            }
+        }
+
+        @media screen and (min-width: 1150px) {
+            .container {
+                margin-inline: auto;
+            }
+        }
+
+
+        /* footer starts */
+
+
+        /* footer */
+        /* Footer */
+       
+        /* * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        } */
+
+        .gallery-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            max-width: 1200px;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            flex: 1 1 300px;
+            max-width: calc(33.333% - 30px);
+            margin: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+            opacity: 0;
+            /* Initially hide the image */
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 100%;
+            width: 100%;
+            opacity: 0;
+            transition: 0.5s ease;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+        }
+
+        .gallery-item:hover .overlay {
+            opacity: 1;
+        }
+
+        .text {
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        /* Loading animation */
+        .loading {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top: 4px solid #ffffff;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: translate(-50%, -50%) rotate(0deg);
+            }
+
+            100% {
+                transform: translate(-50%, -50%) rotate(360deg);
+            }
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .gallery-item {
+                max-width: calc(50% - 30px);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .gallery-item {
+                max-width: calc(100% - 30px);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+
+
+    <header class="header" id="header">
+        <nav class="nav container">
+          
+            <a href="#" class="nav__logo"
+                style="font-size: 32px; font-weight: bolder; color: black; text-decoration: none;">
+               Hyma
+            </a>
+
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a href="index.html" class="nav__link">Home</a>
+                    </li>
+
+                    <!-- <li class="nav__item">
+                        <a href="#" class="nav__link">Products</a>
+                    </li> -->
+
+                    <li class="nav__item">
+                        <a href="aboutus.html" class="nav__link">About us</a>
+                    </li>
+
+                    <!-- <li class="nav__item">
+                        <a href="contact.html" class="nav__link">Contact</a>
+                    </li> -->
+
+                    <!-- <li class="nav__item">
+                        <a href="#" class="nav__link">Gallery</a>
+                    </li> -->
+                </ul>
+
+                <!-- Close button -->
+                <div class="nav__close" id="nav-close">
+                    <i class="ri-close-line"></i>
+                </div>
+            </div>
+
+            <div class="nav__actions">
+
+                <i class="ri-customer-service-fill" id="search-btn"></i>
+            </div>
+        </nav>
+    </header>
+
+
+    <div class="gallery-container">
+        <div class="gallery-item">
+            <div class="loading"></div>
+            <img src="assets/img/IMG-20240515-WA0048.jpg" alt="Chipboard"
+                onload="this.style.opacity=1; this.previousElementSibling.style.display='none';">
+            <!-- <div class="overlay">
+                <div class="text">Chipboard</div>
+            </div> -->
+        </div>
+        <div class="gallery-item">
+            <div class="loading"></div>
+            <img src="assets/img/IMG-20240515-WA0049.jpg" alt="Buttonhead"
+                onload="this.style.opacity=1; this.previousElementSibling.style.display='none';">
+            <!-- <div class="overlay">
+                <div class="text">Buttonhead</div>
+            </div> -->
+        </div>
+        <div class="gallery-item">
+            <div class="loading"></div>
+            <img src="assets/img/IMG-20240515-WA0050.jpg" alt="Drywall"
+                onload="this.style.opacity=1; this.previousElementSibling.style.display='none';">
+            <!-- <div class="overlay">
+                <div class="text">Drywall</div>
+            </div> -->
+        </div>
+        <div class="gallery-item">
+            <div class="loading"></div>
+            <img src="assets/img/IMG-20240515-WA0051.jpg" alt="Panhead"
+                onload="this.style.opacity=1; this.previousElementSibling.style.display='none';">
+            <!-- <div class="overlay">
+                <div class="text">Panhead</div>
+            </div> -->
+        </div>
+        <div class="gallery-item">
+            <div class="loading"></div>
+            <img src="assets/img/IMG-20240515-WA0054.jpg" alt="CSK Head"
+                onload="this.style.opacity=1; this.previousElementSibling.style.display='none';">
+            <!-- <div class="overlay">
+                <div class="text">CSK Head</div>
+            </div> -->
+        </div>
+        <div class="gallery-item">
+            <div class="loading"></div>
+            <img src="assets/img/IMG-20240515-WA0055.jpg" alt="Wedge"
+                onload="this.style.opacity=1; this.previousElementSibling.style.display='none';">
+            <!-- <div class="overlay">
+                <div class="text">Wedge</div>
+            </div> -->
+        </div>
+        <div class="gallery-item">
+            <div class="loading"></div>
+            <img src="assets/img/IMG-20240515-WA0056.jpg" alt="Wafer Head"
+                onload="this.style.opacity=1; this.previousElementSibling.style.display='none';">
+            <!-- <div class="overlay">
+                <div class="text">Wafer Head</div>
+            </div> -->
+        </div>
+        <div class="gallery-item">
+            <div class="loading"></div>
+            <img src="assets/img/IMG-20240515-WA0057.jpg" alt="Asbestos"
+                onload="this.style.opacity=1; this.previousElementSibling.style.display='none';">
+            <!-- <div class="overlay">
+                <div class="text">Asbestos</div>
+            </div> -->
+        </div>
+        <div class="gallery-item">
+            <div class="loading"></div>
+            <img src="assets/img/IMG-20240515-WA0058.jpg" alt="Hex Washer"
+                onload="this.style.opacity=1; this.previousElementSibling.style.display='none';">
+            <!-- <div class="overlay">
+                <div class="text">Hex Washer</div>
+            </div> -->
+        </div>
+        <div class="gallery-item">
+            <div class="loading"></div>
+            <img src="assets/img/IMG-20240515-WA0059.jpg" alt="Nylon Frame"
+                onload="this.style.opacity=1; this.previousElementSibling.style.display='none';">
+            <!-- <div class="overlay">
+                <div class="text">Nylon Frame</div>
+            </div> -->
+        </div>
+        <div class="gallery-item">
+            <div class="loading"></div>
+            <img src="assets/img/IMG-20240515-WA0060.jpg" alt="Nylon Frame"
+                onload="this.style.opacity=1; this.previousElementSibling.style.display='none';">
+            <!-- <div class="overlay">
+                <div class="text">Nylon Frame</div>
+            </div> -->
+        </div>
+        <div class="gallery-item">
+            <div class="loading"></div>
+            <img src="assets/img/IMG-20240515-WA0061.jpg" alt="Nylon Frame"
+                onload="this.style.opacity=1; this.previousElementSibling.style.display='none';">
+            <!-- <div class="overlay">
+                <div class="text">Nylon Frame</div>
+            </div> -->
+        </div>
+        <div class="gallery-item">
+            <div class="loading"></div>
+            <img src="assets/img/IMG-20240515-WA0062.jpg" alt="Nylon Frame"
+                onload="this.style.opacity=1; this.previousElementSibling.style.display='none';">
+            <!-- <div class="overlay">
+                <div class="text">Nylon Frame</div>
+            </div> -->
+        </div>
+        <div class="gallery-item">
+            <div class="loading"></div>
+            <img src="assets/img/IMG-20240515-WA00621.jpg" alt="Nylon Frame"
+                onload="this.style.opacity=1; this.previousElementSibling.style.display='none';">
+            <!-- <div class="overlay">
+                <div class="text">Nylon Frame</div>
+            </div> -->
+        </div>
+        <div class="gallery-item">
+            <div class="loading"></div>
+            <img src="assets/img/IMG-20240515-WA0064.jpg" alt="Nylon Frame"
+                onload="this.style.opacity=1; this.previousElementSibling.style.display='none';">
+            <!-- <div class="overlay">
+                <div class="text">Nylon Frame</div>
+            </div> -->
+        </div>
+        <div class="gallery-item">
+            <div class="loading"></div>
+            <img src="assets/img/IMG-20240515-WA0066.jpg" alt="Nylon Frame"
+                onload="this.style.opacity=1; this.previousElementSibling.style.display='none';">
+            <!-- <div class="overlay">
+                <div class="text">Nylon Frame</div>
+            </div> -->
+        </div>
+        <div class="gallery-item">
+            <div class="loading"></div>
+            <img src="assets/img/IMG-20240515-WA0067.jpg" alt="Nylon Frame"
+                onload="this.style.opacity=1; this.previousElementSibling.style.display='none';">
+            <!-- <div class="overlay">
+                <div class="text">Nylon Frame</div>
+            </div> -->
+        </div>
+        <div class="gallery-item">
+            <div class="loading"></div>
+            <img src="assets/img/IMG-20240515-WA0068.jpg" alt="Nylon Frame"
+                onload="this.style.opacity=1; this.previousElementSibling.style.display='none';">
+            <!-- <div class="overlay">
+                <div class="text">Nylon Frame</div>
+            </div> -->
+        </div>
+        <div class="gallery-item">
+            <div class="loading"></div>
+            <img src="assets/img/IMG-20240515-WA0069.jpg" alt="Nylon Frame"
+                onload="this.style.opacity=1; this.previousElementSibling.style.display='none';">
+            <!-- <div class="overlay">
+                <div class="text">Nylon Frame</div>
+            </div> -->
+        </div>
+        <div class="gallery-item">
+            <div class="loading"></div>
+            <img src="assets/img/IMG-20240515-WA0070.jpg" alt="Nylon Frame"
+                onload="this.style.opacity=1; this.previousElementSibling.style.display='none';">
+            <!-- <div class="overlay">
+                <div class="text">Nylon Frame</div>
+            </div> -->
+        </div>
+        <div class="gallery-item">
+            <div class="loading"></div>
+            <img src="assets/img/IMG-20240515-WA0071.jpg" alt="Nylon Frame"
+                onload="this.style.opacity=1; this.previousElementSibling.style.display='none';">
+            <!-- <div class="overlay">
+                <div class="text">Nylon Frame</div>
+            </div> -->
+        </div>
+        <div class="gallery-item">
+            <div class="loading"></div>
+            <img src="assets/img/IMG-20240515-WA0033.jpg" alt="Nylon Frame"
+                onload="this.style.opacity=1; this.previousElementSibling.style.display='none';">
+            <!-- <div class="overlay">
+                <div class="text">Nylon Frame</div>
+            </div> -->
+        </div>
+        <div class="gallery-item">
+            <div class="loading"></div>
+            <img src="assets/img/IMG-20240515-WA0024.jpg" alt="Nylon Frame"
+                onload="this.style.opacity=1; this.previousElementSibling.style.display='none';">
+            <!-- <div class="overlay">
+                <div class="text">Nylon Frame</div>
+            </div> -->
+        </div>
+    </div>
+
+
+    <!-- <footer>
+
+        <div class="footer-bottom">
+            <div class="footer-content">
+                <h3>HYMA</h3>
+                <p>With pride, we fulfill the role of the authorized provider of leading construction materials,
+                    presenting an
+                    extensive selection of high-caliber products tailored to your requirements. Our inventory comprises
+                    Arolite
+                    Polycarbonate Sheets, Century HPL Sheets, Corroshield Screws, Versa solutions, Everwood innovations,
+                    Starwood
+                    WPC Planks, and Maxlite Turbo Ventilators.</p>
+                <ul class="socials">
+                    <li><a href="#"><i class="fa-brands fa-facebook"></i></a></li>
+                    <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
+                    <li><a href="#"><i class="fa-brands fa-youtube"></i></i></a></li>
+                    <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
+                </ul>
+            </div>
+            <p>copyright &copy; <a href="#">Hyma polymers and metals</a> </p>
+            <div class="footer-menu">
+
+            </div>
+        </div>
+
+    </footer> -->
+
+    <script>
+
+document.getElementById('search-btn').addEventListener('click', function () {
+            window.location.href = 'contact.html';
+        });
+    </script>
+</body>
+
+</html>

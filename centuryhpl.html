@@ -1,0 +1,1182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Century</title>
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <link href="assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.5.0/remixicon.css">
+
+    <style>
+                @import url("https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600&display=swap");
+
+        :root {
+            /* --default-font: "Roboto", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+            --heading-font: "Nunito", sans-serif;
+            --nav-font: "Inter", sans-serif; */
+
+            --background-color: #ffffff;
+            /* Background color for the entire website, including individual sections */
+            --default-color: #3d4348;
+            /* Default color used for the majority of the text content across the entire website */
+            --heading-color: #3e5055;
+            /* Color for headings, subheadings and title throughout the website */
+            --accent-color: #388da8;
+            /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
+            --surface-color: #ffffff;
+            /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
+            --contrast-color: #ffffff;
+            overflow-x: hidden;
+            --nav-color: #313336;
+            /* The default color of the main navmenu links */
+            --nav-hover-color: #77b6ca;
+            /* Applied to main navmenu links when they are hovered over or active */
+            --nav-mobile-background-color: #ffffff;
+            /* Used as the background color for mobile navigation menu */
+            --nav-dropdown-background-color: #ffffff;
+            /* Used as the background color for dropdown items that appear when hovering over primary navigation items */
+            --nav-dropdown-color: #313336;
+            /* Used for navigation links of the dropdown items in the navigation menu. */
+            --nav-dropdown-hover-color: #77b6ca;
+            /* --header-height: 3.5rem; */
+            --first-color: hsl(230, 75%, 56%);
+            --title-color: hsl(230, 75%, 15%);
+            --text-color: hsl(230, 12%, 40%);
+            --body-color: hsl(230, 100%, 98%);
+            --container-color: hsl(230, 100%, 97%);
+            --border-color: hsl(230, 25%, 80%);
+            --body-font: "Syne", sans-serif;
+            --h2-font-size: 1.25rem;
+            --normal-font-size: .938rem;
+            --font-regular: 400;
+            --font-medium: 500;
+            --font-semi-bold: 600;
+            --z-fixed: 100;
+            --z-modal: 1000;
+        }
+
+       
+        body,
+        input,
+        button {
+            font-family: var(--body-font);
+            font-size: var(--normal-font-size);
+        }
+
+        body {
+            background-color: var(--body-color);
+            color: var(--text-color);
+        }
+
+
+        /*--------------------------------------------------------------
+# Services Section
+--------------------------------------------------------------*/
+        .services .service-item {
+            background-color: var(--surface-color);
+            border: 1px solid color-mix(in srgb, var(--default-color), transparent 85%);
+            height: 100%;
+            padding: 30px;
+            transition: 0.3s;
+            border-radius: 10px;
+            display: flex;
+        }
+
+        .services .service-item .icon {
+            font-size: 32px;
+            border-radius: 10px;
+            position: relative;
+            margin-right: 25px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 72px;
+            height: 72px;
+            flex-shrink: 0;
+        }
+
+        .services .service-item h3 {
+            color: color-mix(in srgb, var(--heading-color), transparent 25%);
+            font-weight: 700;
+            font-size: 22px;
+            transition: 0.3s;
+        }
+
+        .services .service-item p {
+            margin-bottom: 0;
+            color: color-mix(in srgb, var(--default-color), transparent 40%);
+            transition: 0.3s;
+        }
+
+        .services .service-item .read-more {
+            display: inline-flex;
+            align-items: center;
+            margin-top: 10px;
+            transition: 0.3s;
+            font-size: 14px;
+        }
+
+        .services .service-item .read-more i {
+            margin-left: 10px;
+        }
+
+        .services .service-item.item-cyan .icon {
+            color: #0dcaf0;
+            border: 1px solid #0dcaf0;
+            background: rgba(13, 202, 240, 0.1);
+        }
+
+        .services .service-item.item-orange .icon {
+            color: #fd7e14;
+            border: 1px solid #fd7e14;
+            background: rgba(253, 126, 20, 0.1);
+        }
+
+        .services .service-item.item-teal .icon {
+            color: #20c997;
+            border: 1px solid #20c997;
+            background: rgba(32, 201, 151, 0.1);
+        }
+
+        .services .service-item.item-red .icon {
+            color: #df1529;
+            border: 1px solid #df1529;
+            background: rgba(223, 21, 4, 0.1);
+        }
+
+        .services .service-item.item-indigo .icon {
+            color: #6610f2;
+            border: 1px solid #6610f2;
+            background: rgba(102, 16, 242, 0.1);
+        }
+
+        .services .service-item.item-pink .icon {
+            color: #f3268c;
+            border: 1px solid #f3268c;
+            background: rgba(243, 38, 140, 0.1);
+        }
+
+        .services .service-item:hover {
+            box-shadow: 0px 2px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .services .service-item:hover h3 {
+            color: var(--heading-color);
+        }
+
+        .services .service-item:hover p {
+            color: color-mix(in srgb, var(--default-color), transparent 10%);
+        }
+
+        /*--------------------------------------------------------------
+# More Features Section
+--------------------------------------------------------------*/
+        .more-features .features-image {
+            position: relative;
+            min-height: 400px;
+        }
+
+        .more-features .features-image img {
+            position: absolute;
+            inset: 0;
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 1;
+        }
+
+        .more-features h3 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .more-features .icon-box {
+            margin-top: 30px;
+        }
+
+        .more-features .icon-box i {
+            color: var(--accent-color);
+            margin-right: 15px;
+            font-size: 24px;
+            line-height: 1.2;
+        }
+
+        .more-features .icon-box h4 {
+            font-weight: 600;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .more-features .icon-box p {
+            line-height: 24px;
+            font-size: 14px;
+            margin-bottom: 0;
+        }
+
+        /* Footer */
+        footer {
+            position: relative;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: #111;
+            height: auto;
+            width: 100vw;
+
+            /* padding-top: 40px; */
+            color: #fff;
+        }
+
+        .footer-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .footer-content h3 {
+            font-size: 2.1rem;
+            font-weight: 500;
+            text-transform: capitalize;
+            line-height: 3rem;
+        }
+
+        .footer-content p {
+            max-width: 500px;
+            margin: 10px auto;
+            line-height: 28px;
+            font-size: 14px;
+            color: #cacdd2;
+        }
+
+        .socials {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 1rem 0 3rem 0;
+        }
+
+        .socials li {
+            margin: 0 10px;
+        }
+
+        .socials a {
+            text-decoration: none;
+            color: #fff;
+            border: 1.1px solid white;
+            padding: 5px;
+
+            border-radius: 50%;
+
+        }
+
+        .socials a i {
+            font-size: 1.1rem;
+            width: 20px;
+
+
+            transition: color .4s ease;
+
+        }
+
+        .socials a:hover i {
+            color: aqua;
+        }
+
+        .footer-bottom {
+            background: #000;
+            width: 100vw;
+            padding: 20px;
+            padding-bottom: 40px;
+            text-align: center;
+        }
+
+        .footer-bottom p {
+            float: center;
+            font-size: 14px;
+            word-spacing: 2px;
+            text-transform: capitalize;
+        }
+
+        .footer-bottom p a {
+            color: #44bae8;
+            font-size: 16px;
+            text-decoration: none;
+        }
+
+        .footer-bottom span {
+            text-transform: uppercase;
+            opacity: .4;
+            font-weight: 200;
+        }
+
+        .footer-menu {
+            float: right;
+
+        }
+
+        .footer-menu ul {
+            display: flex;
+        }
+
+        .footer-menu ul li {
+            padding-right: 10px;
+            display: block;
+        }
+
+        .footer-menu ul li a {
+            color: #cfd2d6;
+            text-decoration: none;
+        }
+
+        .footer-menu ul li a:hover {
+            color: #27bcda;
+        }
+
+        @media (max-width:500px) {
+            .footer-menu ul {
+                display: flex;
+                margin-top: 10px;
+                margin-bottom: 20px;
+            }
+        }
+
+        /*--------------------------------------------------------------
+# Global Sections
+--------------------------------------------------------------*/
+        section,
+        .section {
+            color: var(--default-color);
+            background-color: var(--background-color);
+            padding: 60px 0;
+            scroll-margin-top: 100px;
+            overflow: clip;
+        }
+
+        @media (max-width: 1199px) {
+
+            section,
+            .section {
+                scroll-margin-top: 66px;
+            }
+        }
+
+        /*--------------------------------------------------------------
+# Global Section Titles
+--------------------------------------------------------------*/
+        .section-title {
+            text-align: center;
+            padding-bottom: 60px;
+            position: relative;
+        }
+
+        .section-title h2 {
+            /* padding-top: 78px; */
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            position: relative;
+        }
+
+        .section-title h2:after {
+            content: "";
+            position: absolute;
+            display: block;
+            width: 50px;
+            height: 3px;
+            background: var(--accent-color);
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+        }
+
+        .section-title p {
+            margin-bottom: 0;
+        }
+
+
+        /*--------------------------------------------------------------
+# Featured Services Section
+--------------------------------------------------------------*/
+        .featured-services {
+            padding: 40px 0;
+        }
+
+        .featured-services .service-item {
+            position: relative;
+            padding-top: 20px;
+        }
+
+        .featured-services .service-item .icon {
+            background-color: color-mix(in srgb, var(--accent-color), transparent 80%);
+            width: 72px;
+            height: 72px;
+            position: relative;
+            margin-right: 15px;
+            line-height: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: ease-in-out 0.3s;
+        }
+
+        .featured-services .service-item .icon i {
+            color: var(--accent-color);
+            font-size: 32px;
+            z-index: 2;
+            position: relative;
+        }
+
+        .featured-services .service-item .title {
+            font-weight: 700;
+            margin-bottom: 5px;
+            font-size: 18px;
+        }
+
+        .featured-services .service-item .title a {
+            color: var(--heading-color);
+        }
+
+        .featured-services .service-item .title a:hover {
+            color: var(--accent-color);
+        }
+
+        .featured-services .service-item .description {
+            font-size: 14px;
+        }
+
+        .featured-services .service-item:hover .icon {
+            background-color: var(--accent-color);
+        }
+
+        .featured-services .service-item:hover .icon i {
+            color: var(--contrast-color);
+        }
+
+        .section-title h2 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            position: relative;
+        }
+
+        /*--------------------------------------------------------------
+# Features Section
+--------------------------------------------------------------*/
+        .features .nav-tabs {
+            border: 0;
+        }
+
+        .features .nav-item {
+            width: 100%;
+            margin-bottom: 15px;
+        }
+
+        .features .nav-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .features .nav-link {
+            color: var(--heading-color);
+            border: 0;
+            padding: 30px;
+            transition: 0.3s;
+            border-radius: 10px;
+            display: flex;
+            cursor: pointer;
+        }
+
+        .features .nav-link i {
+            background-color: var(--surface-color);
+            color: var(--accent-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            width: 48px;
+            height: 48px;
+            font-size: 22px;
+            flex-shrink: 0;
+            border-radius: 50px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .features .nav-link h4 {
+            font-size: 20px;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            transition: 0.3s;
+        }
+
+        .features .nav-link p {
+            font-size: 15px;
+            margin: 0;
+        }
+
+        .features .nav-link:hover {
+            background: color-mix(in srgb, var(--accent-color), transparent 96%);
+        }
+
+        .features .nav-link.active {
+            background: color-mix(in srgb, var(--accent-color), transparent 96%);
+            color: var(--default-color);
+        }
+
+        .features .tab-pane img {
+            border-radius: 15px;
+        }
+
+        /*--------------------------------------------------------------
+# Features Details Section
+--------------------------------------------------------------*/
+        .features-details .features-item+.features-item {
+            margin-top: 60px;
+        }
+
+        .features-details .features-item .content {
+            background-color: color-mix(in srgb, var(--accent-color), transparent 95%);
+            color: color-mix(in srgb, var(--default-color), transparent 40%);
+            padding: 30px;
+            border-radius: 10px;
+        }
+
+        .features-details .features-item h3 {
+            font-weight: 700;
+            font-size: 26px;
+            margin-bottom: 15px;
+        }
+
+        .features-details .features-item .more-btn {
+            background-color: var(--accent-color);
+            color: var(--contrast-color);
+            padding: 6px 30px;
+            border-radius: 6px;
+        }
+
+        .features-details .features-item .more-btn:hover {
+            background-color: color-mix(in srgb, var(--accent-color), transparent 20%);
+        }
+
+        .features-details .features-item ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .features-details .features-item ul li {
+            padding-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .features-details .features-item ul li:last-child {
+            padding-bottom: 0;
+        }
+
+        .features-details .features-item ul i {
+            font-size: 20px;
+            margin-right: 10px;
+            color: var(--accent-color);
+        }
+
+        .features-details .features-item img {
+            border-radius: 15px;
+        }
+
+
+        /* nav bar */
+
+        ul {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+
+        
+        /*=============== HEADER & NAV ===============*/
+        .header {
+            height: 80px;
+    position: relative;
+    justify-content: center;
+    display: flex;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: var(--body-color);
+            box-shadow: 0 2px 16px hsla(230, 75%, 32%, .15);
+            z-index: var(--z-fixed);
+        }
+
+        .nav {
+            height: var(--header-height);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav__logo {
+            color: var(--title-color);
+            font-weight: var(--font-semi-bold);
+            transition: color .4s;
+        }
+
+        .nav__actions {
+            display: flex;
+            align-items: center;
+            column-gap: 1rem;
+        }
+
+        .nav__search,
+        .nav__login,
+        .nav__toggle,
+        .nav__close {
+            font-size: 1.25rem;
+            color: var(--title-color);
+            cursor: pointer;
+            transition: color .4s;
+        }
+
+        :is(.nav__logo, .nav__search, .nav__login, .nav__toggle, .nav__link):hover {
+            color: var(--first-color);
+        }
+
+        /* Navigation for mobile devices */
+        @media screen and (max-width: 1023px) {
+            .nav__menu {
+                position: fixed;
+                top: -100%;
+                left: 0;
+                background-color: var(--body-color);
+                box-shadow: 0 8px 16px hsla(230, 75%, 32%, .15);
+                width: 100%;
+                padding-block: 4.5rem 4rem;
+                transition: top .4s;
+            }
+        }
+
+        .nav__list {
+            display: flex;
+            flex-direction: column;
+            row-gap: 2.5rem;
+            text-align: center;
+        }
+
+        .nav__link {
+            color: var(--title-color);
+            font-weight: var(--font-semi-bold);
+            transition: color .4s;
+        }
+
+        .nav__close {
+            position: absolute;
+            top: 1.15rem;
+            right: 1.5rem;
+        }
+
+        /* Show menu */
+        .show-menu {
+            top: 0;
+        }
+
+
+
+
+        /* For large devices */
+        @media screen and (min-width: 1023px) {
+            .nav {
+                height: calc(var(--header-height) + 2rem);
+                column-gap: 3rem;
+            }
+
+            .nav__close,
+            .nav__toggle {
+                display: none;
+            }
+
+            .nav__menu {
+                margin-left: auto;
+            }
+
+            .nav__list {
+                flex-direction: row;
+                column-gap: 3rem;
+            }
+
+            .login__form {
+                padding: 3rem 2rem 3.5rem;
+            }
+        }
+
+        @media screen and (min-width: 1150px) {
+            .container {
+                margin-inline: auto;
+            }
+        }
+
+
+        .btn11 {
+            display: block;
+            margin: 55px 2rem 1rem;
+            padding: 0.9rem 1rem;
+            /* background-color: #0d9488; */
+            background-color: #7393B3;
+            color: white;
+            text-decoration: none;
+            border-radius: 0.5rem;
+            font-size: 1.1rem;
+            text-align: center;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+       .btn11:hover {
+            background-color: #065f46;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <!-- <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#"><img src="./images/logo/hyma-logo-1.png" style="width: 100px;" alt=""></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#features">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#services">Product</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#more-features">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#more-features">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#more-features">Gallery</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#more-features">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav> -->
+
+
+    <header class="header" id="header">
+        <nav class="nav container">
+            <!-- <a href="#" class="nav__logo">Logo</a> -->
+
+     
+            <a href="#" class="nav__logo"
+                style="font-size: 32px; font-weight: bolder; color: black; text-decoration: none;">
+               Hyma
+            </a>
+
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a href="index.html" class="nav__link">Home</a>
+                    </li>
+
+                    <!-- <li class="nav__item">
+                        <a href="#" class="nav__link">Products</a>
+                    </li> -->
+
+                    <li class="nav__item">
+                        <a href="aboutus.html" class="nav__link">About us</a>
+                    </li>
+
+                    <!-- <li class="nav__item">
+                        <a href="#" class="nav__link">Contact</a>
+                    </li> -->
+
+                    <!-- <li class="nav__item">
+                        <a href="#" class="nav__link">Gallery</a>
+                    </li> -->
+                </ul>
+
+                <!-- Close button -->
+                <div class="nav__close" id="nav-close">
+                    <i class="ri-close-line"></i>
+                </div>
+            </div>
+
+            <div class="nav__actions">
+                <!-- Search button -->
+                <i class="ri-customer-service-fill" id="search-btn"></i>
+
+            </div>
+        </nav>
+    </header>
+
+    <!-- Features Section -->
+    <section id="features" class="features section">
+
+        <!-- Section Title -->
+        <div class="container section-title" data-aos="fade-up">
+            <img src="images/logo/centurypng.png"  style="height: 200px;">
+            <!-- <h2>Century HPL Sheets</h2> -->
+            <p>Everything you should know about Exteria</p>
+        </div><!-- End Section Title -->
+
+        <div class="container">
+            <div class="row justify-content-between">
+
+                <div class="col-lg-5 d-flex align-items-center">
+
+                    <ul class="nav nav-tabs" data-aos="fade-up" data-aos-delay="100">
+                        <li class="nav-item">
+                            <a class="nav-link active show" data-bs-toggle="tab" data-bs-target="#features-tab-1">
+                                <i class="bi bi-binoculars"></i>
+                                <div>
+                                    <h4 class="d-none d-lg-block">Strength & Durability</h4>
+                                    <p>
+                                        While production, special double hardened resin is used to impregnate the papers, giving them long-term durability
+                                    </p>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-bs-toggle="tab" data-bs-target="#features-tab-2">
+                                <i class="bi bi-box-seam"></i>
+                                <div>
+                                    <h4 class="d-none d-lg-block">Ventilated Facade System</h4>
+                                    <p>
+                                        Ventilated Facade System method creates a gap in between the wall and cladding product lining, providing a layer of air cushion that acts as a thermal barrier. Ventilated façade system makes the building more energy efficient
+                                    </p>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-bs-toggle="tab" data-bs-target="#features-tab-3">
+                                <i class="bi bi-brightness-high"></i>
+                                <div>
+                                    <h4 class="d-none d-lg-block">Fire-Retardant</h4>
+                                    <p>
+                                        These panels are fire-retardant, holding EN 438 Class #1 and ASTM E84 Class A certification. This ensures that your exteriors are shielded even from the unfortunate event of a fire.
+                                    </p>
+                                </div>
+                            </a>
+                        </li>
+                    </ul><!-- End Tab Nav -->
+
+                </div>
+
+                <div class="col-lg-6">
+
+                    <div class="tab-content" data-aos="fade-up" data-aos-delay="200">
+
+                        <div class="tab-pane fade active show" id="features-tab-1">
+                            <img src="./images/century/IMG-20240413-WA0031.jpg" alt="" class="img-fluid">
+                        </div><!-- End Tab Content Item -->
+
+                        <div class="tab-pane fade" id="features-tab-2">
+                            <img src="./images/century/IMG-20240413-WA0035.jpg" alt="" class="img-fluid">
+                        </div><!-- End Tab Content Item -->
+
+    
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section><!-- /Features Section -->
+
+    <!-- Features Details Section -->
+    <section id="features-details" class="features-details section">
+
+        <div class="container">
+
+            <div class="row gy-4 justify-content-between features-item">
+
+                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+                    <img src="./images/century/IMG-20240413-WA0035.jpg" class="img-fluid" alt="">
+                </div>
+
+                <div class="col-lg-5 d-flex align-items-center" data-aos="fade-up" data-aos-delay="200">
+                    <div class="content">
+                        <h3>Century Exteria</h3>
+                        <p>
+                            CenturyPly Exteria acts as the perfect solution for your exterior, offering you a myriad array of decorative possibilities. They come in a wide range of shades and the applications can be designed according to your vision, supported by the unique property that makes Exteria perforation-friendly.
+                        </p>
+                        <!-- <a href="#" class="btn more-btn">Learn More</a> -->
+                    </div>
+                </div>
+
+            </div><!-- Features Item -->
+
+            <div class="row gy-4 justify-content-between features-item">
+
+                <div class="col-lg-5 d-flex align-items-center order-2 order-lg-1" data-aos="fade-up"
+                    data-aos-delay="100">
+
+                    <div class="content">
+                        <h3>CenturyPly Exteria laminates are carefully produced to give you maximum benefits in one product.
+
+                        </h3>
+                        <p>
+                            CenturyPly Exteria panels come in classy designs and can be disassembled and reassembled easily for your ease                        </p>
+                        <ul>
+                            <li><i class="bi bi-easel flex-shrink-0"></i> Strength & Durability.</li>
+                            <li><i class="bi bi-patch-check flex-shrink-0"></i> Ventilated Facade System.</li>
+                            <li><i class="bi bi-brightness-high flex-shrink-0"></i> Low-Maintenance.</li>
+                        </ul>
+                        <p></p>
+                        <!-- <a href="#" class="btn more-btn">Learn More</a> -->
+                    </div>
+
+                </div>
+
+                <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-up" data-aos-delay="200">
+                    <img src="./assets/img/IMG-20240421-WA0124.jpg" class="img-fluid" alt="">
+                </div>
+
+            </div><!-- Features Item -->
+
+        </div>
+
+    </section><!-- /Features Details Section -->
+
+
+ <!-- Services Section -->
+<section id="services" class="services section light-background">
+
+    <div class="container section-title" data-aos="fade-up">
+        <h2>Our Services</h2>
+        <p>Discover the quality and reliability of Century Ply's range of services and products.</p>
+    </div>
+
+    <div class="container">
+
+        <div class="row g-5">
+
+            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+                <div class="service-item item-cyan position-relative">
+                    <i class="bi bi-tools icon"></i>
+                    <div>
+                        <h3>High-Quality Plywood</h3>
+                        <p>We provide top-grade plywood that ensures durability and superior performance for various applications.</p>
+                        <!-- <a href="#" class="read-more stretched-link">Learn More <i class="bi bi-arrow-right"></i></a> -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+                <div class="service-item item-orange position-relative">
+                    <i class="bi bi-paint-bucket icon"></i>
+                    <div>
+                        <h3>Decorative Veneers</h3>
+                        <p>Our decorative veneers offer a stylish and elegant finish to enhance the beauty of your interiors.</p>
+                        <!-- <a href="#" class="read-more stretched-link">Learn More <i class="bi bi-arrow-right"></i></a> -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">
+                <div class="service-item item-teal position-relative">
+                    <i class="bi bi-house icon"></i>
+                    <div>
+                        <h3>Laminate Solutions</h3>
+                        <p>We offer a wide range of laminates that are both aesthetically pleasing and highly durable for various surfaces.</p>
+                        <!-- <a href="#" class="read-more stretched-link">Learn More <i class="bi bi-arrow-right"></i></a> -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="400">
+                <div class="service-item item-red position-relative">
+                    <i class="bi bi-graph-up icon"></i>
+                    <div>
+                        <h3>Engineered Wood Products</h3>
+                        <p>Our engineered wood products are designed to meet the highest standards of quality and performance.</p>
+                        <!-- <a href="#" class="read-more stretched-link">Learn More <i class="bi bi-arrow-right"></i></a> -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="500">
+                <div class="service-item item-indigo position-relative">
+                    <i class="bi bi-tree icon"></i>
+                    <div>
+                        <h3>Eco-Friendly Products</h3>
+                        <p>We are committed to sustainability and offer eco-friendly products that reduce environmental impact.</p>
+                        <!-- <a href="#" class="read-more stretched-link">Learn More <i class="bi bi-arrow-right"></i></a> -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="600">
+                <div class="service-item item-pink position-relative">
+                    <i class="bi bi-shield-check icon"></i>
+                    <div>
+                        <h3>Termite Resistant Products</h3>
+                        <p>Our termite-resistant plywood and other wood products provide long-lasting protection and peace of mind.</p>
+                        <!-- <a href="#" class="read-more stretched-link">Learn More <i class="bi bi-arrow-right"></i></a> -->
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+
+ <!-- More Features Section -->
+<section id="more-features" class="more-features section">
+
+    <div class="container">
+
+        <div class="row justify-content-around gy-4">
+
+            <div class="col-lg-6 d-flex flex-column justify-content-center order-2 order-lg-1" data-aos="fade-up"
+                data-aos-delay="100">
+                <h3>Why Choose Century Ply</h3>
+                <p>Discover the unique features that set Century Ply apart and make us a trusted name in the industry.</p>
+
+                <div class="row">
+
+                    <div class="col-lg-6 icon-box d-flex">
+                        <i class="bi bi-box-seam flex-shrink-0"></i>
+                        <div>
+                            <h4>Durability</h4>
+                            <p>Our products are crafted to withstand the test of time, ensuring long-lasting quality and performance.</p>
+                        </div>
+                    </div><!-- End Icon Box -->
+
+                    <div class="col-lg-6 icon-box d-flex">
+                        <i class="bi bi-check-circle flex-shrink-0"></i>
+                        <div>
+                            <h4>Quality Assurance</h4>
+                            <p>We adhere to the highest standards of quality, providing products that meet stringent quality checks.</p>
+                        </div>
+                    </div><!-- End Icon Box -->
+
+                    <div class="col-lg-6 icon-box d-flex">
+                        <i class="bx bxs-leaf flex-shrink-0"></i>
+                        <div>
+                            <h4>Eco-Friendly</h4>
+                            <p>Our commitment to sustainability is reflected in our eco-friendly products and manufacturing processes.</p>
+                        </div>
+                    </div><!-- End Icon Box -->
+
+                    <div class="col-lg-6 icon-box d-flex">
+                        <i class="bi bi-shield flex-shrink-0"></i>
+                        <div>
+                            <h4>Termite Resistance</h4>
+                            <p>Our products are designed to resist termite attacks, providing added protection and peace of mind.</p>
+                        </div>
+                    </div><!-- End Icon Box -->
+
+                </div>
+
+            </div>
+
+            <div class="features-image col-lg-5 order-1 order-lg-2" data-aos="fade-up" data-aos-delay="200">
+                <img src="./images/century/IMG-20240413-WA0035.jpg" alt="Century Ply Features">
+            </div>
+
+        </div>
+
+        <a href="https://www.centuryply.com/blog/everything-you-should-know-about-exteria-laminates" class="btn11">Know More</a>
+
+
+    </div>
+
+</section><!-- /More Features Section -->
+
+    <footer>
+
+        <div class="footer-bottom">
+            <div class="footer-content">
+                <h3>HYMA</h3>
+                <p>With pride, we fulfill the role of the authorized provider of leading construction materials,
+                    presenting an
+                    extensive selection of high-caliber products tailored to your requirements. Our inventory comprises
+                    Arolite
+                    Polycarbonate Sheets, Century HPL Sheets, Corroshield Screws, Versa solutions, Everwood innovations,
+                    Starwood
+                    WPC Planks, and Maxlite Turbo Ventilators.</p>
+                <ul class="socials">
+                    <li><a href="#"><i class="fa-brands fa-facebook"></i></a></li>
+                    <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
+                    <li><a href="#"><i class="fa-brands fa-youtube"></i></i></a></li>
+                    <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
+                </ul>
+            </div>
+            <p>copyright &copy; <a href="#">Hyma polymers and metals</a> </p>
+            <div class="footer-menu">
+
+            </div>
+        </div>
+
+    </footer>
+
+    <script>
+
+document.getElementById('search-btn').addEventListener('click', function() {
+        window.location.href = 'contact.html';
+    });
+        const nav = document.querySelector(".nav"),
+            searchIcon = document.querySelector("#searchIcon"),
+            navOpenBtn = document.querySelector(".navOpenBtn"),
+            navCloseBtn = document.querySelector(".navCloseBtn");
+
+        searchIcon.addEventListener("click", () => {
+            nav.classList.toggle("openSearch");
+            nav.classList.remove("openNav");
+            if (nav.classList.contains("openSearch")) {
+                return searchIcon.classList.replace("uil-search", "uil-times");
+            }
+            searchIcon.classList.replace("uil-times", "uil-search");
+        });
+
+        navOpenBtn.addEventListener("click", () => {
+            nav.classList.add("openNav");
+            nav.classList.remove("openSearch");
+            searchIcon.classList.replace("uil-times", "uil-search");
+        });
+        navCloseBtn.addEventListener("click", () => {
+            nav.classList.remove("openNav");
+        });
+    </script>
+    <!-- Vendor JS Files -->
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/php-email-form/validate.js"></script>
+    <script src="assets/vendor/aos/aos.js"></script>
+    <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+</body>
+
+</html>

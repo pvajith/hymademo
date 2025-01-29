@@ -1,0 +1,1183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Corroshield</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.5.0/remixicon.css">
+    <link href="assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+
+    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css'>
+
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600&display=swap");
+
+
+        :root {
+            overflow-x: hidden;
+            --header-height: 3.5rem;
+            --first-color: hsl(230, 75%, 56%);
+            --title-color: hsl(230, 75%, 15%);
+            --text-color: hsl(230, 12%, 40%);
+            --body-color: hsl(230, 100%, 98%);
+            --container-color: hsl(230, 100%, 97%);
+            --border-color: hsl(230, 25%, 80%);
+            --body-font: "Syne", sans-serif;
+            --h2-font-size: 1.25rem;
+            --normal-font-size: .938rem;
+            --font-regular: 400;
+            --font-medium: 500;
+            --font-semi-bold: 600;
+            --z-fixed: 100;
+            --z-modal: 1000;
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body,
+        input,
+        button {
+            font-family: var(--body-font);
+            font-size: var(--normal-font-size);
+        }
+
+        body {
+            margin: 0%;
+            margin-top: 138px;
+            background-color: var(--body-color);
+            color: var(--text-color);
+        }
+
+
+
+        ul {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+
+        /*=============== REUSABLE CSS CLASSES ===============*/
+        .container {
+            max-width: 1120px;
+            margin-inline: 1.5rem;
+        }
+
+
+        /*=============== HEADER & NAV ===============*/
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: var(--body-color);
+            box-shadow: 0 2px 16px hsla(230, 75%, 32%, .15);
+            z-index: var(--z-fixed);
+        }
+
+        .nav {
+            height: var(--header-height);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav__logo {
+            color: var(--title-color);
+            font-weight: var(--font-semi-bold);
+            transition: color .4s;
+        }
+
+        .nav__actions {
+            display: flex;
+            align-items: center;
+            column-gap: 1rem;
+        }
+
+        .nav__search,
+        .nav__login,
+        .nav__toggle,
+        .nav__close {
+            font-size: 1.25rem;
+            color: var(--title-color);
+            cursor: pointer;
+            transition: color .4s;
+        }
+
+        :is(.nav__logo, .nav__search, .nav__login, .nav__toggle, .nav__link):hover {
+            color: var(--first-color);
+        }
+
+        /* Navigation for mobile devices */
+        @media screen and (max-width: 1023px) {
+            .nav__menu {
+                position: fixed;
+                top: -100%;
+                left: 0;
+                background-color: var(--body-color);
+                box-shadow: 0 8px 16px hsla(230, 75%, 32%, .15);
+                width: 100%;
+                padding-block: 4.5rem 4rem;
+                transition: top .4s;
+            }
+        }
+
+        .nav__list {
+            display: flex;
+            flex-direction: column;
+            row-gap: 2.5rem;
+            text-align: center;
+        }
+
+        .nav__link {
+            color: var(--title-color);
+            font-weight: var(--font-semi-bold);
+            transition: color .4s;
+        }
+
+        .nav__close {
+            position: absolute;
+            top: 1.15rem;
+            right: 1.5rem;
+        }
+
+        /* Show menu */
+        .show-menu {
+            top: 0;
+        }
+
+
+
+
+        /* For large devices */
+        @media screen and (min-width: 1023px) {
+            .nav {
+                height: calc(var(--header-height) + 2rem);
+                column-gap: 3rem;
+            }
+
+            .nav__close,
+            .nav__toggle {
+                display: none;
+            }
+
+            .nav__menu {
+                margin-left: auto;
+            }
+
+            .nav__list {
+                flex-direction: row;
+                column-gap: 3rem;
+            }
+
+            .login__form {
+                padding: 3rem 2rem 3.5rem;
+            }
+        }
+
+        @media screen and (min-width: 1150px) {
+            .container {
+                margin-inline: auto;
+            }
+        }
+
+
+        /* footer starts */
+
+
+        /* footer */
+        /* Footer */
+        footer {
+            position: relative;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: #111;
+            height: auto;
+            width: 100vw;
+
+            /* padding-top: 40px; */
+            color: #fff;
+        }
+
+        .footer-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .footer-content h3 {
+            font-size: 2.1rem;
+            font-weight: 500;
+            text-transform: capitalize;
+            line-height: 3rem;
+        }
+
+        .footer-content p {
+            max-width: 500px;
+            margin: 10px auto;
+            line-height: 28px;
+            font-size: 14px;
+            color: #cacdd2;
+        }
+
+        .socials {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 1rem 0 3rem 0;
+        }
+
+        .socials li {
+            margin: 9px 10px;
+            /* margin: 9px 16px; */
+            /* padding: 15px; */
+            padding-top: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .socials a {
+            text-decoration: none;
+            color: #fff;
+            border: 1.1px solid white;
+            padding: 5px;
+
+            border-radius: 50%;
+
+        }
+
+        .socials a i {
+            font-size: 1.1rem;
+            width: 20px;
+
+
+            transition: color .4s ease;
+
+        }
+
+        .socials a:hover i {
+            color: aqua;
+        }
+
+        .footer-bottom {
+            background: #000;
+            width: 100vw;
+            padding: 20px;
+            padding-bottom: 40px;
+            text-align: center;
+        }
+
+        .footer-bottom p {
+            float: center;
+            font-size: 14px;
+            word-spacing: 2px;
+            text-transform: capitalize;
+        }
+
+        .footer-bottom p a {
+            color: #44bae8;
+            font-size: 16px;
+            text-decoration: none;
+        }
+
+        .footer-bottom span {
+            text-transform: uppercase;
+            opacity: .4;
+            font-weight: 200;
+        }
+
+        .footer-menu {
+            float: right;
+
+        }
+
+        .footer-menu ul {
+            display: flex;
+        }
+
+        .footer-menu ul li {
+            padding-right: 10px;
+            display: block;
+        }
+
+        .footer-menu ul li a {
+            color: #cfd2d6;
+            text-decoration: none;
+        }
+
+        .footer-menu ul li a:hover {
+            color: #27bcda;
+        }
+
+        @media (max-width:500px) {
+            .footer-menu ul {
+                display: flex;
+                margin-top: 10px;
+                margin-bottom: 20px;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* h1{
+    text-align: center;
+} */
+        /* footer ends */
+
+        /*  ====================================*/
+
+
+        .intro {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .intro p {
+            font-size: 1.2em;
+        }
+
+        /* image */
+
+
+        .image-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin: 20px 0;
+        }
+
+        .image-container img {
+            width: 100%;
+            height: auto;
+            max-width: 1366px;
+            max-height: 300px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            border: 2px solid #ddd;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .image-container.small-images {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .image-container.small-images .image-wrapper {
+            flex: 1 1 calc(25% - 10px);
+            margin-bottom: 20px;
+            position: relative;
+            padding-top: 27%;
+            /* 4:3 Aspect Ratio */
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .image-container.small-images img {
+            position: absolute;
+            top: 0;
+            /* left: 0; */
+            /* width: 100%; */
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+            left: 21px;
+            width: 81%;
+        }
+
+
+
+        .card {
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .card .normal-aspect-ratio {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .card .normal-aspect-ratio img {
+            max-width: 48%;
+            height: auto;
+            object-fit: contain;
+            border-radius: 10px;
+            border: 2px solid #ddd;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+
+
+
+        /* image */
+        .details {
+            /* display: inline-block;
+    justify-content: center; */
+            /* align-items: center; */
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            margin-bottom: 20px;
+            margin-top: 20px;
+        }
+
+        .details h2 {
+            font-size: 2em;
+            margin-top: 0;
+        }
+
+        .details p {
+            font-size: 1.2em;
+            line-height: 1.6em;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid #ddd;
+        }
+
+        th,
+        td {
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #0073e6;
+            color: #fff;
+        }
+
+
+        .card {
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .card .normal-aspect-ratio {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .card .normal-aspect-ratio img {
+            max-width: 48%;
+            height: auto;
+            object-fit: contain;
+            border-radius: 10px;
+        }
+
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em;
+            }
+
+            .intro p {
+                font-size: 1em;
+            }
+
+            .details h2 {
+                font-size: 1.5em;
+            }
+
+            .details p {
+                font-size: 1em;
+            }
+
+            th,
+            td {
+                padding: 10px;
+            }
+
+            .image-container.small-images .image-wrapper {
+                flex: 1 1 calc(50% - 10px);
+            }
+
+            .card .normal-aspect-ratio img {
+                max-width: 100%;
+                margin-bottom: 10px;
+            }
+        }
+
+        /*-======================================= */
+
+
+        .shining-text {
+            text-align: center;
+            font-size: 40px;
+            font-weight: bold;
+            background-image: linear-gradient(to right, blue, #e71d36);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            position: relative;
+            display: flex;
+            justify-content: center;
+        }
+
+        /* .shining-text::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0));
+            opacity: 0;
+            z-index: 1;
+            animation: shine 1.5s infinite;
+            pointer-events: none;
+        }
+
+        @keyframes shine {
+            0% {
+                left: -100%;
+                opacity: 0;
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+            100% {
+                left: 100%;
+                opacity: 0;
+            }
+        } */
+
+
+
+
+
+
+        section {
+            position: relative;
+            width: 100%;
+            /* min-height: 100vh; */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(171,102,255,1) 0%, rgba(116,182,247,1) 90% ); */
+            overflow: hidden;
+        }
+
+        .swiper {
+            width: 100%;
+            padding-top: 50px;
+            padding-bottom: 50px;
+        }
+
+        .swiper-slide {
+            width: 300px;
+            height: 400px;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.2);
+            filter: blur(1px);
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: end;
+            align-items: self-start;
+        }
+
+        .swiper-slide-active {
+            filter: blur(0px);
+        }
+
+        .swiper-pagination-bullet,
+        .swiper-pagination-bullet-active {
+            background: #fff;
+        }
+
+        .swiper-slide span {
+            text-transform: uppercase;
+            color: #fff;
+            background: #1b7402;
+            padding: 7px 18px 7px 25px;
+            display: inline-block;
+            border-radius: 0 20px 20px 0px;
+            letter-spacing: 2px;
+            font-size: 0.8rem;
+            font-family: "Open Sans", sans-serif;
+        }
+
+        .swiper-slide--one span {
+            background: #62667f;
+        }
+
+        .swiper-slide--two span {
+            background: #087ac4;
+        }
+
+        .swiper-slide--three span {
+            background: #b45205;
+        }
+
+        .swiper-slide--four span {
+            background: #087ac4;
+        }
+
+        .swiper-slide h2 {
+            color: #fff;
+            font-family: "Roboto", sans-serif;
+            font-weight: 400;
+            font-size: 1.3rem;
+            line-height: 1.4;
+            margin-bottom: 15px;
+            padding: 25px 45px 0 25px;
+        }
+
+        .swiper-slide p {
+            color: #fff;
+            font-family: "Roboto", sans-serif;
+            font-weight: 300;
+            display: flex;
+            align-items: center;
+            padding: 0 25px 35px 25px;
+        }
+
+        .swiper-slide svg {
+            color: #fff;
+            width: 22px;
+            height: 22px;
+            margin-right: 7px;
+        }
+
+        .swiper-slide--one {
+            background: linear-gradient(to top, #0f2027, #203a4300, hsla(198, 39%, 28%, 0)),
+                url(https://asons.in/wp-content/uploads/2018/12/Corroshield-post-final_DEC-15.jpg) no-repeat 50% 50% / cover;
+        }
+
+        .swiper-slide--two {
+            background: linear-gradient(to top, #0f2027, #203a4300, #2c536400),
+                url("https://asons.in/wp-content/uploads/2018/12/duotapp_DEC-7.jpg") no-repeat 50% 50% / cover;
+        }
+
+        .swiper-slide--three {
+            background: linear-gradient(to top, #0f2027, #203a4300, #2c536400),
+                url("https://asons.in/wp-content/uploads/2018/11/CORROSHIELD-FASTENERS-DESIGN_OCT-30.jpg") no-repeat 50% 50% / cover;
+        }
+
+        .swiper-slide--four {
+            background: linear-gradient(to top, #0f2027, #203a4300, #2c536400),
+                url("https://asons.in/wp-content/uploads/2018/11/asons-fasteners-guide_NOV-21-677x1030.jpg") no-repeat 50% 50% / cover;
+        }
+
+        .swiper-slide--five {
+            background: linear-gradient(to top, #0f2027, #203a4300, #2c536400),
+                url("https://asons.in/wp-content/uploads/2018/11/metapp-1-945x1030.jpg") no-repeat 50% 50% / cover;
+        }
+
+        .swiper-3d .swiper-slide-shadow-left,
+        .swiper-3d .swiper-slide-shadow-right {
+            background-image: none;
+        }
+
+
+
+        .image-modal {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.image-modal .close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.image-modal .close:hover,
+.image-modal .close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-content {
+    margin: auto;
+    display: block;
+    max-width: 80%;
+    max-height: 80%;
+}
+
+@media only screen and (max-width: 768px) {
+    .modal-content {
+        max-width: 95%;
+        max-height: 95%;
+    }
+}
+
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        caption {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        /* Responsive Styling */
+        @media screen and (max-width: 768px) {
+            table {
+                display: block;
+                overflow-x: auto;
+                white-space: nowrap;
+            }
+
+            th,
+            td {
+                font-size: 14px;
+                padding: 8px;
+            }
+
+            caption {
+                font-size: 1.2em;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+
+            th,
+            td {
+                font-size: 12px;
+                padding: 6px;
+            }
+
+            caption {
+                font-size: 1em;
+            }
+        }
+
+        .btn11 {
+            display: block;
+            margin: 55px 2rem 1rem;
+            padding: 0.9rem 1rem;
+            /* background-color: #0d9488; */
+            background-color: #7393B3;
+            color: white;
+            text-decoration: none;
+            border-radius: 0.5rem;
+            font-size: 1.1rem;
+            text-align: center;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+       .btn11:hover {
+            background-color: #065f46;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="header" id="header">
+        <nav class="nav container">
+            <!-- <a href="#" class="nav__logo">Logo</a> -->
+
+            <a href="#" class="nav__logo"
+                style="font-size: 32px; font-weight: bolder; color: black; text-decoration: none;">
+                Hyma
+            </a>
+
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a href="index.html" class="nav__link">Home</a>
+                    </li>
+
+                    <!-- <li class="nav__item">
+                        <a href="#" class="nav__link">Products</a>
+                    </li> -->
+
+                    <li class="nav__item">
+                        <a href="aboutus.html" class="nav__link">About us</a>
+                    </li>
+
+                    <!-- <li class="nav__item">
+                        <a href="contact.html" class="nav__link">Contact</a>
+                    </li> -->
+                    <!-- 
+                    <li class="nav__item">
+                        <a href="#" class="nav__link">Gallery</a>
+                    </li> -->
+                </ul>
+
+                <!-- Close button -->
+                <div class="nav__close" id="nav-close">
+                    <i class="ri-close-line"></i>
+                </div>
+            </div>
+
+            <div class="nav__actions">
+                <!-- Search button -->
+                <i class="ri-customer-service-fill" id="search-btn"></i>
+
+            </div>
+        </nav>
+    </header>
+
+    <h1 class="shining-text">
+        Corroshield Fasteners
+    </h1>
+
+
+
+    <div class="container">
+        <div class="intro">
+            <p>Corroshield Fasteners provide superior corrosion resistance and durability for all your construction
+                needs.</p>
+        </div>
+
+
+        <section>
+            <div class="swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide swiper-slide--one" data-image="https://asons.in/wp-content/uploads/2018/12/Corroshield-post-final_DEC-15.jpg">
+                        <span>Corroshield</span>
+                    </div>
+                    <div class="swiper-slide swiper-slide--two" data-image="https://asons.in/wp-content/uploads/2018/12/duotapp_DEC-7.jpg">
+                        <span>Corroshield</span>
+                    </div>
+                    <div class="swiper-slide swiper-slide--three" data-image="https://asons.in/wp-content/uploads/2018/11/CORROSHIELD-FASTENERS-DESIGN_OCT-30.jpg">
+                        <span>Corroshield</span>
+                    </div>
+                    <div class="swiper-slide swiper-slide--four" data-image="https://asons.in/wp-content/uploads/2018/11/asons-fasteners-guide_NOV-21-677x1030.jpg">
+                        <span>Corroshield</span>
+                    </div>
+                    <div class="swiper-slide swiper-slide--five" data-image="https://asons.in/wp-content/uploads/2018/11/metapp-1-945x1030.jpg">
+                        <span>Corroshield</span>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </section>
+        
+        <!-- Modal for Zoom -->
+        <div id="imageModal" class="image-modal">
+            <span class="close">&times;</span>
+            <img class="modal-content" id="modalImage" />
+        </div>
+
+
+
+
+
+
+
+
+
+        <div class="image-container">
+            <img src="assets/img/corroshield1.jpg" alt="Corroshield Fasteners">
+        </div>
+        <div class="details">
+            <h2 style="text-align: center;">About Corroshield Fasteners Screws</h2>
+            <p style="text-align: center;">Corroshield fasteners screws are designed to withstand harsh environmental
+                conditions. They are made from high-quality materials and coated with advanced corrosion-resistant
+                coatings to ensure longevity and reliability. Ideal for use in coastal areas, industrial applications,
+                and anywhere that superior durability is required.</p>
+        </div>
+
+
+        <!-- <div class="image-container small-images">
+            <div class="image-wrapper">
+                <img src="assets/img/IMG-20240515-WA0047.jpg" alt="Corroshield Fasteners Image 1">
+            </div>
+            <div class="image-wrapper">
+                <img src="assets/img/IMG-20240515-WA0052.jpg" alt="Corroshield Fasteners Image 2">
+            </div>
+            <div class="image-wrapper">
+                <img src="assets/img/IMG-20240515-WA0053.jpg" alt="Corroshield Fasteners Image 3">
+            </div>
+            <div class="image-wrapper">
+                <img src="assets/img/product-jpeg-500x500.jpg" alt="Corroshield Fasteners Image 4">
+            </div>
+        </div> -->
+
+
+
+        <table>
+            <caption>Corroshield Fasteners Complete Details</caption>
+            <thead>
+                <tr>
+                    <th>Category</th>
+                    <th>Details</th>
+                    <th>Screw Sizes (Typical)</th>
+                    <th>Additional Features</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Self-Drilling Screws</td>
+                    <td>Designed for securing steel sheets to timber substrates. Ideal for general construction use.
+                    </td>
+                    <td>12g x 20mm, 14g x 50mm, 14g x 75mm</td>
+                    <td>Hex head, Zinc coating, EPDM washer for sealing.</td>
+                </tr>
+                <tr>
+                    <td>Skylight Fixing Screws</td>
+                    <td>Used for crest fixing fiberglass skylight roof sheets to steel purlins.</td>
+                    <td>12g x 45mm, 12g x 65mm</td>
+                    <td>Special UV-resistant EPDM washer, corrosion-resistant coating.</td>
+                </tr>
+                <tr>
+                    <td>Sealed Washers</td>
+                    <td>Ensures secure sealing to distribute load and reduce friction. Used in roofing applications.
+                    </td>
+                    <td>Available with screws or separately in standard sizes.</td>
+                    <td>EPDM material, weatherproof, durable sealing.</td>
+                </tr>
+                <tr>
+                    <td>METAPP®</td>
+                    <td>Designed for metal crest and valley fixing in roofing projects.</td>
+                    <td>14g x 50mm, 14g x 100mm</td>
+                    <td>Hex head, reinforced zinc coating, high pull-out strength.</td>
+                </tr>
+                <tr>
+                    <td>FIBRETAPP®</td>
+                    <td>Specialized for fastening corrugated fiber roofing sheets.</td>
+                    <td>10g x 30mm, 12g x 50mm</td>
+                    <td>Corrosion-resistant, EPDM washer for water-tight sealing.</td>
+                </tr>
+                <tr>
+                    <td>TIMTAPP®</td>
+                    <td>Ideal for timber fastening, providing secure connections in wood construction.</td>
+                    <td>10g x 40mm, 12g x 60mm</td>
+                    <td>Sharp-point design, anti-corrosion coating, high thread engagement.</td>
+                </tr>
+                <tr>
+                    <td>Head Types</td>
+                    <td>Available in hex head and countersunk (CSK) designs for various applications.</td>
+                    <td>N/A</td>
+                    <td>Enhanced torque performance, durable against stripping.</td>
+                </tr>
+                <tr>
+                    <td>Coating</td>
+                    <td>Zinc coating enhances corrosion resistance in harsh environments.</td>
+                    <td>N/A</td>
+                    <td>Suitable for long-term outdoor exposure.</td>
+                </tr>
+                <tr>
+                    <td>Washer Material</td>
+                    <td>EPDM washers for effective sealing and weather resistance.</td>
+                    <td>Compatible with various screw sizes.</td>
+                    <td>UV-resistant, provides long-lasting performance in extreme conditions.</td>
+                </tr>
+            </tbody>
+        </table>
+
+
+
+
+        <div class="details">
+            <h2>Product Specifications</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Material</td>
+                        <td>High-grade steel with corrosion-resistant coating</td>
+                    </tr>
+                    <tr>
+                        <td>Sizes</td>
+                        <td>Available in various sizes to fit different applications</td>
+                    </tr>
+                    <tr>
+                        <td>Applications</td>
+                        <td>Coastal areas, industrial applications, general construction</td>
+                    </tr>
+                    <tr>
+                        <td>Strength</td>
+                        <td>High tensile strength and durability</td>
+                    </tr>
+                    <tr>
+                        <td>Warranty</td>
+                        <td>10 years against corrosion</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <!-- <div class="card">
+            <div class="normal-aspect-ratio">
+                <img src="assets/img/corroshield2.png" alt="Corroshield Fasteners Details">
+                <img src="images/corros.jpg" alt="Corroshield Fasteners Application">
+            </div>
+        </div> -->
+
+        <div class="details">
+            <h2 style="text-align: center;">Why Choose Corroshield Fasteners?</h2>
+            <p style="text-align: center;">Corroshield fasteners offer unmatched quality and performance. Their advanced
+                coating technology ensures that the screws remain rust-free even in the harshest conditions. The
+                fasteners are designed for easy installation, saving time and labor costs. With Corroshield, you can
+                trust that your structures will remain secure and durable for years to come.</p>
+        </div>
+    </div>
+
+    <a href="https://asons.in/corroshield" class="btn11">Know More</a>
+
+    <footer>
+
+        <div class="footer-bottom">
+            <div class="footer-content">
+                <h3>HYMA</h3>
+                <p>With pride, we fulfill the role of the authorized provider of leading construction materials,
+                    presenting an
+                    extensive selection of high-caliber products tailored to your requirements. Our inventory comprises
+                    Arolite
+                    Polycarbonate Sheets, Century HPL Sheets, Corroshield Screws, Versa solutions, Everwood innovations,
+                    Starwood
+                    WPC Planks, and Maxlite Turbo Ventilators.</p>
+                <ul class="socials">
+                    <li><a href="#"><i class="fa-brands fa-facebook"></i></a></li>
+                    <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
+                    <li><a href="#"><i class="fa-brands fa-youtube"></i></i></a></li>
+                    <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
+                </ul>
+            </div>
+            <p>copyright &copy; <a href="#">Hyma polymers and metals</a> </p>
+            <div class="footer-menu">
+
+            </div>
+        </div>
+
+    </footer>
+
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.4.5/swiper-bundle.min.js'></script>
+
+    <script>
+
+        document.getElementById('search-btn').addEventListener('click', function () {
+            window.location.href = 'contact.html';
+        });
+
+
+        var swiper = new Swiper(".swiper", {
+            effect: "coverflow",
+            grabCursor: true,
+            centeredSlides: true,
+            slidesPerView: "auto",
+            coverflowEffect: {
+                rotate: 0,
+                stretch: 0,
+                depth: 100,
+                modifier: 2,
+                slideShadows: true
+            },
+            spaceBetween: 60,
+            loop: true,
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true
+            },
+            autoplay: {
+                delay: 2000,
+            },
+        });
+
+
+        const modal = document.getElementById("imageModal");
+        const modalImage = document.getElementById("modalImage");
+        const closeModal = document.querySelector(".close");
+
+        document.querySelectorAll(".swiper-slide").forEach((slide) => {
+            slide.addEventListener("click", () => {
+                const imageUrl = slide.dataset.image;
+                modalImage.src = imageUrl;
+                modal.style.display = "block";
+            });
+        });
+
+        closeModal.addEventListener("click", () => {
+            modal.style.display = "none";
+        });
+
+        window.addEventListener("click", (event) => {
+            if (event.target === modal) {
+                modal.style.display = "none";
+            }
+        });
+
+
+    </script>
+
+</body>
+
+</html>
